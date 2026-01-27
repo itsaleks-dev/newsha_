@@ -59,4 +59,11 @@ export default defineConfig([
       ],
     },
   },
+
+  {
+    files: ["**/*.d.ts"],
+    rules: {
+      "@typescript-eslint/no-empty-object-type": "off",
+    },
+  },
 ]);
