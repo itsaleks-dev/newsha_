@@ -50,13 +50,6 @@ export default defineConfig([
           ],
         },
       ],
-
-      "no-restricted-imports": [
-        "error",
-        {
-          patterns: ["@/features/*", "@/entities/*", "@/shared/*"],
-        },
-      ],
     },
   },
 

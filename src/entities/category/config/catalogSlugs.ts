@@ -1,0 +1,16 @@
+export type CatalogCategorySlug =
+  | "shampoo-cleansing"
+  | "conditioners"
+  | "masks-treatment"
+  | "leave-in-care"
+  | "oils"
+  | "heat-protection"
+  | "medical-line"
+  | "styling"
+  | "color-masks"
+  | "travel-size"
+  | "body-care"
+  | "for-men"
+  | "tools-accessories"
+  | "gifts"
+  | (string & {});
