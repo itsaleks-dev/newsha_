@@ -1,8 +1,27 @@
-export {};
-
 declare global {
   interface Window {
-    gtag?: (event: "event", action: string, params?: Record<string, unknown>) => void;
-    fbq?: (event: "track", action: string, params?: Record<string, unknown>) => void;
+    fbq?: (
+      method: "track" | "trackCustom",
+      event: string,
+      params?: {
+        value?: number;
+        currency?: string;
+        [key: string]: unknown;
+      },
+    ) => void;
+
+    gtag?: (
+      command: "event",
+      eventName: string,
+      params?: {
+        value?: number;
+        currency?: string;
+        page_path?: string;
+        item_id?: string;
+        [key: string]: unknown;
+      },
+    ) => void;
   }
 }
+
+export {};

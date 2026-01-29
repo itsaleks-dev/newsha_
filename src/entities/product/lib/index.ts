@@ -1,0 +1,1 @@
+export { trackProductView } from "./analytics";

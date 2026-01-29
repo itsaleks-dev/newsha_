@@ -1,0 +1,1 @@
+export { trackPurchase } from "./analytics";
