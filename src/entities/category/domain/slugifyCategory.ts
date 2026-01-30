@@ -1,5 +1,5 @@
-import type { Slug } from "@/entities/primitives";
-import { asSlug } from "@/entities/primitives";
+import type { Slug } from "@/shared/types/primitives";
+import { asSlug } from "@/shared/types/primitives";
 
 export function slugifyCategory(value: string): Slug {
   const slug = value

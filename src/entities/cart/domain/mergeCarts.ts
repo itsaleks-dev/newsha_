@@ -1,5 +1,5 @@
 import type { CartRow } from "@/entities/cart/types";
-import { asQuantity } from "@/entities/primitives";
+import { asQuantity } from "@/shared/types/primitives";
 
 export function mergeCarts(a: readonly CartRow[], b: readonly CartRow[]): CartRow[] {
   const map = new Map<string, CartRow>();

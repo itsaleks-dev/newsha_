@@ -1,6 +1,6 @@
 import type { OrderItem } from "@/entities/order/types/order.types";
-import type { Subtotal } from "@/entities/primitives";
-import { calcSubtotal } from "@/entities/primitives";
+import type { Subtotal } from "@/shared/types/primitives";
+import { calcSubtotal } from "@/shared/types/primitives";
 
 export function calcOrderTotal(items: readonly OrderItem[]): Subtotal {
   let total = 0 as Subtotal;

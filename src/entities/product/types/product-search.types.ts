@@ -1,4 +1,4 @@
-import { ID, Money, Slug } from "@/entities/primitives";
+import { ID, Money, Slug } from "@/shared/types/primitives";
 import { ProductVolumeOption } from "./product.types";
 
 export type SearchVariationResult = {

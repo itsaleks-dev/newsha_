@@ -1,4 +1,4 @@
-import type { ID, Money, Quantity, Subtotal, ISODate } from "@/entities/primitives";
+import type { ID, Money, Quantity, Subtotal, ISODate } from "@/shared/types/primitives";
 import type { ProductVolumeOption } from "@/entities/product/types";
 
 export const ORDER_STATUS = {

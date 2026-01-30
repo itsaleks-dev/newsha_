@@ -1,8 +1,8 @@
 import type { Coupon } from "@/entities/discount/types";
 import type { CartItem } from "@/entities/cart/types";
-import type { Money } from "@/entities/primitives";
+import type { Money } from "@/shared/types/primitives";
 
-import { calcSubtotal, floorMoney } from "@/entities/primitives";
+import { calcSubtotal, floorMoney } from "@/shared/types/primitives";
 
 export function calculateDiscount(coupon: Coupon, cart: readonly CartItem[]): Money {
   let total = 0 as Money;

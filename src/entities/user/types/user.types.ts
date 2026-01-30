@@ -1,4 +1,4 @@
-import type { ID } from "@/entities/primitives";
+import type { ID } from "@/shared/types/primitives";
 import type { CartItem } from "@/entities/cart/types";
 
 export const USER_ROLES = {

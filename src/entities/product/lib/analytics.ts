@@ -1,5 +1,5 @@
 import type { Product } from "@/entities/product/types";
-import type { Money } from "@/entities/primitives";
+import type { Money } from "@/shared/types/primitives";
 import { analyticsApi } from "@/app/analytics/core";
 
 export function trackProductView(product: Product) {

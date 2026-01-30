@@ -1,4 +1,4 @@
-import type { ID, Slug } from "@/entities/primitives";
+import type { ID, Slug } from "@/shared/types/primitives";
 
 export type Category = {
   id: ID;

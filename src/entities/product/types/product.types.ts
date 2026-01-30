@@ -1,6 +1,6 @@
 import { ReviewStats } from "@/entities/review/types/review.types";
 import { SEO } from "@/entities/seo/types/seo.types";
-import type { Money, ID, Slug } from "@entities/primitives";
+import type { Money, ID, Slug } from "@/shared/types/primitives";
 
 export type GalleryImage = {
   type: "image";

@@ -1,5 +1,5 @@
 import type { Category } from "@/entities/category/types";
-import type { ID, Slug } from "@/entities/primitives";
+import type { ID, Slug } from "@/shared/types/primitives";
 
 export function createCategoryMaps(categories: readonly Category[]): {
   byId: Record<ID, Category>;
