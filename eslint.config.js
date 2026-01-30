@@ -44,7 +44,7 @@ export default defineConfig([
         "error",
         {
           zones: [
-            { target: "./src/app", from: ["./src/features", "./src/entities", "./src/shared"] },
+            { target: "./src/app", from: ["./src/features", "./src/entities"] },
             { target: "./src/entities", from: ["./src/shared", "./src/widgets", "./src/pages"] },
             { target: "./src/shared", from: ["./src/entities", "./src/features", "./src/widgets"] },
           ],
