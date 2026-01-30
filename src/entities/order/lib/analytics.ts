@@ -1,6 +1,5 @@
-// entities/order/lib/analytics.ts
 import type { Order } from "@/entities/order/types";
-import { analyticsApi } from "@/app/analytics";
+import { analyticsApi } from "@/app/analytics/core";
 
 export function trackPurchase(order: Order) {
   analyticsApi.purchase({
