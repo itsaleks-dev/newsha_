@@ -2,7 +2,7 @@ import type { AnalyticsEvent, AnalyticsSDK } from "@/app/analytics/types";
 
 import { getSessionId, getUTM } from "@/app/analytics/lib";
 
-const CURRENCY = "UAH" as const;
+const ANALYTICS_CURRENCY = "UAH" as const;
 
 let instance: ReturnType<typeof createClient> | null = null;
 
@@ -15,7 +15,7 @@ function createClient(): AnalyticsSDK {
   function send(event: AnalyticsEvent) {
     const enriched = {
       ...event,
-      currency: CURRENCY,
+      currency: ANALYTICS_CURRENCY,
       session_id: getSessionId(),
       utm: getUTM(),
       ts: Date.now(),
