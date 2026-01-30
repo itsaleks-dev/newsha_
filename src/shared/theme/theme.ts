@@ -6,6 +6,7 @@ import {
   fontSizes,
   fontWeights,
   lineHeights,
+  colors,
 } from "./variables";
 
 export const mainTheme = {
@@ -16,6 +17,7 @@ export const mainTheme = {
   containers,
   fonts,
   media,
+  colors,
 };
 
 export type ThemeType = typeof mainTheme;
