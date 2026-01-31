@@ -10,6 +10,7 @@ export type ISODate = Brand<string, "ISODate">;
 export type Money = Brand<number, "Money">;
 export type Quantity = Brand<number, "Quantity">;
 export type Subtotal = Brand<number, "Subtotal">;
+export type AuthToken = Brand<string, "AuthToken">;
 
 export function asID(value: string): ID {
   if (!value) throw new Error("ID must be a non-empty string");
@@ -64,4 +65,9 @@ export function applyPercentDiscount(price: Money, percent: number): Money {
 
   const raw = (price as number) * (1 - percent / 100);
   return floorMoney(raw);
+}
+
+export function asAuthToken(value: string): AuthToken {
+  if (!value) throw new Error("Invalid auth token");
+  return value as AuthToken;
 }
