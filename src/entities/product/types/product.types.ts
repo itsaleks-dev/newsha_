@@ -32,7 +32,7 @@ export type Product = {
   gallery: ProductGallery;
   price?: Money;
   oldPrice?: Money;
-  shortDescription: string;
+  shortDescription?: string;
   description: string;
   howToUse?: string;
   effects?: string;
@@ -56,7 +56,7 @@ export type ProductVolumeOption = {
   label: string;
   code?: string;
   price: Money;
-  oldPrice: Money;
+  oldPrice?: Money;
   inStock: boolean;
   stock?: number;
   unit?: "ml" | "g" | "pcs";

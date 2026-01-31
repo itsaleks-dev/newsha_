@@ -40,6 +40,13 @@ export default defineConfig([
     rules: {
       quotes: ["error", "double", { avoidEscape: true }],
 
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          ignoreRestSiblings: true,
+        },
+      ],
+
       "import/no-restricted-paths": [
         "error",
         {
