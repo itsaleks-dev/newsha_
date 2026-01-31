@@ -52,11 +52,6 @@ export default defineConfig([
         {
           zones: [
             {
-              target: "./src/app",
-              from: ["./src/entities", "./src/features"],
-            },
-
-            {
               target: "./src/entities",
               from: ["./src/widgets", "./src/pages"],
             },
