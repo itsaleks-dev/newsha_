@@ -1,0 +1,1 @@
+export { mockCouponApi } from "./mockCouponApi";
