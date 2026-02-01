@@ -10,6 +10,9 @@ import { wishlistReducer } from "@/features/wishlist/model";
 import { bannersReducer } from "@/features/banner/model/banner.slice";
 import { burgerUIReducer } from "@/features/burgerUI/model";
 import { consultationUIReducer } from "@/features/consultationUI/model";
+import { productReducer } from "@/features/product/model/product.slice";
+import { cartReducer } from "@/features/cart/model/cart.slice";
+import { cartUIReducer } from "@/features/cart/model/cartUI.slice";
 
 export const rootReducer = combineReducers({
   app: appReducer,
@@ -22,6 +25,9 @@ export const rootReducer = combineReducers({
   banners: bannersReducer,
   burgerUI: burgerUIReducer,
   consultationUI: consultationUIReducer,
+  product: productReducer,
+  cart: cartReducer,
+  cartUI: cartUIReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
