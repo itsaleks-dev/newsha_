@@ -1,5 +1,7 @@
 import type { Coupon } from "@/entities/discount/types";
-import { asMoney, type ID, type Money } from "@/shared/types/primitives";
+
+import { asQuantity, calcSubtotal } from "@/shared/types/primitives";
+import type { ID, Money, Subtotal } from "@/shared/types/primitives";
 
 export type PricingCartItem = {
   price: Money;
@@ -9,25 +11,36 @@ export type PricingCartItem = {
 };
 
 export type OrderPricing = {
-  subtotal: Money;
-  discount: Money;
-  total: Money;
+  readonly subtotal: Subtotal;
+  readonly discount: Subtotal;
+  readonly total: Subtotal;
 };
 
 export function calculateOrderPriceDomain(
   cart: readonly PricingCartItem[],
   coupon?: Coupon,
 ): OrderPricing {
-  const subtotal = asMoney(cart.reduce((sum, i) => sum + (i.price as number) * i.qty, 0));
+  const subtotal = cart.reduce<Subtotal>((sum, item) => {
+    const lineTotal = calcSubtotal(item.price, asQuantity(item.qty));
+    return ((sum as number) + (lineTotal as number)) as Subtotal;
+  }, 0 as Subtotal);
 
   if (!coupon) {
-    return { subtotal, discount: asMoney(0), total: subtotal };
+    return {
+      subtotal,
+      discount: 0 as Subtotal,
+      total: subtotal,
+    };
   }
 
   if ("minOrderTotal" in coupon && coupon.minOrderTotal) {
-    const minTotal = coupon.minOrderTotal as unknown as Money;
+    const minTotal = coupon.minOrderTotal as Money;
     if ((subtotal as number) < (minTotal as number)) {
-      return { subtotal, discount: asMoney(0), total: subtotal };
+      return {
+        subtotal,
+        discount: 0 as Subtotal,
+        total: subtotal,
+      };
     }
   }
 
@@ -46,10 +59,7 @@ export function calculateOrderPriceDomain(
 
     case "product": {
       discountValue = cart.reduce((sum, i) => {
-        if (!i.productId) return sum;
-
-        if (!coupon.productIds.includes(i.productId)) return sum;
-
+        if (!i.productId || !coupon.productIds.includes(i.productId)) return sum;
         return sum + (i.price as number) * i.qty * (coupon.percent / 100);
       }, 0);
       break;
@@ -57,10 +67,7 @@ export function calculateOrderPriceDomain(
 
     case "category": {
       discountValue = cart.reduce((sum, i) => {
-        if (!i.categoryId) return sum;
-
-        if (!coupon.categoryIds.includes(i.categoryId)) return sum;
-
+        if (!i.categoryId || !coupon.categoryIds.includes(i.categoryId)) return sum;
         return sum + (i.price as number) * i.qty * (coupon.percent / 100);
       }, 0);
       break;
@@ -72,11 +79,13 @@ export function calculateOrderPriceDomain(
     }
   }
 
-  const discount = asMoney(Math.min(Math.round(discountValue), subtotal as number));
+  const discount = Math.min(Math.round(discountValue), subtotal as number) as Subtotal;
+
+  const total = ((subtotal as number) - (discount as number)) as Subtotal;
 
   return {
     subtotal,
     discount,
-    total: asMoney((subtotal as number) - (discount as number)),
+    total,
   };
 }

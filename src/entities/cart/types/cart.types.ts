@@ -17,3 +17,5 @@ export type CartRow = {
   price: Money;
   oldPrice?: Money;
 };
+
+export type CartOwnerId = ID | "guest";

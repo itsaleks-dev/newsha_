@@ -1,1 +1,1 @@
-export type { CartItem, CartRow } from "./cart.types";
+export type { CartItem, CartRow, CartOwnerId } from "./cart.types";
