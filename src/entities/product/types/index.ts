@@ -5,6 +5,8 @@ export type {
   Product,
   ProductPreview,
   ProductVolumeOption,
+  StoreProduct,
+  StoreProductPreview,
 } from "./product.types";
 
 export { ProductVolume } from "./product.types";

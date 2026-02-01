@@ -1,1 +1,1 @@
-export { requestInterceptors, responseInterceptors } from "./auth.interceptor";
+export { requestInterceptors, responseInterceptors } from "./interceptors";

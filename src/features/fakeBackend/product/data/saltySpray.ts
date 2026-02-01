@@ -61,7 +61,8 @@ export const PRODUCT_SWEET_SALTY_BEACH_SPRAY: Product = {
   },
 
   seo: {
-    title: "Спрей Sweet & Salty Beach Spray | Спрей Sweet & Salty Beach Spray NEWSHA | Спрей NEWSHA",
+    title:
+      "Спрей Sweet & Salty Beach Spray | Спрей Sweet & Salty Beach Spray NEWSHA | Спрей NEWSHA",
     description:
       "Спрей Sweet & Salty Beach Spray - Ідеальний вибір для тих, хто хоче додати своєму волоссю текстури, об'єму та природного руху.",
     keywords: ["текстура волосся", "обʼєм", "sweet & salty", "тонке волосся", "пляжний спрей"],

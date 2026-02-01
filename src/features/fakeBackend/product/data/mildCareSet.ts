@@ -66,7 +66,15 @@ export const PRODUCT_MILD_CARE_MASQUE_SET: Product = {
     title: "Мʼяка маска для догляду Mild Care Masque Set | Маска для інтенсивного зволоження",
     description:
       "Маска для м'якого догляду – ідеальний вибір для тих, хто хоче забезпечити своєму волоссю інтенсивне зволоження та ніжний догляд.",
-    keywords: ["мʼяка маска", "mild masque set", "ніжний догляд", "зволожування", "рушник", "браш", "brush"],
+    keywords: [
+      "мʼяка маска",
+      "mild masque set",
+      "ніжний догляд",
+      "зволожування",
+      "рушник",
+      "браш",
+      "brush",
+    ],
     ogImage: "/images/set/mild-care-set.webp",
   },
 };
