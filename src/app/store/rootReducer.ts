@@ -13,6 +13,7 @@ import { consultationUIReducer } from "@/features/consultationUI/model";
 import { productReducer } from "@/features/product/model/product.slice";
 import { cartReducer } from "@/features/cart/model/cart.slice";
 import { cartUIReducer } from "@/features/cart/model/cartUI.slice";
+import { searchReducer } from "@/features/search/model/search.slice";
 
 export const rootReducer = combineReducers({
   app: appReducer,
@@ -28,6 +29,7 @@ export const rootReducer = combineReducers({
   product: productReducer,
   cart: cartReducer,
   cartUI: cartUIReducer,
+  search: searchReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
