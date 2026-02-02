@@ -6,7 +6,7 @@ export const PageContainer = styled.div`
 
   /* Mobile first */
   max-width: ${({ theme }) => theme.containers.mobile};
-  padding-inline: 16px;
+  padding-inline: 5px;
 
   /* Tablet */
   @media ${({ theme }) => theme.media.tablet} {

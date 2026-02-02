@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import { selectCategoriesStatus, fetchCategories } from "@/features/category/model";
 
 import { PageContainer } from "@/shared/layout/PageContainer";
+import { Header } from "@/widgets/Header/Header";
 
 import { LayoutWrapper, Content } from "./AppLayout.styled";
 
@@ -21,6 +22,7 @@ export function AppLayout() {
   return (
     <LayoutWrapper>
       <Content>
+        <Header />
         <PageContainer>
           <Outlet />
         </PageContainer>
