@@ -1,5 +1,11 @@
+import { BannerSlider } from "@/widgets/BannerSlider";
+
 export function HomePage() {
-  return <p>Hello</p>;
+  return (
+    <>
+      <BannerSlider placement="home-hero" />
+    </>
+  );
 }
 
 export default HomePage;

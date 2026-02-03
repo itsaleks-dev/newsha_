@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import type { Banner, BannerPlacement } from "@/features/banner/types";
 import { fetchBanners } from "@/features/banner/api";
+import { buildBanners } from "@/features/banner/services/buildBanners";
 
 type BannersState = {
   items: Banner[];
@@ -16,7 +17,12 @@ const initialState: BannersState = {
 };
 
 export const loadBanners = createAsyncThunk("banners/load", async (placement?: BannerPlacement) => {
-  return fetchBanners(placement);
+  try {
+    return await fetchBanners(placement);
+  } catch {
+    if (!placement) return [];
+    return buildBanners(placement);
+  }
 });
 
 const bannersSlice = createSlice({
