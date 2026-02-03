@@ -1,6 +1,7 @@
 import { PageContainer } from "@/shared/layout/PageContainer";
 
 import { MobileSearch } from "@/features/search/ui/MobileSearch";
+
 import { BurgerButton } from "./components/BurgerButton";
 import { HeaderMenu } from "./components/HeaderMenu";
 import { LogoLink } from "./components/LogoLink";
