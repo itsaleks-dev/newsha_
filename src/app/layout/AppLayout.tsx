@@ -7,6 +7,7 @@ import { selectCategoriesStatus, fetchCategories } from "@/features/category/mod
 
 import { PageContainer } from "@/shared/layout/PageContainer";
 import { Header } from "@/widgets/Header/Header";
+import { Footer } from "@/widgets/Footer";
 
 import { LayoutWrapper, Content } from "./AppLayout.styled";
 
@@ -26,6 +27,7 @@ export function AppLayout() {
         <PageContainer>
           <Outlet />
         </PageContainer>
+        <Footer />
       </Content>
     </LayoutWrapper>
   );
