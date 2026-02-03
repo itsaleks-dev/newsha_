@@ -13,6 +13,11 @@ export const PageContainer = styled.div`
     max-width: ${({ theme }) => theme.containers.tablet};
     padding-inline: 24px;
   }
+  /* Tablet landscape / 1024 */
+  @media ${({ theme }) => theme.media.tabletLg} {
+    max-width: ${({ theme }) => theme.containers.tabletLg};
+    padding-inline: 28px;
+  }
 
   /* Laptop */
   @media ${({ theme }) => theme.media.laptop} {

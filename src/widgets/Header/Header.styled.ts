@@ -10,9 +10,36 @@ export const HeaderSection = styled.div`
   width: 100%;
   height: 70px;
   padding: 0 15px;
-  display: flex;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
+
   border-radius: 18px;
   background: #242424;
+
+  @media ${({ theme }) => theme.media.tabletLg} {
+    height: 80px;
+  }
+  @media ${({ theme }) => theme.media.desktop} {
+    height: 100px;
+    padding: 0 25px;
+  }
+`;
+
+export const Left = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+`;
+
+export const Center = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const Right = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 `;

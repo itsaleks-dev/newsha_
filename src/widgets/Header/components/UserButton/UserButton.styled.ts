@@ -1,0 +1,17 @@
+import styled from "styled-components";
+import { Icon } from "@/shared/ui/IconButton";
+
+export const UserIcon = styled(Icon)`
+  display: none;
+
+  @media ${({ theme }) => theme.media.tabletLg} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+`;

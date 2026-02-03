@@ -7,11 +7,13 @@ import wishlistIcon from "/icons/heart.svg";
 import closeIcon from "/icons/close.svg";
 import bgRightIcon from "/icons/arrow-right.svg";
 import bgLeftIcon from "/icons/arrow-left.svg";
+import searchIcon from "/icons/search.svg";
 
 export const icons = {
   ui: {
     menu: menuIcon,
     close: closeIcon,
+    search: searchIcon,
   },
   arrows: {
     smallLeft: smLeftIcon,

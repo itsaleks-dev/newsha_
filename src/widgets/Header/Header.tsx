@@ -1,18 +1,30 @@
 import { PageContainer } from "@/shared/layout/PageContainer";
-import { HeaderContainer, HeaderSection } from "./Header.styled";
-import { BurgerButton } from "./components/BurgerButton";
-import { Logo } from "./components/Logo/Logo";
-import { CartButton } from "./components/CartButton/CartButton";
+
 import { MobileSearch } from "@/features/search/ui/MobileSearch";
+import { BurgerButton } from "./components/BurgerButton";
+import { HeaderMenu } from "./components/HeaderMenu";
+import { LogoLink } from "./components/LogoLink";
+import { ActionsHeader } from "./components/ActionsHeader";
+
+import { HeaderContainer, HeaderSection, Left, Center, Right } from "./Header.styled";
 
 export function Header() {
   return (
     <HeaderContainer>
       <PageContainer>
         <HeaderSection>
-          <BurgerButton />
-          <Logo />
-          <CartButton />
+          <Left>
+            <HeaderMenu />
+            <BurgerButton />
+          </Left>
+
+          <Center>
+            <LogoLink />
+          </Center>
+
+          <Right>
+            <ActionsHeader />
+          </Right>
         </HeaderSection>
 
         <MobileSearch />

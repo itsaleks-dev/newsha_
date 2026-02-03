@@ -10,4 +10,8 @@ export const BurgerIcon = styled(Icon)`
   border: 0;
   background: none;
   cursor: pointer;
+
+  @media ${({ theme }) => theme.media.tabletLg} {
+    display: none;
+  }
 `;

@@ -5,6 +5,8 @@ export const containers = {
   /** Стандартный desktop */
   laptop: "1280px",
 
+  tabletLg: "1024px",
+
   /** Планшеты */
   tablet: "768px",
 

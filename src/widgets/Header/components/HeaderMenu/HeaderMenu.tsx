@@ -1,0 +1,32 @@
+import { useAppDispatch } from "@/app/store/hooks";
+
+import { openMegaMenu, closeMegaMenu } from "@/features/navigation/model";
+
+import { HEADER_MENU_TEXT } from "./config";
+import type { MegaMenuKey } from "./config";
+
+import { Nav, NavItem } from "./HeaderMenu.styled";
+
+export function HeaderMenu() {
+  const dispatch = useAppDispatch();
+
+  const handleOpen = (key: MegaMenuKey) => {
+    dispatch(openMegaMenu(key));
+  };
+
+  return (
+    <Nav onMouseLeave={() => dispatch(closeMegaMenu())}>
+      <NavItem onMouseEnter={() => handleOpen("catalog")} onFocus={() => handleOpen("catalog")}>
+        {HEADER_MENU_TEXT.CATALOG}
+      </NavItem>
+
+      <NavItem onMouseEnter={() => handleOpen("needs")} onFocus={() => handleOpen("needs")}>
+        {HEADER_MENU_TEXT.NEEDS}
+      </NavItem>
+
+      <NavItem onMouseEnter={() => handleOpen("condition")} onFocus={() => handleOpen("condition")}>
+        {HEADER_MENU_TEXT.HAIR_TYPE}
+      </NavItem>
+    </Nav>
+  );
+}
