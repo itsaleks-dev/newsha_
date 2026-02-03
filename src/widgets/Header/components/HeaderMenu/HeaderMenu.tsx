@@ -1,9 +1,9 @@
 import { useAppDispatch } from "@/app/store/hooks";
 
 import { openMegaMenu, closeMegaMenu } from "@/features/navigation/model";
+import type { MegaMenuKey } from "@/features/navigation/model";
 
 import { HEADER_MENU_TEXT } from "./config";
-import type { MegaMenuKey } from "./config";
 
 import { Nav, NavItem } from "./HeaderMenu.styled";
 
