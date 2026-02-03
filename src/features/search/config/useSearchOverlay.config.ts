@@ -1,0 +1,6 @@
+export const SEARCH_CONFIG = {
+  LIMIT: 10,
+  MIN_CHARS: 2,
+  CLOSE_ANIMATION_DELAY: 260,
+  DEBOUNCE_DELAY: 260,
+} as const;

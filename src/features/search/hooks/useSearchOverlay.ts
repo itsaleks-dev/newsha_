@@ -14,11 +14,11 @@ import { buildSmartPlaceholders } from "@/features/search/services";
 import { selectFullProducts } from "@/features/product/model";
 import { searchProducts } from "@/features/search/model";
 
+import { SEARCH_CONFIG } from "@/features/search/config";
+
 import { useTypingPlaceholder } from "./useTypingPlaceholder";
 
-const SEARCH_LIMIT = 10;
-const CLOSE_ANIMATION_DELAY = 260;
-const MIN_CHARS = 2;
+const { LIMIT, MIN_CHARS, CLOSE_ANIMATION_DELAY, DEBOUNCE_DELAY } = SEARCH_CONFIG;
 
 export function useSearchOverlay() {
   const dispatch = useAppDispatch();
@@ -34,7 +34,10 @@ export function useSearchOverlay() {
   const [hasSearched, setHasSearched] = useState(false);
 
   const placeholders = useMemo(() => buildSmartPlaceholders(products ?? []), [products]);
-  const typedPlaceholder = useTypingPlaceholder(placeholders, isOpen && !isClosing && !query);
+  const typedPlaceholder = useTypingPlaceholder(
+    placeholders,
+    isOpen && !isClosing && query.length === 0,
+  );
 
   const handleClose = useCallback(() => {
     setIsClosing(true);
@@ -63,8 +66,8 @@ export function useSearchOverlay() {
     if (!query.trim() || query.length < MIN_CHARS) return;
 
     const t = setTimeout(() => {
-      dispatch(searchProducts({ query, limit: SEARCH_LIMIT }));
-    }, 260);
+      dispatch(searchProducts({ query, limit: LIMIT }));
+    }, DEBOUNCE_DELAY);
 
     return () => clearTimeout(t);
   }, [query, dispatch]);
