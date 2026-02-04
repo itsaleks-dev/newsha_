@@ -8,7 +8,7 @@ export const PRODUCT_SWEET_SALTY_BEACH_SPRAY: Product = {
   code: "28587",
   name: "ПЛЯЖНИЙ ТЕКСТУРУЮЧИЙ СПРЕЙ SWEET & SALTY BEACH SPRAY",
   nameEn: "SWEET & SALTY BEACH SPRAY",
-  nameUa: "ПЛЯЖНИЙ ТЕКСТУРУЮЧИЙ СПРЕЙ",
+  nameUa: "Пляжний текстуруючий спрей",
   slug: asSlug("sweet-salty-beach-spray"),
   categoryId: asID("styling"),
   gallery: [

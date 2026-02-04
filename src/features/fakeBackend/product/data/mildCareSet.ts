@@ -1,5 +1,4 @@
 import type { Product } from "@/entities/product/types";
-import { ProductVolume } from "@/entities/product/types";
 
 import { asID, asSlug, asMoney } from "@/shared/types/primitives";
 
@@ -8,7 +7,7 @@ export const PRODUCT_MILD_CARE_MASQUE_SET: Product = {
   code: "28888",
   name: "СЕТ МАСКА ЛАГІДНИЙ ДОГЛЯД MILD CARE MASQUE SET",
   nameEn: "MILD CARE MASQUE SET",
-  nameUa: "СЕТ МАСКА ЛАГІДНИЙ ДОГЛЯД",
+  nameUa: "Сет маска лагідний догляд",
   slug: asSlug("mild-care-masque-set"),
   categoryId: asID("sets"),
   gallery: [
@@ -33,21 +32,10 @@ export const PRODUCT_MILD_CARE_MASQUE_SET: Product = {
 
   basePrice: asMoney(4257),
 
-  volumes: [
-    {
-      value: ProductVolume.ML_150,
-      label: "1500 мл",
-      price: asMoney(4257),
-      inStock: true,
-      unit: "ml",
-      image: "/images/set/mild-care-set.webp",
-    },
-  ],
-
   tags: ["об’єм", "стимуляція росту", "маска для тонкого волосся"],
 
   isNew: true,
-  isBestseller: true,
+  isBestseller: false,
   isActive: true,
 
   reviewStats: {

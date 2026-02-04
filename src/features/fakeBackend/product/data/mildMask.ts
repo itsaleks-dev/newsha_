@@ -8,7 +8,7 @@ export const PRODUCT_MILD_CARE_MASQUE: Product = {
   code: "28597 / 28598",
   name: "МАСКА ЛАГІДНИЙ ДОГЛЯД MILD CARE MASQUE",
   nameEn: "MILD CARE MASQUE",
-  nameUa: "МАСКА ЛАГІДНИЙ ДОГЛЯД",
+  nameUa: "Маска лагідний догляд",
   slug: asSlug("mild-care-masque"),
   categoryId: asID("care-mask"),
   gallery: [
@@ -49,7 +49,7 @@ export const PRODUCT_MILD_CARE_MASQUE: Product = {
   volumes: [
     {
       value: ProductVolume.ML_150,
-      label: "1500 мл",
+      label: "150 мл",
       price: asMoney(1854),
       inStock: true,
       unit: "ml",

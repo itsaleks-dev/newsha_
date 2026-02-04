@@ -8,7 +8,7 @@ export const PRODUCT_LEAVE_IN_CONDITIONER: Product = {
   code: "28564 / 28565",
   name: "КОНДИЦІОНЕР КРЕМОВИЙ СПРЕЙ ЩО НЕ ЗМИВАЄТЬСЯ LEAVE-IN CONDITIONER",
   nameEn: "LEAVE-IN CONDITIONER",
-  nameUa: "КОНДИЦІОНЕР КРЕМОВИЙ СПРЕЙ ЩО НЕ ЗМИВАЄТЬСЯ",
+  nameUa: "Кондиціонер кремовий що не змивається",
   slug: asSlug("leave-in-conditioner"),
   categoryId: asID("care-conditioner"),
   gallery: [

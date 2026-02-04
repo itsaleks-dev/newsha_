@@ -8,7 +8,7 @@ export const PRODUCT_MEN_SEVERE_THICKENING_SHAMPOO: Product = {
   code: "28833 / 28834",
   name: "ШАМПУНЬ УЩІЛЬНЮЮЧИЙ MEN SEVERE THICKENING SHAMPOO",
   nameEn: "MEN SEVERE THICKENING SHAMPOO",
-  nameUa: "ШАМПУНЬ УЩІЛЬНЮЮЧИЙ",
+  nameUa: "Шампунь ущільнюючий для чоловіків",
   slug: asSlug("men-severe-thickening-shampoo"),
   categoryId: asID("care-shampoo"),
   gallery: [

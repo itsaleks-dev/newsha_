@@ -8,7 +8,7 @@ export const PRODUCT_COLOR_MASQUE_BERRY_BURGUNDY: Product = {
   code: "2915011 / 29150011",
   name: "КОЛЬОРОВА МАСКА COLOR MASQUE BERRY BURGUNDY",
   nameEn: "COLOR MASQUE BERRY BURGUNDY",
-  nameUa: "КОЛЬОРОВА МАСКА БУРГУНДСЬКІ ЯГОДИ",
+  nameUa: "Кольорова маска Бургундські ягоди",
   slug: asSlug("color-masque-berry-burgundy"),
   categoryId: asID("color-masque"),
   gallery: [
@@ -50,7 +50,7 @@ export const PRODUCT_COLOR_MASQUE_BERRY_BURGUNDY: Product = {
   tags: ["тонуюча маска", "збереження кольору", "блиск", "фіолетовий відтінок", "dryness"],
 
   isNew: false,
-  isBestseller: false,
+  isBestseller: true,
   isActive: true,
 
   reviewStats: {

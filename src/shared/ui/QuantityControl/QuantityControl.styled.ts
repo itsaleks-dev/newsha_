@@ -1,24 +1,26 @@
 import styled from "styled-components";
 
 export const QuantityWrapper = styled.div`
+  height: 42px;
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 6px 8px;
-  border-radius: 10px;
+  padding: 0 8px;
+  border-radius: 14px;
   background: ${({ theme }) => theme.colors.black};
   z-index: 2;
 `;
 
 export const QtyControlButton = styled.button`
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   border-radius: 999px;
   background: ${({ theme }) => theme.colors.white};
+  color: #000;
   cursor: pointer;
 
   &:hover:not(:disabled) {

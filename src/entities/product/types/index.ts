@@ -10,4 +10,6 @@ export type {
 } from "./product.types";
 
 export { ProductVolume } from "./product.types";
-export type { SearchVariationResult } from "./product-search.types";
+export type { SearchVariationResult } from "./productSearch.types";
+export type { VolumeSelectorListProps } from "./productVolume.types";
+export type { ProductCardViewProps, ProductCardContainerProps } from "./productCard.types";

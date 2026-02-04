@@ -8,7 +8,7 @@ import { selectProductPreviews, selectProductStatus } from "@/features/product/m
 
 import { parseProductFilters } from "@/features/product/filters";
 
-export function useProductList(externalProducts?: ProductPreview[]) {
+export function useProductList(externalProducts?: readonly ProductPreview[]) {
   const storeProducts = useAppSelector(selectProductPreviews);
   const status = useAppSelector(selectProductStatus);
   const [searchParams] = useSearchParams();
@@ -30,5 +30,9 @@ export function useProductList(externalProducts?: ProductPreview[]) {
 
   const isEmpty = status === "succeeded" && filteredProducts.length === 0;
 
-  return { products: filteredProducts, status, isEmpty };
+  return {
+    products: filteredProducts,
+    status,
+    isEmpty,
+  };
 }

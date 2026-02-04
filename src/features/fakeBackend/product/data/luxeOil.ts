@@ -7,8 +7,8 @@ export const PRODUCT_LUXE_TREATMENT_OIL: Product = {
   id: asID("prod-luxe-treatment-oil"),
   code: "28570 / 28571",
   name: "ОЛІЯ ЛЮКСОВИЙ ДОГЛЯД LUXE TREATMENT OIL",
-  nameEn: "LEAVE-IN CONDITIONER",
-  nameUa: "LUXE TREATMENT OIL",
+  nameEn: "LUXE TREATMENT OIL",
+  nameUa: "Олія люксовий догляд",
   slug: asSlug("luxe-treatment-oil"),
   categoryId: asID("care-oil"),
   gallery: [

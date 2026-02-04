@@ -5,8 +5,8 @@ import { asID, asSlug, asMoney } from "@/shared/types/primitives";
 export const PRODUCT_EXTENSIONS_CARE_BRASH: Product = {
   id: asID("prod-extensions-care-brush"),
   code: "31365",
-  name: "Щітка для догляду за нарощеним волоссям Extensions Care Brush",
-  nameEn: "Extensions Care Brush",
+  name: "ЩІТКА ДЛЯ ДОГЛЯДУ ЗА НАРОЩЕНИМ ВОЛОССЯМ EXTENSIONS CARE BRUSH",
+  nameEn: "EXTENSIONS CARE BRUSH",
   nameUa: "Щітка для догляду за нарощеним волоссям",
   slug: asSlug("extensions-care-brush"),
   categoryId: asID("tools"),
