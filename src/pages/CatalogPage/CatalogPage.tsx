@@ -1,20 +1,26 @@
 import { useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
-import { fetchProducts } from "@/features/product/model/product.thunks";
-import { selectProductStatus } from "@/features/product/model";
 
+import { fetchProducts, selectIsProductsLoaded } from "@/features/product/model";
 import { ProductList } from "@/features/product/ui/ProductList";
+
+import { CATALOG_PAGE_TEXT } from "./config";
+
+import { PageWrapper, PageTitle } from "./CatalogPage.styled";
 
 export function CatalogPage() {
   const dispatch = useAppDispatch();
-  const status = useAppSelector(selectProductStatus);
+  const isLoaded = useAppSelector(selectIsProductsLoaded);
 
   useEffect(() => {
-    if (status === "idle") {
-      dispatch(fetchProducts());
-    }
-  }, [dispatch, status]);
+    if (!isLoaded) dispatch(fetchProducts());
+  }, [dispatch, isLoaded]);
 
-  return <ProductList />;
+  return (
+    <PageWrapper>
+      <PageTitle>{CATALOG_PAGE_TEXT.TITLE}</PageTitle>
+      <ProductList />
+    </PageWrapper>
+  );
 }

@@ -1,5 +1,5 @@
-export function StaticPage() {
-  return <h1>Static PAGE</h1>;
-}
+import { Navigate } from "react-router-dom";
 
-export default StaticPage;
+export function StaticPage() {
+  return <Navigate to="/error/404" replace />;
+}
