@@ -12,4 +12,6 @@ export type {
   OrderId,
   UserId,
   Order,
+  StoreOrder,
+  OrdersState,
 } from "./order.types";

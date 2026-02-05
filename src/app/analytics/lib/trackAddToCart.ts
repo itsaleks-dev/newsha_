@@ -1,5 +1,6 @@
-import type { ID, Money } from "@/shared/types/primitives";
 import type { AnalyticsSDK } from "@/app/analytics/types";
+
+import type { ID, Money } from "@/shared/types/primitives";
 
 type Params = {
   productId: ID;

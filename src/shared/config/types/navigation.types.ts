@@ -1,4 +1,4 @@
-import { NAV_PAGES } from "./navigation";
+import { NAV_PAGES } from "@/shared/config";
 
 export type NavRoute = keyof typeof NAV_PAGES;
 

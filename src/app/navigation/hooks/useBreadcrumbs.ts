@@ -3,8 +3,8 @@ import { useLocation, useParams } from "react-router-dom";
 
 import type { BreadcrumbCategory, BreadcrumbProduct } from "@/app/navigation/types";
 
-import { buildBreadcrumbs } from "../builders/buildBreadcrumbs";
-import { buildBreadcrumbsSchema } from "../builders/buildBreadcrumbsSchema";
+import { buildBreadcrumbs } from "@/app/navigation/builders";
+import { buildBreadcrumbsSchema } from "@/app/navigation/builders";
 
 type Params = {
   product?: BreadcrumbProduct;

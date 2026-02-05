@@ -1,4 +1,5 @@
-import { couponsDB } from "../db/coupons.db";
+import { couponsDB } from "@/app/mocks/discount/db";
+
 import { asMoney } from "@/shared/types/primitives";
 
 export function seedCoupons() {

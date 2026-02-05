@@ -1,8 +1,9 @@
-import type { ID } from "@/shared/types/primitives";
-import { mergeCarts } from "@/entities/cart/domain";
 import type { CartRow, CartOwnerId } from "@/entities/cart/types";
+import { mergeCarts } from "@/entities/cart/domain";
 
 import { cartDB } from "@/app/mocks/cart/db";
+
+import type { ID } from "@/shared/types/primitives";
 
 const delay = (ms = 350) => new Promise((r) => setTimeout(r, ms));
 const clone = <T>(v: T): T => structuredClone(v);

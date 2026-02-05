@@ -73,3 +73,20 @@ export type Order = {
   readonly delivery: DeliveryInfo;
   readonly comment?: string;
 };
+
+export type StoreOrder = {
+  id: Order["id"];
+  userId: Order["userId"];
+  items: OrderItem[];
+  total: Order["total"];
+  status: Order["status"];
+  createdAt: Order["createdAt"];
+  updatedAt: Order["updatedAt"];
+  delivery: Order["delivery"];
+  comment?: Order["comment"];
+};
+
+export type OrdersState = {
+  items: StoreOrder[];
+  status: "idle" | "loading" | "error";
+};

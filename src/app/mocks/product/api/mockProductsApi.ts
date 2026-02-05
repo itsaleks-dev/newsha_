@@ -1,9 +1,10 @@
 import type { Product } from "@/entities/product/types";
 import type { CatalogCategorySlug } from "@/entities/category/config";
-import type { ID } from "@/shared/types/primitives";
 
 import { productsDB } from "@/app/mocks/product/db";
 import { mockProduct } from "@/app/mocks/product/factories";
+
+import type { ID } from "@/shared/types/primitives";
 
 const clone = <T>(v: T): T => structuredClone(v);
 

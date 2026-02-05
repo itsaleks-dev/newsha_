@@ -1,4 +1,5 @@
-import { NAV_PAGES, isNavRoute } from "@/shared/config";
+import { isNavRoute } from "@/shared/config/types";
+import { NAV_PAGES } from "@/shared/config";
 
 import type { Breadcrumb, BuildBreadcrumbsParams } from "@/app/navigation/types";
 

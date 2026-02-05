@@ -1,4 +1,5 @@
 import type { Category } from "@/entities/category/types";
+
 import { asID, asSlug } from "@/shared/types/primitives";
 
 let idCounter = 1;

@@ -1,9 +1,9 @@
 import { store } from "@/app/store/store";
-import { setAuth } from "@/features/auth/model";
-
 import { tokenStorage } from "@/app/http/lib";
 import { UnauthorizedError } from "@/app/http/errors";
 import { requestInterceptors, responseInterceptors } from "@/app/http/interceptors";
+
+import { setAuth } from "@/features/auth/model";
 
 requestInterceptors.push((req) => {
   const token = tokenStorage.get();

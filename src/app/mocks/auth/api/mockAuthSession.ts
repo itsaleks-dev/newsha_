@@ -6,6 +6,7 @@ import { mockUsers } from "@/app/mocks/auth/data";
 import { MOCK_AUTH_TEXT } from "@/app/mocks/auth/config";
 
 import type { AuthSession } from "@/features/auth/domain";
+
 import type { AuthToken } from "@/shared/types/primitives";
 import { asID, asAuthToken } from "@/shared/types/primitives";
 

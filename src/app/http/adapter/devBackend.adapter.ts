@@ -1,10 +1,11 @@
+import type { User } from "@/entities/user/types";
+
+import type { RawHttpResponse } from "@/app/http/client";
+
 import { productsApi } from "@/features/fakeBackend/product/api";
 import { categoriesApi } from "@/features/fakeBackend/category/api";
 import { getUsersApi } from "@/features/fakeBackend/user/api";
 import { ordersApi } from "@/features/fakeBackend/orders/api";
-
-import type { RawHttpResponse } from "@/app/http/client";
-import type { User } from "@/entities/user/types";
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null;

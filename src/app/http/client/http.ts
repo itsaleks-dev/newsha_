@@ -1,12 +1,11 @@
 import { logger } from "@/app/errors/lib";
 import { normalizeError } from "@/app/errors/model";
-
 import { devBackendAdapter } from "@/app/http/adapter";
+import { requestInterceptors, responseInterceptors } from "@/app/http/interceptors";
+import { HttpError, NetworkError, TimeoutError } from "@/app/http/errors";
 
 import type { HttpRequest, HttpResponse } from "./http.types";
 import type { RawHttpResponse } from "./http.raw";
-import { requestInterceptors, responseInterceptors } from "@/app/http/interceptors";
-import { HttpError, NetworkError, TimeoutError } from "@/app/http/errors";
 
 export async function http<T = unknown>(config: HttpRequest): Promise<HttpResponse<T>> {
   let request = { ...config };
