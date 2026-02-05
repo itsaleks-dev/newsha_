@@ -4,20 +4,20 @@ export const BANNER_CONFIG: Record<string, Omit<Banner, "id">[]> = {
   "home-hero": [
     {
       placement: "home-hero",
-      image: "/images/banner-page/banner-hero.webp",
+      image: "/images/others/youre-kind-red.webp",
       alt: "NEWSHA professional care",
-      title: "Professional Hair Care",
-      subTitle: "Premium products for salons",
-      buttonText: "Shop now",
+      title: "Професійний догляд за волоссям",
+      subTitle: "Преміальні продукти для тебе",
+      buttonText: "Каталог",
     },
     {
       placement: "home-hero",
-      image: "/banners/home-hero-2.jpg",
+      image: "/images/others/body-care-banner.webp",
       alt: "Luxury hair treatment",
     },
     {
       placement: "home-hero",
-      image: "/banners/home-hero-3.jpg",
+      image: "/images/others/inst2.webp",
       alt: "Exclusive formulas",
     },
   ],

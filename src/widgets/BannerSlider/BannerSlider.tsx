@@ -31,12 +31,12 @@ export function BannerSlider({ placement }: Props) {
     <S.Root>
       <S.Track
         $animate={slider.withAnimation}
-        style={{ "--x": `-${slider.index * 100}%` } as React.CSSProperties}
+        $translateX={slider.index}
         onTransitionEnd={slider.onTransitionEnd}
         {...slider.swipeHandlers}
       >
         {slides.map((banner, i) => (
-          <Slide key={`${banner.id}-${i}`} banner={banner} />
+          <Slide key={`${banner.id}-${i}`} banner={banner} isHero={i === 1} />
         ))}
       </S.Track>
 

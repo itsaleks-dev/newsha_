@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import type { ProductPreview, ProductVolumeOption } from "@/entities/product/types";
 
 import { VolumeSelectorList } from "@/features/product/ui/VolumeSelectorList";
+
 import { ROUTES } from "@/shared/config";
 import { icons } from "@/shared/theme/variables";
 import { formatPrice } from "@/shared/lib/formatPrice";
@@ -27,6 +28,7 @@ import {
   BuyBtn,
   RatingPriceRow,
   BuyRow,
+  BottomContent,
 } from "./ProductCard.styled";
 
 type Props = {
@@ -57,24 +59,21 @@ export function ProductCardView({
   onIncrease,
 }: Props) {
   const selectedVolume = volumes.find((v) => v.value === selectedValue);
-
   const unitPrice = selectedVolume?.price ?? product.price;
   const totalPrice = unitPrice * qty;
 
   const [prevImage, setPrevImage] = useState(image);
 
   useEffect(() => {
-    if (image !== prevImage) {
-      setPrevImage(image);
-    }
+    if (image !== prevImage) setPrevImage(image);
   }, [image, prevImage]);
 
   return (
     <Card as={Link} to={ROUTES.PRODUCT(product.slug)}>
+      {/* OVERLAY */}
       <CardOverlay>
         <BadgeStack>
           {product.isNew && <Badge $variant="new">{PRODUCT_CARD_TEXT.BADGE_NEW}</Badge>}
-
           {product.isBestseller && (
             <Badge $variant="bestseller">{PRODUCT_CARD_TEXT.BADGE_BESTSELLER}</Badge>
           )}
@@ -87,17 +86,18 @@ export function ProductCardView({
             e.stopPropagation();
             onToggleWishlist();
           }}
-          aria-label={PRODUCT_CARD_TEXT.WISHLIST_ALT}
         >
-          <img src={icons.user.wishlist} alt={PRODUCT_CARD_TEXT.WISHLIST_ALT} />
+          <img src={icons.user.wishlist} alt="Wishlist" />
         </WishlistBtn>
       </CardOverlay>
 
+      {/* IMAGE */}
       <ImageWrap>
         <Image src={prevImage} $active={false} />
         <Image src={image} $active />
       </ImageWrap>
 
+      {/* VOLUMES */}
       {volumes.length > 0 && (
         <VolumeFloating
           onClick={(e) => {
@@ -113,18 +113,21 @@ export function ProductCardView({
         </VolumeFloating>
       )}
 
+      {/* BOTTOM */}
       <Bottom>
-        <Title>
-          <span className="en">{product.nameEn}</span>
-          <span className="ua">{product.nameUa}</span>
-        </Title>
+        <BottomContent>
+          <Title>
+            <span className="en">{product.nameEn}</span>
+            <span className="ua">{product.nameUa}</span>
+          </Title>
 
-        <RatingPriceRow>
-          <div className="rating">
-            <RatingStars rating={product.rating ?? 0} reviews={product.reviewCount ?? 0} />
-          </div>
-          <Price>{formatPrice(totalPrice)}</Price>
-        </RatingPriceRow>
+          <RatingPriceRow>
+            <div className="rating">
+              <RatingStars rating={product.rating ?? 0} reviews={product.reviewCount ?? 0} />
+            </div>
+            <Price>{formatPrice(totalPrice)}</Price>
+          </RatingPriceRow>
+        </BottomContent>
 
         <BuyRow>
           <BuyBtn>{PRODUCT_CARD_TEXT.BUY}</BuyBtn>

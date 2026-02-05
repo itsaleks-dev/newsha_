@@ -1,5 +1,19 @@
-export function ContactsPage() {
-  return <p>Hello</p>;
-}
+import { HeroBlock } from "./components/HeroBlock";
+import { ContactInfoBlock } from "./components/ContactInfoBlock";
+import { SocialBlock } from "./components/SocialBlock";
+import { FormBlock } from "./components/FormBlock";
+import { AdvantagesBlock } from "./components/AdvantagesBlock";
+import { MapBlock } from "./components/MapBlock";
 
-export default ContactsPage;
+export function ContactsPage() {
+  return (
+    <>
+      <HeroBlock />
+      <ContactInfoBlock />
+      <SocialBlock />
+      <FormBlock />
+      <AdvantagesBlock />
+      <MapBlock />
+    </>
+  );
+}

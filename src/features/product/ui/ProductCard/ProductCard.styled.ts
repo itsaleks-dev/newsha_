@@ -3,17 +3,19 @@ import styled from "styled-components";
 export const Card = styled.article`
   position: relative;
   width: 100%;
+  min-height: 550px;
   aspect-ratio: 3 / 4;
   border-radius: 26px;
   overflow: hidden;
   background: #f2f2f2;
-
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
 `;
 
+/* ================= IMAGE ================= */
+
 export const ImageWrap = styled.div`
   position: relative;
-  height: 70%;
+  height: 65%;
   background: #fff;
   display: flex;
   align-items: center;
@@ -24,7 +26,6 @@ export const ImageWrap = styled.div`
 export const Image = styled.img<{ $active: boolean }>`
   position: absolute;
   inset: 0;
-
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -38,6 +39,8 @@ export const Image = styled.img<{ $active: boolean }>`
 
   will-change: opacity, transform;
 `;
+
+/* ================= OVERLAY ================= */
 
 export const CardOverlay = styled.div`
   position: absolute;
@@ -56,18 +59,15 @@ export const CardOverlay = styled.div`
 export const BadgeStack = styled.div`
   display: flex;
   gap: 6px;
-
   pointer-events: auto;
 `;
 
-export const Badge = styled.div<{
-  $variant: "new" | "bestseller";
-}>`
+export const Badge = styled.div<{ $variant: "new" | "bestseller" }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  padding: 12px 12px;
+  padding: 6px 12px;
   min-height: 24px;
 
   font-size: 10px;
@@ -77,7 +77,6 @@ export const Badge = styled.div<{
   line-height: 1;
 
   border-radius: 14px;
-
   white-space: nowrap;
 
   ${({ $variant }) =>
@@ -90,7 +89,7 @@ export const Badge = styled.div<{
   ${({ $variant }) =>
     $variant === "bestseller" &&
     `
-      background: #4e0000;
+      background: linear-gradient(135deg, #2d1e2f, #4e2a4f);
       color: #fff;
     `}
 `;
@@ -115,39 +114,60 @@ export const WishlistBtn = styled.button<{ $active?: boolean }>`
   }
 `;
 
+/* ================= BOTTOM ================= */
+
 export const Bottom = styled.div`
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 26px;
 
+  min-height: 210px;
   padding: 18px 18px 20px;
   background: #242424;
   color: #fff;
+  border-radius: 26px;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const BottomContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
 `;
 
+/* ================= TEXT ================= */
+
 export const Title = styled.h3`
   text-align: center;
   line-height: 1.4;
+  min-height: 56px;
+
+  .en,
+  .ua {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   .en {
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.05em;
+    -webkit-line-clamp: 2;
   }
 
   .ua {
-    display: block;
     margin-top: 3px;
     font-size: 13px;
     letter-spacing: 0.05em;
     font-weight: 500;
     opacity: 0.7;
+    -webkit-line-clamp: 2;
   }
 `;
 
@@ -155,7 +175,7 @@ export const RatingPriceRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 8px;
 
   .rating {
     display: flex;
@@ -169,9 +189,9 @@ export const Price = styled.span`
   font-weight: 500;
   letter-spacing: 0.05em;
   line-height: 1;
-  display: flex;
-  align-items: center;
 `;
+
+/* ================= BUY ================= */
 
 export const BuyRow = styled.div`
   margin-top: 14px;
@@ -211,8 +231,6 @@ export const VolumeFloating = styled.div`
 
   & > div {
     position: static;
-    top: auto;
-    right: auto;
     transform: none;
   }
 `;
