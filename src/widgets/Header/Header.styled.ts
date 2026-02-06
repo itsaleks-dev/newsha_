@@ -7,7 +7,7 @@ export const HeaderContainer = styled.header`
 `;
 
 export const HeaderSection = styled.div`
-  height: 70px;
+  height: 80px;
   padding: 0 15px;
 
   display: grid;

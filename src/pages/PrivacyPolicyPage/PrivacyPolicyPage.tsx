@@ -82,14 +82,14 @@ export function PrivacyPolicyPage() {
 
         <SectionBlock>
           <Paragraph>
-            <strong>Форми надання згоди:</strong>
+            <strong>{consent.formsTitle}</strong>
           </Paragraph>
           {consent.forms.map((form, index) => (
             <Paragraph key={index}>• {form}</Paragraph>
           ))}
 
           <Paragraph>
-            <strong>Основні правила:</strong>
+            <strong>{consent.rulesTitle}</strong>
           </Paragraph>
           {consent.rules.map((rule, index) => (
             <Paragraph key={index}>• {rule}</Paragraph>
@@ -122,8 +122,6 @@ export function PrivacyPolicyPage() {
           {protection.measures.map((item, index) => (
             <Paragraph key={index}>• {item}</Paragraph>
           ))}
-
-          <Note>{protection.storage}</Note>
         </SectionBlock>
       </PageSection>
 

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useParams } from "react-router-dom";
 
 import type { ProductPreview } from "@/entities/product/types";
 
@@ -7,26 +7,35 @@ import { useAppSelector } from "@/app/store/hooks";
 import { selectProductPreviews, selectProductStatus } from "@/features/product/model";
 
 import { parseProductFilters } from "@/features/product/filters";
+import { MAIN_CATEGORIES } from "@/features/fakeBackend/category/data";
 
 export function useProductList(externalProducts?: readonly ProductPreview[]) {
   const storeProducts = useAppSelector(selectProductPreviews);
   const status = useAppSelector(selectProductStatus);
+
   const [searchParams] = useSearchParams();
+  const { categorySlug } = useParams<{ categorySlug?: string }>();
 
   const products: readonly ProductPreview[] = externalProducts ?? storeProducts;
 
   const filters = useMemo(() => parseProductFilters(searchParams), [searchParams]);
 
+  const categoryId = useMemo(() => {
+    if (!categorySlug) return null;
+    return MAIN_CATEGORIES.find((c) => c.slug === categorySlug)?.id ?? null;
+  }, [categorySlug]);
+
   const filteredProducts = useMemo(() => {
     if (!products.length) return [];
 
     return products.filter((p) => {
-      if (filters.category && p.categoryId !== filters.category) return false;
+      if (categoryId && p.categoryId !== categoryId) return false;
       if (filters.needs && !p.needs?.includes(filters.needs)) return false;
       if (filters.condition && !p.condition?.includes(filters.condition)) return false;
+
       return true;
     });
-  }, [products, filters]);
+  }, [products, filters, categoryId]);
 
   const isEmpty = status === "succeeded" && filteredProducts.length === 0;
 

@@ -1,5 +1,5 @@
 import type { Banner, BannerPlacement } from "@/features/banner/types";
-import { BANNER_CONFIG } from "@/widgets/BannerSlider/config";
+import { BANNER_CONFIG } from "@/pages/HomePage/components/BannerSlider/config";
 import { asID } from "@/shared/types/primitives";
 
 export function buildBanners(placement: BannerPlacement): Banner[] {

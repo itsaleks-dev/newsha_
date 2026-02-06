@@ -21,6 +21,7 @@ export const publicRoutes: RouteObject = {
   children: [
     { index: true, element: <HomePage /> },
     { path: "catalog", element: <CatalogPage /> },
+    { path: "catalog/:categorySlug", element: <CatalogPage /> },
     { path: "products/:slug", element: <ProductPage /> },
     { path: "page/:slug", element: <StaticPage /> },
     { path: "contacts", element: <ContactsPage /> },

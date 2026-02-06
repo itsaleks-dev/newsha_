@@ -11,8 +11,6 @@ export const Card = styled.article`
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
 `;
 
-/* ================= IMAGE ================= */
-
 export const ImageWrap = styled.div`
   position: relative;
   height: 65%;
@@ -39,8 +37,6 @@ export const Image = styled.img<{ $active: boolean }>`
 
   will-change: opacity, transform;
 `;
-
-/* ================= OVERLAY ================= */
 
 export const CardOverlay = styled.div`
   position: absolute;
@@ -114,8 +110,6 @@ export const WishlistBtn = styled.button<{ $active?: boolean }>`
   }
 `;
 
-/* ================= BOTTOM ================= */
-
 export const Bottom = styled.div`
   position: absolute;
   left: 0;
@@ -138,8 +132,6 @@ export const BottomContent = styled.div`
   flex-direction: column;
   gap: 8px;
 `;
-
-/* ================= TEXT ================= */
 
 export const Title = styled.h3`
   text-align: center;
@@ -190,8 +182,6 @@ export const Price = styled.span`
   letter-spacing: 0.05em;
   line-height: 1;
 `;
-
-/* ================= BUY ================= */
 
 export const BuyRow = styled.div`
   margin-top: 14px;

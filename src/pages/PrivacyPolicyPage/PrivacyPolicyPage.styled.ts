@@ -1,23 +1,22 @@
 import styled from "styled-components";
 
 export const Page = styled.main`
-  margin: 0 auto;
-  padding: 30px 10px 80px;
+  padding: 40px 0;
 `;
 
 export const PageSection = styled.section`
   &:not(:last-child) {
-    margin-bottom: 64px;
+    margin-bottom: 20px;
   }
 `;
 
 export const PageTitle = styled.h1`
   margin-bottom: 15px;
 
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
   text-align: center;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 `;
 
@@ -28,30 +27,27 @@ export const SectionBlock = styled.div`
 `;
 
 export const SectionTitle = styled.h2`
-  margin-bottom: 15px;
-
-  font-size: 16px;
-  text-align: center;
-
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
 `;
 
 export const Paragraph = styled.p`
   font-size: 14px;
-  font-weight: 300;
-
+  font-weight: 400;
   line-height: 1.6;
+  letter-spacing: 0.05em;
 
   &:not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 `;
 
 export const Note = styled.p`
   margin-top: 24px;
-
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
-  line-height: 1.6;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
 `;
