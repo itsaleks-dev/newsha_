@@ -70,7 +70,6 @@ export function ProductCardView({
 
   return (
     <Card as={Link} to={ROUTES.PRODUCT(product.slug)}>
-      {/* OVERLAY */}
       <CardOverlay>
         <BadgeStack>
           {product.isNew && <Badge $variant="new">{PRODUCT_CARD_TEXT.BADGE_NEW}</Badge>}
@@ -91,13 +90,11 @@ export function ProductCardView({
         </WishlistBtn>
       </CardOverlay>
 
-      {/* IMAGE */}
       <ImageWrap>
         <Image src={prevImage} $active={false} />
         <Image src={image} $active />
       </ImageWrap>
 
-      {/* VOLUMES */}
       {volumes.length > 0 && (
         <VolumeFloating
           onClick={(e) => {
@@ -113,7 +110,6 @@ export function ProductCardView({
         </VolumeFloating>
       )}
 
-      {/* BOTTOM */}
       <Bottom>
         <BottomContent>
           <Title>

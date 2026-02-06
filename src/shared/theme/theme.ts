@@ -8,6 +8,14 @@ import {
   lineHeights,
   colors,
   icons,
+  textMetrics,
+  flex,
+  flexCenter,
+  flexBetween,
+  flexColumn,
+  dotBase,
+  objectCover,
+  objectContain,
 } from "./variables";
 
 import logoHeader from "/icons/logo_newsha_white.svg";
@@ -23,6 +31,14 @@ export const mainTheme = {
   media,
   colors,
   icons,
+  textMetrics,
+  flex,
+  flexCenter,
+  flexBetween,
+  flexColumn,
+  dotBase,
+  objectCover,
+  objectContain,
 
   assets: {
     logo: {

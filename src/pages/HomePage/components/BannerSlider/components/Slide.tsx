@@ -1,5 +1,6 @@
-import type { Banner } from "@/features/banner/types";
 import { Link } from "react-router-dom";
+
+import type { Banner } from "@/features/banner/types";
 
 import * as S from "../BannerSlider.styled";
 

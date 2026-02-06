@@ -1,3 +1,7 @@
+export const textMetrics = {
+  letterSpacing: "0.05em",
+} as const;
+
 export const fontSizes = {
   /** Мелкий вспомогательный текст: подсказки, бейджи, служебная информация */
   caption: "12px",
@@ -7,6 +11,7 @@ export const fontSizes = {
 
   /** Базовый текст интерфейса (ИСПОЛЬЗУЕТСЯ ЧАЩЕ ВСЕГО) */
   body: "16px",
+  bodySmall: "15px",
 
   /** Акцентированный текст, крупнее обычного body */
   bodyLarge: "18px",

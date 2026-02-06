@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { dotBase, flexCenter, flex, objectCover } from "@/shared/theme/variables";
 
 export const Section = styled.section`
   margin: 10px 0;
@@ -6,7 +7,7 @@ export const Section = styled.section`
 `;
 
 export const Track = styled.div`
-  display: flex;
+  ${flex};
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -17,76 +18,64 @@ export const Track = styled.div`
 `;
 
 export const SlideRoot = styled.div`
+  position: relative;
   flex: 0 0 100%;
-  scroll-snap-align: start;
   margin-right: 12px;
   height: 550px;
-  position: relative;
   border-radius: 16px;
+  scroll-snap-align: start;
   overflow: hidden;
   background: #eee;
 
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    ${objectCover};
   }
 `;
 
 export const Content = styled.div`
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-align: center;
   padding: 0 16px;
+  ${flexCenter};
+  flex-direction: column;
+  color: ${({ theme }) => theme.colors.white};
+  text-align: center;
 `;
 
 export const SubTitle = styled.p`
-  font-size: 14px;
-  letter-spacing: 0.3em;
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
   text-transform: uppercase;
   opacity: 0.9;
 `;
 
 export const Title = styled.h2`
   margin-top: 12px;
-  font-size: 32px;
-  font-weight: 600;
+  font-size: ${({ theme }) => theme.fontSizes.h2};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
 `;
 
 export const Button = styled.button`
   margin-top: 48px;
   padding: 14px 32px;
-
-  background: #000;
-  color: #fff;
   border: none;
-  border-radius: 999px;
-
-  font-size: 14px;
-  letter-spacing: 0.12em;
+  border-radius: 16px;
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
   text-transform: uppercase;
   cursor: pointer;
+  color: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.black};
 `;
 
 export const Indicators = styled.div`
   margin-top: 12px;
-  display: flex;
+  ${flex};
   justify-content: center;
   gap: 8px;
 `;
 
 export const Dot = styled.button<{ $active: boolean }>`
-  width: ${({ $active }) => ($active ? "60px" : "6px")};
-  height: 6px;
-  border-radius: 999px;
-  border: none;
-  background: ${({ $active }) => ($active ? "#000" : "#bbb")};
-  transition: all 0.25s ease;
-  cursor: pointer;
+  ${dotBase()};
 `;

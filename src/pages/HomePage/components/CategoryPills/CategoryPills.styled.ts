@@ -16,6 +16,7 @@ export const Title = styled.h2`
 `;
 
 export const SubTitle = styled.p`
+  margin: 10px 0 30px;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.05em;

@@ -18,6 +18,7 @@ export const CONDITION_CATEGORIES: CategoryDTO[] = [
     parentId: asID("condition-root"),
     order: 61,
   },
+
   {
     id: asID("scalp-oily"),
     name: "Жирна шкіра голови",

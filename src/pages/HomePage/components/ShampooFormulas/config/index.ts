@@ -1,0 +1,5 @@
+export {
+  SHAMPOO_FORMULAS_BANNER,
+  SHAMPOO_FORMULAS,
+  SHAMPOO_FORMULAS_SECTION,
+} from "./ShampooFormulas.config";
