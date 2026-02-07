@@ -10,6 +10,8 @@ import { PageContainer } from "@/shared/layout/PageContainer";
 import { Header } from "@/widgets/Header/Header";
 import { Footer } from "@/widgets/Footer";
 
+import { CartModal } from "@/features/cart/ui/CartModal";
+
 import { LayoutWrapper, Content } from "./AppLayout.styled";
 
 export function AppLayout() {
@@ -30,6 +32,8 @@ export function AppLayout() {
         </PageContainer>
         <Footer />
       </Content>
+
+      <CartModal />
     </LayoutWrapper>
   );
 }

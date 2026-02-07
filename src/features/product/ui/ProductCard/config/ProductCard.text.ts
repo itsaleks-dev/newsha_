@@ -4,4 +4,5 @@ export const PRODUCT_CARD_TEXT = {
   BADGE_BESTSELLER: "Хіт",
   WISHLIST_ALT: "Улюблене",
   ADD_TO_CART: "Додати до кошика",
+  CANCEL: "Скасувати",
 };

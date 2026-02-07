@@ -26,30 +26,55 @@ export class CartApiAdapter implements ICartRepository {
     const product = await productsApi.getProductById(payload.productId);
     if (!product) return this.getCart();
 
-    if (payload.volume === null) return this.getCart();
+    const volume =
+      payload.volume !== null
+        ? product.volumes?.find((v) => v.value === payload.volume)
+        : product.volumes?.[0];
 
-    const volume = product.volumes?.find((v) => v.value === payload.volume);
     if (!volume) return this.getCart();
 
-    const item: CartRow = {
+    const cart = await mockCartApi.get(ownerId);
+    const existing = cart.find(
+      (r) => r.productId === payload.productId && r.volumeValue === volume.value,
+    );
+
+    const currentQty = existing ? (existing.qty as number) : 0;
+    const nextQty = currentQty + payload.qty;
+
+    return mockCartApi.add(ownerId, {
       productId: payload.productId,
-      volumeValue: payload.volume,
-      qty: asQuantity(payload.qty),
+      volumeValue: volume.value,
+      qty: asQuantity(nextQty),
       price: volume.price,
       ...(volume.oldPrice !== undefined && { oldPrice: volume.oldPrice }),
-    };
-
-    return mockCartApi.add(ownerId, item);
+    });
   }
 
   async removeFromCart(payload: RemoveFromCartDTO): Promise<readonly CartRow[]> {
     const ownerId = await this.getCartOwnerId();
+    const cart = await mockCartApi.get(ownerId);
 
-    if (payload.volume === null) {
-      return this.getCart();
+    const existing = cart.find(
+      (r) => r.productId === payload.productId && r.volumeValue === payload.volume,
+    );
+
+    if (!existing) return cart;
+
+    const nextQty = (existing.qty as number) - 1;
+
+    if (nextQty <= 0) {
+      return mockCartApi.remove(ownerId, payload.productId, payload.volume!);
     }
 
-    return mockCartApi.remove(ownerId, payload.productId, payload.volume);
+    return mockCartApi.add(ownerId, {
+      ...existing,
+      qty: asQuantity(nextQty),
+    });
+  }
+
+  async removeLine(payload: RemoveFromCartDTO): Promise<readonly CartRow[]> {
+    const ownerId = await this.getCartOwnerId();
+    return mockCartApi.removeLine(ownerId, payload.productId, payload.volume!);
   }
 
   async clearCart(): Promise<readonly CartRow[]> {

@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import type { CartRow } from "@/entities/cart/types";
+import { getCartDB } from "@/app/mocks/cart/db";
 
-import { fetchCart, addToCart, removeFromCart, clearCart } from "./cart.thunks";
+import { fetchCart, addToCart, removeFromCart, clearCart, removeLineFromCart } from "./cart.thunks";
 
 interface CartState {
   items: CartRow[];
@@ -10,7 +11,7 @@ interface CartState {
 }
 
 const initialState: CartState = {
-  items: [],
+  items: [...(getCartDB().guest ?? [])],
   status: "idle",
 };
 
@@ -34,6 +35,9 @@ const cartSlice = createSlice({
         s.items = [...a.payload];
       })
       .addCase(clearCart.fulfilled, (s, a) => {
+        s.items = [...a.payload];
+      })
+      .addCase(removeLineFromCart.fulfilled, (s, a) => {
         s.items = [...a.payload];
       });
   },

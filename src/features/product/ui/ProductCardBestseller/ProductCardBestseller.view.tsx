@@ -14,6 +14,8 @@ type Props = {
   isWishlisted: boolean;
   onToggleWishlist: () => void;
   onAddToCart: () => void;
+
+  addToCartState: "idle" | "pending";
 };
 
 export function ProductCardBestsellerView({
@@ -22,6 +24,7 @@ export function ProductCardBestsellerView({
   isWishlisted,
   onToggleWishlist,
   onAddToCart,
+  addToCartState,
 }: Props) {
   return (
     <S.CardLink to={ROUTES.PRODUCT(product.slug)}>
@@ -58,13 +61,18 @@ export function ProductCardBestsellerView({
           </S.BottomContent>
 
           <S.BuyBtn
+            $pending={addToCartState === "pending"}
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               onAddToCart();
             }}
           >
-            {PRODUCT_CARD_TEXT.ADD_TO_CART}
+            <span>
+              {addToCartState === "pending"
+                ? PRODUCT_CARD_TEXT.CANCEL
+                : PRODUCT_CARD_TEXT.ADD_TO_CART}
+            </span>
           </S.BuyBtn>
         </S.Bottom>
       </S.Card>

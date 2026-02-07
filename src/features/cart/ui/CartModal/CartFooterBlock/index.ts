@@ -1,0 +1,1 @@
+export { CartFooterBlock } from "./CartFooterBlock";

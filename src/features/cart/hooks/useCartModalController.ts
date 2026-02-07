@@ -1,19 +1,17 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-import type { CartViewItemDetailed } from "../view";
+import { useAppSelector } from "@/app/store/hooks";
+import { analyticsApi } from "@/app/analytics/core";
 
-import { useAppSelector, useAppDispatch } from "@/app/store/hooks";
-
+import type { CartViewItemDetailed } from "@/features/cart/view";
+import { useCartModal, useCartActions } from "@/features/cart/hooks";
 import {
-  selectCartItemsDetailed,
+  selectIsCartOpen,
   selectCartCount,
   selectCartTotal,
-  selectIsCartOpen,
-  closeCart,
+  selectCartItemsDetailed,
 } from "@/features/cart/model";
-
-import { useCartActions } from "./useCartActions";
 
 export function useCartModalController() {
   const open = useAppSelector(selectIsCartOpen);
@@ -21,18 +19,9 @@ export function useCartModalController() {
   const totalQty = useAppSelector(selectCartCount);
   const totalPrice = useAppSelector(selectCartTotal);
 
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { close } = useCartModal(open);
   const actions = useCartActions();
-
-  const close = useCallback(() => {
-    dispatch(closeCart());
-  }, [dispatch]);
-
-  const checkout = useCallback(() => {
-    dispatch(closeCart());
-    navigate("/checkout");
-  }, [dispatch, navigate]);
 
   const increase = useCallback(
     (item: CartViewItemDetailed) => {
@@ -48,26 +37,17 @@ export function useCartModalController() {
 
   const decrease = useCallback(
     (item: CartViewItemDetailed) => {
-      if (item.item.qty <= 1) {
-        actions.remove({
-          productId: item.item.id,
-          volume: item.item.volumeValue,
-        });
-      } else {
-        actions.add({
-          productId: item.item.id,
-          categoryId: item.product.categoryId,
-          volume: item.item.volumeValue,
-          qty: -1,
-        });
-      }
+      actions.removeOne({
+        productId: item.item.id,
+        volume: item.item.volumeValue,
+      });
     },
     [actions],
   );
 
   const remove = useCallback(
     (item: CartViewItemDetailed) => {
-      actions.remove({
+      actions.removeLine({
         productId: item.item.id,
         volume: item.item.volumeValue,
       });
@@ -79,16 +59,33 @@ export function useCartModalController() {
     actions.clear();
   }, [actions]);
 
+  const checkout = useCallback(() => {
+    analyticsApi.beginCheckout({
+      items: items
+        .filter((i) => i.product)
+        .map((i) => ({
+          productId: i.product!.id,
+          qty: i.item.qty,
+          price: i.unitPrice,
+        })),
+      totalQty,
+      totalPrice,
+    });
+
+    close();
+    navigate("/checkout");
+  }, [items, totalQty, totalPrice, close, navigate]);
+
   return {
     open,
     items,
     totalQty,
     totalPrice,
-    close,
-    checkout,
     increase,
     decrease,
     remove,
     clear,
+    checkout,
+    close,
   };
 }

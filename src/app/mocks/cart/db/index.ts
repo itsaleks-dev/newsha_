@@ -1,1 +1,1 @@
-export { cartDB } from "./cartDB";
+export { getCartDB, setCartDB, ensureCart } from "./cartDB";

@@ -170,22 +170,62 @@ export const Price = styled.span`
   text-align: center;
 `;
 
-export const BuyBtn = styled.button`
+export const BuyBtn = styled.button<{ $pending?: boolean }>`
+  position: relative;
+  overflow: hidden;
   height: 42px;
+  padding: 0 16px;
   border-radius: 14px;
   border: none;
-
   background: #fff;
   color: #000;
-
   font-size: 16px;
   letter-spacing: 0.04em;
   font-weight: 500;
-
   cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    transform 0.15s ease;
+
+  &:active {
+    transform: scale(0.96);
+  }
 
   &:disabled {
     opacity: 0.4;
     cursor: not-allowed;
   }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgb(220, 60, 60);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform linear;
+    z-index: 1;
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+    transition: color 0.25s ease;
+  }
+
+  ${({ $pending }) =>
+    $pending &&
+    `
+      cursor: default;
+
+      span {
+        color: #242424;
+      }
+
+      &::before {
+        transform: scaleX(1);
+        transition-duration: 4s;
+      }
+    `}
 `;

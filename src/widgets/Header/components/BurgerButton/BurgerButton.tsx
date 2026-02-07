@@ -1,5 +1,4 @@
-import { useAppDispatch } from "@/app/store/hooks";
-import { openBurger } from "@/features/burgerUI/model";
+import { useBurgerUI } from "@/features/burgerUI/hooks";
 
 import { IconButton } from "@/shared/ui/IconButton";
 import { icons } from "@/shared/theme/variables";
@@ -7,12 +6,12 @@ import { icons } from "@/shared/theme/variables";
 import { BurgerIcon } from "./BurgerButton.styled";
 
 export function BurgerButton() {
-  const dispatch = useAppDispatch();
+  const { toggle } = useBurgerUI();
 
   return (
     <IconButton
       ariaLabel="Меню"
-      onClick={() => dispatch(openBurger())}
+      onClick={toggle}
       icon={<BurgerIcon src={icons.ui.menu} alt="" />}
     />
   );

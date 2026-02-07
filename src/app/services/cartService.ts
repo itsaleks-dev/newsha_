@@ -1,5 +1,5 @@
-import { CartApiAdapter } from "@/features/fakeBackend/user/cart/cartApiAdapter";
 import type { AddToCartDTO, RemoveFromCartDTO } from "@/features/cart/dto";
+import { CartApiAdapter } from "@/features/fakeBackend/user/cart/cartApiAdapter";
 import {
   loadCartUseCase,
   addToCartUseCase,
@@ -16,6 +16,8 @@ export function createCartService() {
     addToCart: (payload: AddToCartDTO) => addToCartUseCase(repository, payload),
 
     removeFromCart: (payload: RemoveFromCartDTO) => removeFromCartUseCase(repository, payload),
+
+    removeLine: (payload: RemoveFromCartDTO) => repository.removeLine(payload),
 
     clearCart: () => clearCartUseCase(repository),
   };

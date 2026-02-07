@@ -1,9 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+import type { CartRow } from "@/entities/cart/types";
+
 import type { AppServices } from "@/app/services/appService";
 
 import type { AddToCartDTO, RemoveFromCartDTO } from "@/features/cart/dto";
-import type { CartRow } from "@/entities/cart/types";
 
 export const fetchCart = createAsyncThunk<readonly CartRow[], void, { extra: AppServices }>(
   "cart/fetchCart",
@@ -25,3 +26,9 @@ export const clearCart = createAsyncThunk<readonly CartRow[], void, { extra: App
   "cart/clearCart",
   async (_, { extra }) => extra.cart.clearCart(),
 );
+
+export const removeLineFromCart = createAsyncThunk<
+  readonly CartRow[],
+  RemoveFromCartDTO,
+  { extra: AppServices }
+>("cart/removeLineFromCart", async (payload, { extra }) => extra.cart.removeLine(payload));
