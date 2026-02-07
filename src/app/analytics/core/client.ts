@@ -1,24 +1,28 @@
 import type { AnalyticsEvent, AnalyticsSDK } from "@/app/analytics/types";
-
 import { getSessionId, getUTM } from "@/app/analytics/lib";
 
 const ANALYTICS_CURRENCY = "UAH" as const;
 
-let instance: ReturnType<typeof createClient> | null = null;
+let instance: AnalyticsSDK | null = null;
 
-export function client() {
-  if (!instance) instance = createClient();
+export function client(): AnalyticsSDK {
+  if (!instance) {
+    instance = createClient();
+  }
   return instance;
 }
 
 function createClient(): AnalyticsSDK {
+  const session_id = getSessionId();
+  const utm = getUTM();
+
   function send(event: AnalyticsEvent) {
     const enriched = {
       ...event,
-      currency: ANALYTICS_CURRENCY,
-      session_id: getSessionId(),
-      utm: getUTM(),
       ts: Date.now(),
+      currency: ANALYTICS_CURRENCY,
+      session_id,
+      utm,
     };
 
     const hasValue = "value" in enriched;
@@ -35,18 +39,23 @@ function createClient(): AnalyticsSDK {
       currency: enriched.currency,
     });
 
-    if (import.meta.env.DEV) console.log("📊 ANALYTICS", enriched);
+    if (import.meta.env.DEV) {
+      console.log("ANALYTICS", enriched);
+    }
   }
 
   return {
     track: send,
 
-    page(path) {
+    page(path: string) {
       send({ type: "page_view", path });
     },
 
-    error(error) {
-      send({ type: "error", error });
+    error(error: unknown) {
+      send({
+        type: "error",
+        error,
+      });
     },
   };
 }
