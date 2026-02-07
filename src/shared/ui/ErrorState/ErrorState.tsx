@@ -1,5 +1,5 @@
+import { ERROR_STATE_TEXT } from "./config";
 import { Wrapper, Title, Text, ActionButton } from "./ErrorState.styled";
-import { ERROR_STATE_TEXT } from "./ErrorState.text";
 
 type Props = {
   title?: string;

@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-import type { SkeletonProps } from "./skeleton.types";
+import type { SkeletonProps } from "./types/Skeleton.types";
 
 const shimmer = keyframes`
   from { background-position: -200px 0; }

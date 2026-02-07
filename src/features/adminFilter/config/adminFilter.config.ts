@@ -1,4 +1,4 @@
-import type { AdminFilterList } from "@/features/adminFilter/types";
+import type { AdminFilterList } from "@/entities/user/types";
 
 export const PRODUCT_FILTERS: AdminFilterList = [
   {

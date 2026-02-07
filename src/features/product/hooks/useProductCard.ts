@@ -1,13 +1,15 @@
 import { useCallback, useMemo, useRef, useState } from "react";
-import type { ProductPreview, ProductVolumeOption } from "@/entities/product/types";
 
 import { useAppDispatch } from "@/app/store/hooks";
+
+import type { ProductPreview, ProductVolumeOption } from "@/entities/product/types";
+
+import { USE_PRODUCT_CARD_TEXT } from "@/features/product/config";
 import { openCart } from "@/features/cart/model";
 import { useCartActions } from "@/features/cart/hooks/useCartActions";
 
 import { useToast } from "@/shared/ui/Toast/hooks";
 import { animateFlyToCart } from "@/shared/lib/animation";
-import { USE_PRODUCT_CARD_TEXT } from "@/features/product/config";
 
 export function useProductCard(product: ProductPreview) {
   const dispatch = useAppDispatch();

@@ -1,4 +1,5 @@
 import type { Category, CategoryNode } from "@/entities/category/types";
+
 import type { ID } from "@/shared/types/primitives";
 
 export function buildCategoryTree(

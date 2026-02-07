@@ -2,6 +2,10 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 
+import { buildSmartPlaceholders } from "@/features/search/services";
+import { selectFullProducts } from "@/features/product/model";
+import { searchProducts } from "@/features/search/model";
+import { SEARCH_CONFIG } from "@/features/search/config";
 import {
   closeSearch,
   setSearchQuery,
@@ -10,11 +14,6 @@ import {
   selectSearchResults,
   selectSearchStatus,
 } from "@/features/search/model";
-import { buildSmartPlaceholders } from "@/features/search/services";
-import { selectFullProducts } from "@/features/product/model";
-import { searchProducts } from "@/features/search/model";
-
-import { SEARCH_CONFIG } from "@/features/search/config";
 
 import { useTypingPlaceholder } from "./useTypingPlaceholder";
 

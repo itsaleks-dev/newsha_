@@ -1,4 +1,5 @@
 import type { RatingStarsProps } from "@/shared/ui/RatingStars/types";
+
 import { RatingWrapper, Stars, Star, Fill, RatingValue, RatingCount } from "./RatingStars.styled";
 
 export function RatingStars({
@@ -14,7 +15,6 @@ export function RatingStars({
     <RatingWrapper aria-label={`Rating ${safeRating} of ${max} based on ${reviews} reviews`}>
       <Stars aria-hidden="true">
         {Array.from({ length: max }).map((_, i) => {
-          // сколько заливки у текущей звезды
           const fillPercent = Math.min(Math.max(safeRating - i, 0), 1) * 100;
 
           return (

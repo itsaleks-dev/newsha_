@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { AdminFilterList } from "@/features/adminFilter/types";
+import type { AdminFilterList } from "@/entities/user/types";
 
 export function useAdminFilters(initial: AdminFilterList) {
   const [filters, setFilters] = useState(initial);

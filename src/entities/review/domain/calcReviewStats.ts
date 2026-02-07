@@ -1,4 +1,4 @@
-import type { Review, ReviewStats, ReviewRating } from "@/entities/review/types/review.types";
+import type { Review, ReviewStats, ReviewRating } from "@/entities/review/types";
 
 const EMPTY_STATS: ReviewStats = {
   average: 0,

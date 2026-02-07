@@ -1,5 +1,4 @@
 import type { RecentlyViewedItem } from "@/features/recentlyViewed/types";
-
 import {
   loadRecentlyViewed,
   saveRecentlyViewed,

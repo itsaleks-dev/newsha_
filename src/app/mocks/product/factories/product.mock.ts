@@ -1,8 +1,9 @@
 import type { Product, ProductGallery, ProductVolumeOption } from "@/entities/product/types";
 import { ProductVolume } from "@/entities/product/types";
+import { generateVolumeLabel, enrichProductWithAutoTags } from "@/entities/product/domain";
+
 import type { ReviewStats } from "@/entities/review/types";
 import type { CatalogCategorySlug } from "@/entities/category/config";
-import { generateVolumeLabel, enrichProductWithAutoTags } from "@/entities/product/domain";
 
 import { MOCK_PRODUCT_TEXT } from "@/app/mocks/product/config";
 

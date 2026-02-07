@@ -2,8 +2,7 @@ import { useTheme } from "styled-components";
 
 import type { ThemeType, LogoVariant } from "@/shared/theme";
 
-import { LOGO_TEXT as T } from "@/widgets/Header/components/Logo/config";
-
+import { LOGO_TEXT as T } from "./config";
 import { LogoImage, Tagline, LogoRoot } from "./Logo.styled";
 
 interface LogoProps {

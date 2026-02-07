@@ -3,10 +3,10 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { AuthSession } from "@/features/auth/domain";
 import { AUTH_STORAGE_KEY, AUTH_TEXT } from "@/features/auth/config";
 
+import type { AuthToken, ID } from "@/shared/types/primitives";
+
 import { restoreSession, login, register, logout } from "./auth.thunks";
 import type { StoreUser } from "./auth.store.types";
-
-import type { AuthToken, ID } from "@/shared/types/primitives";
 
 export type AuthStatus = "idle" | "loading" | "succeeded" | "failed";
 

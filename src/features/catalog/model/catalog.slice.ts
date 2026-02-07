@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import type { StoreProduct, StoreProductPreview } from "@/entities/product/types";
+
 import type { PaginationMeta } from "@/shared/lib/pagination/types";
 
 import {

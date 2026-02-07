@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+
 import type { Category } from "@/entities/category/types";
 
 import type { AppThunkApiConfig } from "@/app/store/store";

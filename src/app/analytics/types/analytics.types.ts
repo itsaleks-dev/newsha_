@@ -1,3 +1,5 @@
+import type { ID, Money } from "@/shared/types/primitives";
+
 export type Currency = "UAH";
 
 export type PageLeaveEvent = {
@@ -50,3 +52,16 @@ export type AnalyticsEvent =
     }
   | PageLeaveEvent
   | TimeOnPageEvent;
+
+export type Params = {
+  productId: ID;
+  price: Money;
+  qty: number;
+  value: Money;
+};
+
+export type UTM = {
+  source?: string;
+  medium?: string;
+  campaign?: string;
+};

@@ -5,7 +5,6 @@ import { prefetch } from "@/shared/lib/cache";
 import { Logo } from "@/widgets/Header/components/Logo";
 
 import { HOME_PRODUCTS_PREFETCH_KEY } from "./config";
-
 import { Root } from "./LogoLink.styled";
 
 const prefetchHomeProducts = () =>

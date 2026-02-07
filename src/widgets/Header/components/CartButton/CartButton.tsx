@@ -1,4 +1,5 @@
 import { useAppDispatch } from "@/app/store/hooks";
+
 import { openCart } from "@/features/cart/model";
 
 import { IconButton } from "@/shared/ui/IconButton";

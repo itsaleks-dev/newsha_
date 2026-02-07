@@ -2,10 +2,10 @@ import { useCallback } from "react";
 
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 
-import { asID } from "@/shared/types/primitives";
-
 import { selectIsAuthenticated, toggleWishlist, openLogin } from "@/features/auth/model";
 import { selectWishlist } from "@/features/wishlist/model";
+
+import { asID } from "@/shared/types/primitives";
 
 export function useWishlist() {
   const dispatch = useAppDispatch();

@@ -2,7 +2,7 @@ import type { RecentlyViewedItem } from "@/features/recentlyViewed/types";
 
 import { getFromStorage, saveToStorage, removeFromStorage } from "@/shared/lib/storage";
 
-const STORAGE_KEY = "recentlyViewed";
+const STORAGE_KEY = "recentlyViewed_newsha";
 
 export function loadRecentlyViewed(): RecentlyViewedItem[] {
   return getFromStorage<RecentlyViewedItem[]>(STORAGE_KEY, []);

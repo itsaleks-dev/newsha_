@@ -2,3 +2,4 @@ export { AppRouter } from "./appRouter";
 export { publicRoutes } from "./publicRoutes";
 export { privateRoutes } from "./privateRoutes";
 export { adminRoutes } from "./adminRoutes";
+export { errorRoutes } from "./errorRoutes";

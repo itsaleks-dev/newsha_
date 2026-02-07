@@ -1,4 +1,4 @@
-import type { Slug } from "../types/primitives";
+import type { Slug } from "@/shared/types/primitives";
 
 export const ROUTES = {
   HOME: "/",

@@ -1,7 +1,8 @@
 import * as Yup from "yup";
-import type { FormSchema } from "@/shared/ui/Form/schema";
 
 import { REGISTER_FORM_TEXT as TEXT, REGISTER_VALIDATION_TEXT as T } from "@/features/auth/config";
+
+import type { FormSchema } from "@/shared/ui/Form/schema";
 
 export const registerForm: FormSchema<{
   name: string;

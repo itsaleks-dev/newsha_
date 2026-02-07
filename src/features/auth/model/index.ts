@@ -1,6 +1,6 @@
 export { authReducer, setAuth, toggleWishlist } from "./auth.slice";
 
-export { openLogin, openRegister, closeAuthModal } from "./authUI.slice";
+export { openLogin, openRegister, closeAuthModal, authUIReducer } from "./authUI.slice";
 
 export {
   selectAuthUser,

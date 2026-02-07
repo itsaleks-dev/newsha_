@@ -1,5 +1,5 @@
 import { Wrapper, Title, Text, ReloadButton } from "./ErrorFallback.styled";
-import { ERROR_FALLBACK_TEXT } from "./ErrorFallback.text";
+import { ERROR_FALLBACK_TEXT } from "./config/ErrorFallback.text";
 
 export function ErrorFallback() {
   return (

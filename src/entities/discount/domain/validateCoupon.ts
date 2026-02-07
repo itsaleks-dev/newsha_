@@ -1,4 +1,5 @@
 import type { Coupon } from "@/entities/discount/types";
+
 import type { Money, ISODate } from "@/shared/types/primitives";
 
 export type CouponValidationResult =

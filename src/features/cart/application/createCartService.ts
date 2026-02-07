@@ -1,3 +1,4 @@
+import type { AddToCartDTO, RemoveFromCartDTO } from "@/features/cart/dto";
 import { CartApiAdapter } from "@/features/fakeBackend/user/cart/cartApiAdapter";
 import {
   loadCartUseCase,
@@ -5,7 +6,6 @@ import {
   removeFromCartUseCase,
   clearCartUseCase,
 } from "@/features/cart/useCases";
-import type { AddToCartDTO, RemoveFromCartDTO } from "@/features/cart/dto";
 
 export const createCartService = () => {
   const repository = new CartApiAdapter();

@@ -2,7 +2,6 @@ import { ensureLogged } from "@/entities/user/guards";
 
 import { productsApi } from "@/features/fakeBackend/product/api";
 import { PRODUCTS_API_TEXT } from "@/features/fakeBackend/product/config";
-
 import type { ApiState } from "@/features/fakeBackend/user/core";
 import { clone } from "@/features/fakeBackend/user/core";
 

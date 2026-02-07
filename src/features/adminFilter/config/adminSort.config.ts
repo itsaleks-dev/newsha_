@@ -1,4 +1,4 @@
-import type { AdminSortOption } from "@/features/adminFilter/types";
+import type { AdminSortOption } from "@/entities/user/types";
 
 export const SORT_OPTIONS: AdminSortOption[] = [
   { value: "createdAt", label: "Новіші", direction: "desc" },

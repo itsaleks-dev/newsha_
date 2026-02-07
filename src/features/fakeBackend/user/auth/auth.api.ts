@@ -1,8 +1,8 @@
 import type { User, CurrentUser, UserContext } from "@/entities/user/types";
 import { USER_ROLES } from "@/entities/user/types";
 
-import type { ApiState } from "@/features/fakeBackend/user/core/";
-import { clone, createUserId, hashPassword, toPublicUser } from "@/features/fakeBackend/user/core/";
+import type { ApiState } from "@/features/fakeBackend/user/core";
+import { clone, createUserId, hashPassword, toPublicUser } from "@/features/fakeBackend/user/core";
 import { USERS_API_TEXT } from "@/features/fakeBackend/user/config";
 
 import { wait } from "@/shared/lib/async";

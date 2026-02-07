@@ -1,4 +1,4 @@
-import { EMPTY_STATE_TEXT } from "./EmptyState.text";
+import { EMPTY_STATE_TEXT } from "./config";
 
 import { Wrapper, Title, Text } from "./EmptyState.styled";
 

@@ -1,9 +1,11 @@
 import { createSelector } from "@reduxjs/toolkit";
 
+import type { RootState } from "@/app/store/store";
+
 import { USER_ROLES } from "@/entities/user/types";
+
 import type { ID } from "@/shared/types/primitives";
 
-import type { RootState } from "@/app/store/store";
 import type { StoreUser } from "./auth.store.types";
 
 export const selectAuthState = (state: RootState) => state.auth;

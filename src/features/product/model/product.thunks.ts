@@ -4,7 +4,6 @@ import type { Product, ProductPreview } from "@/entities/product/types";
 
 import { DEFAULT_USERS } from "@/features/fakeBackend/user/data";
 import { productsApi } from "@/features/fakeBackend/product/api";
-
 import { PRODUCTS_API_TEXT } from "@/features/product/config";
 
 import type { PaginationQuery, PaginatedResponse } from "@/shared/lib/pagination/types";

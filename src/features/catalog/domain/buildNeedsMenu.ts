@@ -1,7 +1,6 @@
 import type { Category } from "@/entities/category/types";
-import type { Slug } from "@/shared/types/primitives";
 
-const NEEDS_ROOT_SLUG: Slug = "needs" as Slug;
+import { NEEDS_ROOT_SLUG } from "@/features/catalog/config";
 
 export function buildNeedsMenu(categories: readonly Category[]) {
   const root = categories.find((c) => c.slug === NEEDS_ROOT_SLUG);

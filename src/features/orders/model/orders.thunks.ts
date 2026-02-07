@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import type { Order, OrderItem, DeliveryInfo, OrderStatus } from "@/entities/order/types";
-
 import type { AppServices } from "@/app/services/appService";
+
+import type { Order, OrderItem, DeliveryInfo, OrderStatus } from "@/entities/order/types";
 
 export const createOrder = createAsyncThunk<
   Order,

@@ -1,5 +1,6 @@
-import type { ID } from "@/shared/types/primitives";
 import type { ProductVolume } from "@/entities/product/types";
+
+import type { ID } from "@/shared/types/primitives";
 
 export interface AddToCartDTO {
   productId: ID;

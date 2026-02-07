@@ -1,9 +1,11 @@
 import { TEXT } from "@/shared/text";
 
-const DEFAULT_LANGUAGE = "ua";
-
 export const CONSTANTS = {
-  DEFAULT_LANGUAGE,
+  DEFAULT_LANGUAGE: "ua",
+
+  CURRENCY: {
+    DISPLAY: "грн",
+  },
 
   PAGINATION: {
     PRODUCTS_PER_PAGE: 20,

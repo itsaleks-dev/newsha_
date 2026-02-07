@@ -1,7 +1,6 @@
 import type { ProductPreview } from "@/entities/product/types";
 
 import { ProductCardContainer } from "@/features/product/ui/ProductCard";
-
 import { SEARCH_RESULTS_LIST_TEXT } from "@/features/search/ui/SearchResultsList/config";
 
 import { Grid, EmptyState } from "./SearchResultsList.styled";

@@ -1,16 +1,14 @@
 import type { CartItem } from "@/entities/cart/types";
 import { mergeCarts } from "@/entities/cart/domain";
 import { mapApiCartToStore, mapStoreCartToApi } from "@/entities/cart/infrastructure";
-
 import { ensureLogged } from "@/entities/user/guards";
 import { USER_ROLES } from "@/entities/user/types";
 
 import { productsApi } from "@/features/fakeBackend/product/api";
 import { PRODUCTS_API_TEXT } from "@/features/fakeBackend/product/config";
-
 import { USERS_API_TEXT } from "@/features/fakeBackend/user/config";
-import type { ApiState } from "@/features/fakeBackend/user/core/";
-import { clone } from "@/features/fakeBackend/user/core/";
+import type { ApiState } from "@/features/fakeBackend/user/core";
+import { clone } from "@/features/fakeBackend/user/core";
 
 import { wait } from "@/shared/lib/async";
 import type { ID } from "@/shared/types/primitives";

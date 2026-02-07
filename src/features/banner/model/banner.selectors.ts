@@ -1,5 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
+
 import type { RootState } from "@/app/store/store";
+
 import type { BannerPlacement } from "@/features/banner/types";
 
 export const selectBanners = (state: RootState) => state.banners.items;

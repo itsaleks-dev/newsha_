@@ -1,5 +1,4 @@
 import type { Product } from "@/entities/product/types";
-
 import { enrichProductWithAutoTags } from "@/entities/product/domain";
 
 export function autoFillNeedsAndCondition(product: Product): Product {

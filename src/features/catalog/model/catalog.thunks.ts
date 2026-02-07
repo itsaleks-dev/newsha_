@@ -1,16 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+import type { AppThunkApiConfig } from "@/app/store/store";
+
 import type {
   Product,
   ProductPreview,
   StoreProduct,
   StoreProductPreview,
 } from "@/entities/product/types";
+
+import { productsApi } from "@/features/fakeBackend/product/api";
+
 import type { PaginationQuery, PaginatedResponse } from "@/shared/lib/pagination/types";
 import type { ID, Slug } from "@/shared/types/primitives";
-
-import type { AppThunkApiConfig } from "@/app/store/store";
-import { productsApi } from "@/features/fakeBackend/product/api";
 
 function previewToStore(p: ProductPreview): StoreProductPreview {
   const { volumes, tags, needs, condition, ...rest } = p;

@@ -1,27 +1,18 @@
-const TOKEN_KEY = "newsha_access_token";
+import { STORAGE_KEYS } from "@/shared/constants/storage";
+import { getFromStorage, saveToStorage, removeFromStorage } from "@/shared/lib/storage";
+
+const TOKEN_KEY = STORAGE_KEYS.TOKEN;
 
 export const tokenStorage = {
   get(): string | null {
-    try {
-      return localStorage.getItem(TOKEN_KEY);
-    } catch {
-      return null;
-    }
+    return getFromStorage<string | null>(TOKEN_KEY, null);
   },
 
   set(token: string): void {
-    try {
-      localStorage.setItem(TOKEN_KEY, token);
-    } catch {
-      // ignore
-    }
+    saveToStorage(TOKEN_KEY, token);
   },
 
   clear(): void {
-    try {
-      localStorage.removeItem(TOKEN_KEY);
-    } catch {
-      // ignore
-    }
+    removeFromStorage(TOKEN_KEY);
   },
 };

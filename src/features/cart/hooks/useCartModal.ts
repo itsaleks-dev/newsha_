@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 
 import { useAppDispatch } from "@/app/store/hooks";
+
 import { closeCart } from "@/features/cart/model";
 
 import { useEscapeClose } from "./useEscapeClose";

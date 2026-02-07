@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import type { Category } from "@/entities/category/types";
+
 import type { CategoryStatus } from "@/features/category/config";
 
 import { fetchCategories } from "./category.thunks";

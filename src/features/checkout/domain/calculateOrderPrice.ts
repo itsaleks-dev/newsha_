@@ -80,7 +80,6 @@ export function calculateOrderPriceDomain(
   }
 
   const discount = Math.min(Math.round(discountValue), subtotal as number) as Subtotal;
-
   const total = ((subtotal as number) - (discount as number)) as Subtotal;
 
   return {

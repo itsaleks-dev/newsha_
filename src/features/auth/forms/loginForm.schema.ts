@@ -1,8 +1,8 @@
 import * as Yup from "yup";
 
-import type { FormSchema } from "@/shared/ui/Form/schema";
-
 import { LOGIN_FORM_TEXT as TEXT, LOGIN_VALIDATION_TEXT as T } from "@/features/auth/config";
+
+import type { FormSchema } from "@/shared/ui/Form/schema";
 
 export const loginForm: FormSchema<{
   email: string;

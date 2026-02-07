@@ -2,16 +2,15 @@ import type { Order, OrderItem, DeliveryInfo, OrderStatus } from "@/entities/ord
 import { ORDER_STATUS } from "@/entities/order/types";
 import type { User } from "@/entities/user/types";
 import { USER_ROLES } from "@/entities/user/types";
-
-import { calcOrderTotal } from "@/entities/order/domain";
 import { ensureAdmin, ensureLogged, ensureAdminOrOwner } from "@/entities/user/guards";
+import { calcOrderTotal } from "@/entities/order/domain";
+
+import { getOrders, setOrders } from "@/features/fakeBackend/orders/data";
+import { generateOrderId } from "@/features/fakeBackend/orders/domain";
+import { ORDERS_API_TEXT } from "@/features/fakeBackend/orders/config";
 
 import { wait } from "@/shared/lib/async";
 import { asISODate } from "@/shared/types/primitives";
-
-import { getOrders, setOrders } from "../data/orders.store";
-import { generateOrderId } from "../domain/orderId";
-import { ORDERS_API_TEXT } from "../config/orders.text";
 
 export const ordersApi = {
   async createOrder(

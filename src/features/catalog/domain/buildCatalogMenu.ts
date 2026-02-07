@@ -1,4 +1,5 @@
 import type { Category } from "@/entities/category/types";
+
 import { CATALOG_SLUGS } from "./catalogSlugs";
 
 export function buildCatalogMenu(categories: readonly Category[]) {

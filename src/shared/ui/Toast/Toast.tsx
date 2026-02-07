@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import { subscribeToToasts } from "./domain";
 import type { Toast } from "@/shared/ui/Toast/types";
 
+import { subscribeToToasts } from "./domain";
 import { Stack, ToastItem, ToastDot } from "./Toast.styles";
 
 export function ToastContainer() {

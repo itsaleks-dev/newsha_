@@ -44,10 +44,10 @@ export class RealAuthRepository implements IAuthRepository {
   }
 
   async restoreSession(): Promise<AuthSession | null> {
-    return null; // позже real backend
+    return null;
   }
 
   async logout(): Promise<void> {
-    return; // позже real backend
+    return;
   }
 }

@@ -1,19 +1,17 @@
 import type { Category } from "@/entities/category/types";
-import type { User } from "@/entities/user/types";
-import type { ID } from "@/shared/types/primitives";
-
 import { slugifyCategory, ensureUniqueCategorySlug } from "@/entities/category/domain";
+import type { User } from "@/entities/user/types";
 import { ensureAdmin } from "@/entities/user/guards";
 
-import { wait } from "@/shared/lib/async";
-
+import { CATEGORIES_API_TEXT } from "@/features/fakeBackend/category/config";
 import {
   MAIN_CATEGORIES,
   NEEDS_CATEGORIES,
   CONDITION_CATEGORIES,
 } from "@/features/fakeBackend/category/data";
 
-import { CATEGORIES_API_TEXT } from "@/features/fakeBackend/category/config";
+import type { ID } from "@/shared/types/primitives";
+import { wait } from "@/shared/lib/async";
 
 let categories: Category[] = [...MAIN_CATEGORIES, ...NEEDS_CATEGORIES, ...CONDITION_CATEGORIES];
 

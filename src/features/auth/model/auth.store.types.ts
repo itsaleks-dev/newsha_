@@ -1,5 +1,6 @@
 import type { UserContext } from "@/entities/user/types";
 import type { CartItem } from "@/entities/cart/types";
+
 import type { ID } from "@/shared/types/primitives";
 
 export type StoreUser = UserContext & {
@@ -7,8 +8,8 @@ export type StoreUser = UserContext & {
   wishlist: ID[];
 };
 
-export const toStoreUser = (ctx: UserContext): StoreUser => ({
-  ...ctx,
-  cart: [...ctx.cart],
-  wishlist: [...ctx.wishlist],
+export const toStoreUser = (userContext: UserContext): StoreUser => ({
+  ...userContext,
+  cart: [...userContext.cart],
+  wishlist: [...userContext.wishlist],
 });

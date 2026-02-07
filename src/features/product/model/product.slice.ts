@@ -3,13 +3,13 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Product, ProductPreview } from "@/entities/product/types";
 import type { StoreProductPreview } from "@/entities/product/types";
 
-import type { ID } from "@/shared/types/primitives";
-
 import { productToPreview } from "@/features/fakeBackend/product/domain";
 import { toStoreProduct } from "@/features/product/adapters/toStoreProduct";
 import { toStorePreview } from "@/features/product/adapters/toStorePreview";
 import type { ProductState } from "@/features/product/model/product.state";
 import { PRODUCTS_API_TEXT } from "@/features/product/config";
+
+import type { ID } from "@/shared/types/primitives";
 
 import {
   fetchProducts,

@@ -1,4 +1,5 @@
 import type { SearchParams, SearchResult } from "@/features/search/entities";
+
 import type { SearchRepository } from "./SearchRepository";
 
 export class ApiSearchRepository implements SearchRepository {

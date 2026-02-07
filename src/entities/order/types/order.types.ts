@@ -1,5 +1,6 @@
-import type { ID, Money, Quantity, Subtotal, ISODate } from "@/shared/types/primitives";
 import type { ProductVolumeOption } from "@/entities/product/types";
+
+import type { ID, Money, Quantity, Subtotal, ISODate } from "@/shared/types/primitives";
 
 export const ORDER_STATUS = {
   Pending: "pending",

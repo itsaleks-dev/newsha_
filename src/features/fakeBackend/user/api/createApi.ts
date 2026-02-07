@@ -1,7 +1,6 @@
 import type { User } from "@/entities/user/types";
 
 import { DEFAULT_USERS } from "@/features/fakeBackend/user/data";
-
 import { createState, hashPassword } from "@/features/fakeBackend/user/core";
 import { createAuthApi } from "@/features/fakeBackend/user/auth/";
 import { createUsersApi } from "@/features/fakeBackend/user/users/";

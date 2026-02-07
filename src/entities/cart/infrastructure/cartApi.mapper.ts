@@ -1,4 +1,5 @@
 import type { CartItem, CartRow } from "@/entities/cart/types";
+
 import { calcSubtotal } from "@/shared/types/primitives";
 
 export function mapApiCartToStore(rows: readonly CartItem[]): readonly CartRow[] {

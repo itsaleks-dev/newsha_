@@ -1,6 +1,11 @@
-export type DisplayCurrency = "грн";
+import { CONSTANTS } from "@/shared/constants";
 
-export function formatPrice(value: number | string, currency: DisplayCurrency = "грн"): string {
+type DisplayCurrency = typeof CONSTANTS.CURRENCY.DISPLAY;
+
+export function formatPrice(
+  value: number | string,
+  currency: DisplayCurrency = CONSTANTS.CURRENCY.DISPLAY,
+): string {
   const num = typeof value === "string" ? Number(value.replace(",", ".")) : value;
 
   if (!Number.isFinite(num)) {

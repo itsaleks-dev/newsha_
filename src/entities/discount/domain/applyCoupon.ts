@@ -1,14 +1,21 @@
 import type { Coupon } from "@/entities/discount/types";
-import type { CartItem } from "@/entities/cart/types";
-import type { Money } from "@/shared/types/primitives";
+import type { CartRow } from "@/entities/cart/types";
+
+import type { Money, ID } from "@/shared/types/primitives";
 import { calcSubtotal, floorMoney } from "@/shared/types/primitives";
 
 import { calculateDiscount } from "./calculateDiscount";
 import { validateCoupon } from "./validateCoupon";
 
+type ProductMeta = {
+  productId: ID;
+  categoryId: ID;
+};
+
 export function applyCoupon(
-  cart: readonly CartItem[],
+  cart: readonly CartRow[],
   coupon: Coupon,
+  products: Record<ID, ProductMeta>,
 ):
   | { valid: false; reason: "expired" | "limit_reached" | "min_total_not_met" }
   | { valid: true; discount: Money; finalTotal: Money } {
@@ -24,7 +31,7 @@ export function applyCoupon(
     return validation;
   }
 
-  const discount = calculateDiscount(coupon, cart);
+  const discount = calculateDiscount(coupon, cart, products);
   const finalTotal = floorMoney(Math.max(0, (total as number) - (discount as number)));
 
   return {

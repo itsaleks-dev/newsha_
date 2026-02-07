@@ -1,13 +1,4 @@
-import type { AnalyticsSDK } from "@/app/analytics/types";
-
-import type { ID, Money } from "@/shared/types/primitives";
-
-type Params = {
-  productId: ID;
-  price: Money;
-  qty: number;
-  value: Money;
-};
+import type { AnalyticsSDK, Params } from "@/app/analytics/types";
 
 export function trackAddToCart(analytics: AnalyticsSDK, params: Params) {
   analytics.track({

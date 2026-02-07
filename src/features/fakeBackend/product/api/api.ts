@@ -1,17 +1,16 @@
 import type { User } from "@/entities/user/types";
-import type { Product, ProductPreview } from "@/entities/product/types";
-
 import { ensureAdmin } from "@/entities/user/guards";
-
-import { wait } from "@/shared/lib/async";
-import type { PaginationQuery, PaginatedResponse } from "@/shared/lib/pagination/types";
-import type { ID, Slug } from "@/shared/types/primitives";
-import { asID } from "@/shared/types/primitives";
+import type { Product, ProductPreview } from "@/entities/product/types";
 
 import { ALL_PRODUCTS } from "@/features/fakeBackend/product/data";
 import { autoFillNeedsAndCondition } from "@/features/fakeBackend/product/domain";
 import { productToPreview } from "@/features/fakeBackend/product/domain";
 import { PRODUCTS_API_TEXT } from "@/features/fakeBackend/product/config";
+
+import { wait } from "@/shared/lib/async";
+import type { PaginationQuery, PaginatedResponse } from "@/shared/lib/pagination/types";
+import type { ID, Slug } from "@/shared/types/primitives";
+import { asID } from "@/shared/types/primitives";
 
 function applyPagination<T>(items: readonly T[], query?: PaginationQuery): PaginatedResponse<T> {
   const page = query?.page && query.page > 0 ? query.page : 1;

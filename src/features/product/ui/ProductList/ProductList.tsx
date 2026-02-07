@@ -2,8 +2,8 @@ import type { ProductPreview } from "@/entities/product/types";
 
 import { ProductCardContainer } from "@/features/product/ui/ProductCard/ProductCard.container";
 import { useProductList } from "@/features/product/hooks/useProductList";
-import { PRODUCT_LIST_TEXT } from "./config";
 
+import { PRODUCT_LIST_TEXT } from "./config";
 import * as S from "./ProductList.styled";
 
 type Props = {

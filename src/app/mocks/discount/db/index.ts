@@ -1,1 +1,1 @@
-export { couponsDB } from "./coupons.db";
+export { getCouponsDB, setCouponsDB } from "./coupons.db";

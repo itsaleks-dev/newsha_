@@ -1,7 +1,6 @@
 import { useFormikContext } from "formik";
 
 import type { SubmitButtonProps } from "@/shared/ui/Button/types";
-
 import { BaseButton } from "@/shared/ui/Button/BaseButton";
 
 export function SubmitButton({ children }: SubmitButtonProps) {

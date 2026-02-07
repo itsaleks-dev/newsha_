@@ -1,16 +1,9 @@
 import type { Category } from "@/entities/category/types";
+import { slugifyCategory } from "@/entities/category/domain";
 
 import { asID, asSlug } from "@/shared/types/primitives";
 
 let idCounter = 1;
-
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .replace(/\s+/g, "-");
-}
 
 export function mockCategory(overrides: Partial<Category> = {}): Category {
   const rawId = `cat-${idCounter++}`;
@@ -19,7 +12,7 @@ export function mockCategory(overrides: Partial<Category> = {}): Category {
   return {
     id: overrides.id ?? asID(rawId),
     name,
-    slug: overrides.slug ?? asSlug(slugify(name)),
+    slug: overrides.slug ?? asSlug(slugifyCategory(name)),
     isActive: overrides.isActive ?? true,
     order: overrides.order ?? idCounter,
     parentId: overrides.parentId ?? null,

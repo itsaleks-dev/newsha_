@@ -1,10 +1,9 @@
 import type { CartRow, CartOwnerId } from "@/entities/cart/types";
-
-const STORAGE_KEY = "newsha_cart";
+import { STORAGE_KEYS } from "@/shared/constants/storage";
 
 function load(): Record<string, CartRow[]> {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(STORAGE_KEYS.CART);
     return raw ? JSON.parse(raw) : { guest: [] };
   } catch {
     return { guest: [] };
@@ -12,7 +11,7 @@ function load(): Record<string, CartRow[]> {
 }
 
 function save(db: Record<string, CartRow[]>) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+  localStorage.setItem(STORAGE_KEYS.CART, JSON.stringify(db));
 }
 
 let cartDB: Record<string, CartRow[]> = load();

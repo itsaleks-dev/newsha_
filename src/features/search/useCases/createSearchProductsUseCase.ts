@@ -1,8 +1,7 @@
-import type { SearchParams, SearchResult } from "@/features/search/entities";
-import type { SearchRepository } from "@/features/search/repositories";
-
 import { analyticsApi } from "@/app/analytics/core";
 
+import type { SearchParams, SearchResult } from "@/features/search/entities";
+import type { SearchRepository } from "@/features/search/repositories";
 import { isMeaningfulSearch } from "@/features/search/application";
 
 export type SearchProductsUseCase = (params: SearchParams) => Promise<SearchResult[]>;

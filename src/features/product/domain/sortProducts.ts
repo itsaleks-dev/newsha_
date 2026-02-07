@@ -1,7 +1,6 @@
 import type { ProductPreview } from "@/entities/product/types";
 
 import { getEffectiveProductPrice } from "@/features/product/lib";
-
 import type { ProductSort } from "@/features/product/config";
 
 export function sortProducts(products: ProductPreview[], sort: ProductSort): ProductPreview[] {

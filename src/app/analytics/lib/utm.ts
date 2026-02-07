@@ -1,8 +1,4 @@
-type UTM = {
-  source?: string;
-  medium?: string;
-  campaign?: string;
-};
+import type { UTM } from "@/app/analytics/types";
 
 let cached: UTM | undefined;
 

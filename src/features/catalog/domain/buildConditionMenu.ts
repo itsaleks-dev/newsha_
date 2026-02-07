@@ -1,7 +1,6 @@
 import type { Category } from "@/entities/category/types";
-import type { Slug } from "@/shared/types/primitives";
 
-const CONDITION_ROOT_SLUG: Slug = "condition" as Slug;
+import { CONDITION_ROOT_SLUG } from "@/features/catalog/config";
 
 export function buildConditionMenu(categories: readonly Category[]) {
   const root = categories.find((c) => c.slug === CONDITION_ROOT_SLUG);

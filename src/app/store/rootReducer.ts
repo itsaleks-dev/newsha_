@@ -2,19 +2,19 @@ import { combineReducers } from "@reduxjs/toolkit";
 
 import { appReducer } from "../model/app.slice";
 
-import { authReducer } from "@/features/auth/model/auth.slice";
-import { authUIReducer } from "@/features/auth/model/authUI.slice";
+import { authReducer } from "@/features/auth/model";
+import { authUIReducer } from "@/features/auth/model";
 
-import { productReducer } from "@/features/product/model/product.slice";
-import { categoryReducer } from "@/features/category/model/category.slice";
-import { catalogReducer } from "@/features/catalog/model/catalog.slice";
-import { bannersReducer } from "@/features/banner/model/banner.slice";
+import { productReducer } from "@/features/product/model";
+import { categoryReducer } from "@/features/category/model";
+import { catalogReducer } from "@/features/catalog/model";
+import { bannersReducer } from "@/features/banner/model";
 
-import { cartReducer } from "@/features/cart/model/cart.slice";
+import { cartReducer } from "@/features/cart/model";
 import { wishlistReducer } from "@/features/wishlist/model";
-import { searchReducer } from "@/features/search/model/search.slice";
+import { searchReducer } from "@/features/search/model";
 
-import { cartUIReducer } from "@/features/cart/model/cartUI.slice";
+import { cartUIReducer } from "@/features/cart/model";
 import { megaMenuReducer } from "@/features/navigation/model";
 import { burgerUIReducer } from "@/features/burgerUI/model";
 import { consultationUIReducer } from "@/features/consultationUI/model";

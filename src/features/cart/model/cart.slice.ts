@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import type { CartRow } from "@/entities/cart/types";
 import { getCartDB } from "@/app/mocks/cart/db";
+
+import type { CartRow } from "@/entities/cart/types";
 
 import { fetchCart, addToCart, removeFromCart, clearCart, removeLineFromCart } from "./cart.thunks";
 

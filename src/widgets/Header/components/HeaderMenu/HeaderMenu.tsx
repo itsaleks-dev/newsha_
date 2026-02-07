@@ -4,7 +4,6 @@ import { openMegaMenu, closeMegaMenu } from "@/features/navigation/model";
 import type { MegaMenuKey } from "@/features/navigation/model";
 
 import { HEADER_MENU_TEXT } from "./config";
-
 import { Nav, NavItem } from "./HeaderMenu.styled";
 
 export function HeaderMenu() {
