@@ -1,5 +1,5 @@
 export const SEARCH_PAGE_TEXT = {
   TITLE_EMPTY: "Пошук",
-  TITLE_RESULTS: (q: string) => `Результати пошуку: “${q}”`,
-  MIN_LENGTH: (n: number) => `Введіть мінімум ${n} символи для пошуку`,
+  TITLE_RESULTS: (query: string) => `Результати пошуку: “${query}”`,
+  MIN_LENGTH: (min: number) => `Введіть мінімум ${min} символи для пошуку`,
 } as const;

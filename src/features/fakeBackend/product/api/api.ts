@@ -59,11 +59,17 @@ export const productsApi = {
   async searchProducts(query: string, limit = 10): Promise<ProductPreview[]> {
     await wait();
 
-    const trimmed = query.trim().toLowerCase();
-    if (!trimmed) return [];
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
 
     return products
-      .filter((p) => p.isActive && p.name.toLowerCase().includes(trimmed))
+      .filter((p) => {
+        if (!p.isActive) return false;
+
+        return [p.name, p.nameEn, p.nameUa, p.slug, ...(p.tags ?? [])]
+          .filter(Boolean)
+          .some((field) => field.toLowerCase().includes(q));
+      })
       .slice(0, limit)
       .map(productToPreview);
   },

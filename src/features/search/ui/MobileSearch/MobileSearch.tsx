@@ -1,20 +1,24 @@
-import { useAppSelector } from "@/app/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 
-import { selectSearchQuery } from "@/features/search/model";
-import { useTypingPlaceholder } from "@/features/search/hooks";
+import { openSearch, selectIsSearchOpen } from "@/features/search/model";
 import { SearchInput } from "@/features/search/ui/SearchInput";
 
-import { SEARCH_PLACEHOLDERS } from "./config";
 import { MobileSearchWrapper } from "./MobileSearch.styled";
 
 export function MobileSearch() {
-  const query = useAppSelector(selectSearchQuery);
+  const dispatch = useAppDispatch();
+  const isOpen = useAppSelector(selectIsSearchOpen);
 
-  const typingPlaceholder = useTypingPlaceholder(SEARCH_PLACEHOLDERS, query.length === 0);
+  if (isOpen) return null;
 
   return (
     <MobileSearchWrapper>
-      <SearchInput placeholder={typingPlaceholder} />
+      <SearchInput
+        value=""
+        placeholder="Пошук"
+        onFocus={() => dispatch(openSearch())}
+        onChange={() => {}}
+      />
     </MobileSearchWrapper>
   );
 }

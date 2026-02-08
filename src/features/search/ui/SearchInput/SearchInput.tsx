@@ -1,24 +1,23 @@
-import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
-
-import { selectSearchQuery, setSearchQuery } from "@/features/search/model";
+import React from "react";
 
 import { Input } from "./SearchInput.styled";
 
 interface Props {
+  value: string;
   placeholder?: string;
   autoFocus?: boolean;
+  onChange: (value: string) => void;
+  onFocus?: () => void;
 }
 
-export function SearchInput({ placeholder, autoFocus }: Props) {
-  const dispatch = useAppDispatch();
-  const query = useAppSelector(selectSearchQuery);
-
+export function SearchInput({ value, placeholder, autoFocus, onChange, onFocus }: Props) {
   return (
     <Input
-      value={query}
-      onChange={(e) => dispatch(setSearchQuery(e.target.value))}
+      value={value}
       placeholder={placeholder}
       autoFocus={autoFocus}
+      onFocus={onFocus}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
     />
   );
 }

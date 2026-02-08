@@ -14,23 +14,27 @@ export async function localSearchEngine(
 
   const results: SearchResult[] = [];
 
-  for (const p of products) {
-    if (!matchesTextQuery(p, q)) continue;
+  for (const product of products) {
+    if (!matchesTextQuery(product, q)) continue;
 
-    for (const v of p.volumes ?? []) {
+    const image =
+      product.gallery.find((g) => g.type === "image" && g.isPrimary)?.url ??
+      product.gallery.find((g) => g.type === "image")?.url ??
+      "";
+
+    for (const volume of product.volumes ?? []) {
       results.push({
-        id: `${p.id}-${v.value}`,
-        productId: p.id,
-        name: p.name,
-        slug: p.slug,
-        image:
-          p.gallery.find((g) => g.type === "image" && g.isPrimary)?.url ??
-          p.gallery.find((g) => g.type === "image")?.url ??
-          "",
-        volume: v,
-        price: v.price,
-        isInStock: v.inStock,
-        ...(v.oldPrice !== undefined ? { oldPrice: v.oldPrice } : {}),
+        id: `${product.id}-${volume.value}`,
+        productId: product.id,
+        slug: product.slug,
+        nameEn: product.nameEn,
+        nameUa: product.nameUa,
+        image,
+        volume,
+        price: volume.price,
+        isInStock: volume.inStock,
+
+        ...(volume.oldPrice !== undefined ? { oldPrice: volume.oldPrice } : {}),
       });
     }
   }

@@ -6,7 +6,8 @@ export type SearchVariationResult = {
   id: string;
   productId: ID;
   slug: Slug;
-  name: string;
+  nameEn: string;
+  nameUa: string;
   image: string;
   volume: ProductVolumeOption;
   price: Money;

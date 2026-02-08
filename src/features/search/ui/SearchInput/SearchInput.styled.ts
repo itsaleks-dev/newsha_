@@ -10,7 +10,9 @@ export const Input = styled.input`
   outline: none;
 
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 
   background: #fff;
   color: #000;

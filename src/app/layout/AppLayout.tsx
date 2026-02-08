@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 
 import { selectCategoriesStatus, fetchCategories } from "@/features/category/model";
 import { CartModal } from "@/features/cart/ui/CartModal";
+import { SearchOverlay } from "@/features/search/ui/SearchOverlay";
 
 import { PageContainer } from "@/shared/layout/PageContainer";
 import { useBreadcrumbs } from "../navigation/hooks";
@@ -38,6 +39,7 @@ export function AppLayout() {
         <Footer />
       </Content>
 
+      <SearchOverlay />
       <CartModal />
     </LayoutWrapper>
   );

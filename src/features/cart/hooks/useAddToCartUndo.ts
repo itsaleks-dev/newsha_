@@ -4,7 +4,7 @@ import type { ProductVolume } from "@/entities/product/types";
 
 import { useAppDispatch } from "@/app/store/hooks";
 
-import { addToCart, removeFromCart } from "@/features/cart/model";
+import { addToCart } from "@/features/cart/model";
 
 import type { ID } from "@/shared/types/primitives";
 
@@ -28,42 +28,36 @@ export function useAddToCartUndo({ productId, categoryId, volume }: Params, opti
   const start = () => {
     if (state === "pending") return;
 
-    dispatch(
-      addToCart({
-        productId,
-        categoryId,
-        volume,
-        qty: 1,
-      }),
-    );
-
     setState("pending");
 
     timerRef.current = window.setTimeout(() => {
+      dispatch(
+        addToCart({
+          productId,
+          categoryId,
+          volume,
+          qty: 1,
+        }),
+      );
+
       setState("idle");
       timerRef.current = null;
     }, timeout);
   };
 
   const cancel = () => {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-      timerRef.current = null;
-    }
+    if (!timerRef.current) return;
 
-    dispatch(
-      removeFromCart({
-        productId,
-        volume,
-      }),
-    );
-
+    clearTimeout(timerRef.current);
+    timerRef.current = null;
     setState("idle");
   };
 
   useEffect(() => {
     return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
     };
   }, []);
 

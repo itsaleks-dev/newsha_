@@ -3,10 +3,11 @@ import { configureStore } from "@reduxjs/toolkit";
 import { initializeApp } from "@/app/bootstrap";
 import { createServices, type AppServices } from "@/app/services/appService";
 import { reduxErrorMiddleware } from "@/app/errors/middleware";
+import { selectFullProducts } from "@/features/product/model";
 
 import { rootReducer } from "./rootReducer";
 
-export const services = createServices();
+export const services = createServices(() => selectFullProducts(store.getState()) ?? []);
 
 export const store = configureStore({
   reducer: rootReducer,
