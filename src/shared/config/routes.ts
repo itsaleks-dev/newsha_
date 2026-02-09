@@ -25,4 +25,6 @@ export const ROUTES = {
   RETURN_EXCHANGE: "/return-exchange",
   CHECKOUT: "/checkout",
   ACCOUNT: "/account",
+
+  ADMIN: "/admin",
 } as const;

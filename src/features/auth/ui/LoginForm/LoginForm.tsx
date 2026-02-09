@@ -12,12 +12,13 @@ import { FieldInput } from "@/shared/ui/Form/ui/FieldInput";
 import { FieldError } from "@/shared/ui/Form/ui/FieldError";
 import { SubmitButton } from "@/shared/ui/Button/SubmitButton";
 
-import { Divider, OAuthButton, ErrorText } from "./LoginForm.styled";
+import * as S from "./LoginForm.styled";
 
 export function LoginForm() {
   const dispatch = useAppDispatch();
   const { status, error } = useAppSelector(selectAuthState);
-  const { redirect } = useRedirectAfterLogin();
+
+  useRedirectAfterLogin();
 
   return (
     <Formik<LoginDTO>
@@ -26,7 +27,6 @@ export function LoginForm() {
       onSubmit={async (values, { setSubmitting }) => {
         try {
           await dispatch(login(values)).unwrap();
-          redirect();
         } finally {
           setSubmitting(false);
         }
@@ -39,23 +39,25 @@ export function LoginForm() {
         <FieldInput name="password" type="password" />
         <FieldError name="password" />
 
-        {error && <ErrorText>{error}</ErrorText>}
+        {error && <S.ErrorText>{error}</S.ErrorText>}
 
-        <SubmitButton>
-          {status === "loading" ? LOGIN_FORM_TEXT.SUBMIT_LOADING : loginForm.submitLabel}
-        </SubmitButton>
+        <S.ButtonRow>
+          <SubmitButton>
+            {status === "loading" ? LOGIN_FORM_TEXT.SUBMIT_LOADING : loginForm.submitLabel}
+          </SubmitButton>
+        </S.ButtonRow>
 
-        <Divider>{LOGIN_FORM_TEXT.DIVIDER}</Divider>
+        <S.Divider>{LOGIN_FORM_TEXT.DIVIDER}</S.Divider>
 
-        <OAuthButton type="button" disabled>
-          <img src="/icons/google.svg" alt="Google" />
+        <S.OAuthButton type="button" disabled>
+          <img src="/icons/google.svg" alt="" />
           {LOGIN_FORM_TEXT.OAUTH_GOOGLE}
-        </OAuthButton>
+        </S.OAuthButton>
 
-        <OAuthButton type="button" disabled>
-          <img src="/icons/apple.svg" alt="Apple" />
+        <S.OAuthButton type="button" disabled>
+          <img src="/icons/apple.svg" alt="" />
           {LOGIN_FORM_TEXT.OAUTH_APPLE}
-        </OAuthButton>
+        </S.OAuthButton>
       </Form>
     </Formik>
   );

@@ -17,7 +17,8 @@ import { ErrorText, Divider } from "./RegisterForm.styled";
 export function RegisterForm() {
   const dispatch = useAppDispatch();
   const { status, error } = useAppSelector(selectAuthState);
-  const { redirect } = useRedirectAfterLogin();
+
+  useRedirectAfterLogin();
 
   return (
     <Formik<RegisterDTO>
@@ -33,21 +34,19 @@ export function RegisterForm() {
               password: values.password,
             }),
           ).unwrap();
-
-          redirect();
         } finally {
           setSubmitting(false);
         }
       }}
     >
       <Form>
-        <FieldInput name="name" placeholder={registerForm.fields[0].placeholder} />
+        <FieldInput name="name" />
         <FieldError name="name" />
 
-        <FieldInput name="phone" placeholder={registerForm.fields[1].placeholder} />
+        <FieldInput name="phone" />
         <FieldError name="phone" />
 
-        <FieldInput name="email" type="email" placeholder={registerForm.fields[2].placeholder} />
+        <FieldInput name="email" type="email" />
         <FieldError name="email" />
 
         <FieldInput name="password" type="password" />

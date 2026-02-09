@@ -13,10 +13,10 @@ export const Overlay = styled.div`
 `;
 
 export const ModalBox = styled.div`
-  position: relative;
-  width: calc(100vw - 24px);
+  position: fixed;
+  top: 95px;
+  width: calc(100vw - 20px);
   max-width: 420px;
-
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -28,6 +28,12 @@ export const ModalBox = styled.div`
   color: ${({ theme }) => theme.colors.black};
 `;
 
+export const HeaderRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const Title = styled.h2`
   font-size: 16px;
   font-weight: 600;
@@ -37,31 +43,23 @@ export const Title = styled.h2`
 `;
 
 export const SwitchLink = styled.button`
-  margin-top: 8px;
+  margin-top: 10px;
   padding: 0;
-
   border: none;
   background: none;
-
-  font-size: 14px;
-  letter-spacing: 0.04em;
-  color: ${({ theme }) => theme.colors.black};
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: #242424;
 
   cursor: pointer;
 `;
 
 export const CloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-
   width: 28px;
   height: 28px;
-  padding: 0;
-
-  border: none;
   border-radius: 999px;
-
+  border: none;
+  padding: 0;
   background: rgba(0, 0, 0, 0.75);
   color: ${({ theme }) => theme.colors.white};
   font-size: 20px;

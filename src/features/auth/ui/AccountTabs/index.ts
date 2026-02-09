@@ -1,1 +1,0 @@
-export { AccountTabs } from "./AccountTabs";

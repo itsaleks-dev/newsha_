@@ -3,9 +3,13 @@ import styled from "styled-components";
 import { Icon } from "@/shared/ui/IconButton";
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: none;
+
+  @media ${({ theme }) => theme.media.tabletLg} {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 `;
 
 export const Label = styled.button`

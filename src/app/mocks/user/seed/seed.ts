@@ -15,6 +15,7 @@ export function seedAuthUsers() {
   const olena = mockUser({
     name: "Olena",
     email: "olena@newsha.demo",
+    avatar: "/images/banner-page/banner-hero.webp",
   });
 
   const dmytro = mockUser({

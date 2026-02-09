@@ -1,29 +1,31 @@
-import { useCallback } from "react";
+import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-import { useAppDispatch } from "@/app/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { selectIsAuthenticated, selectUserRole, closeAuthModal } from "@/features/auth/model";
 
-import { closeAuthModal } from "@/features/auth/model";
-
+import { USER_ROLES } from "@/entities/user/types";
 import { ROUTES } from "@/shared/config";
 
-export function useRedirectAfterLogin(defaultPath = ROUTES.ACCOUNT) {
+export function useRedirectAfterLogin() {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useAppDispatch();
 
-  const redirect = useCallback(() => {
+  const isAuth = useAppSelector(selectIsAuthenticated);
+  const role = useAppSelector(selectUserRole);
+
+  useEffect(() => {
+    if (!isAuth) return;
+
     dispatch(closeAuthModal());
 
     const from = location.state?.from?.pathname;
-
     if (from) {
       navigate(from, { replace: true });
       return;
     }
 
-    navigate(defaultPath, { replace: true });
-  }, [dispatch, location.state, navigate, defaultPath]);
-
-  return { redirect };
+    navigate(role === USER_ROLES.ADMIN ? ROUTES.ADMIN : ROUTES.ACCOUNT, { replace: true });
+  }, [isAuth, role, location.state, navigate, dispatch]);
 }

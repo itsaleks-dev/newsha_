@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import type { FormikHelpers } from "formik";
 
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 
@@ -13,10 +14,11 @@ type FormValues = RegisterDTO & {
 export function useRegisterForm() {
   const dispatch = useAppDispatch();
   const { status, error } = useAppSelector(selectAuthState);
-  const { redirect } = useRedirectAfterLogin();
+
+  useRedirectAfterLogin();
 
   const onSubmit = useCallback(
-    async (values: FormValues, helpers: { setSubmitting: (v: boolean) => void }) => {
+    async (values: FormValues, helpers: FormikHelpers<FormValues>) => {
       try {
         await dispatch(
           register({
@@ -26,13 +28,11 @@ export function useRegisterForm() {
             password: values.password,
           }),
         ).unwrap();
-
-        redirect();
       } finally {
         helpers.setSubmitting(false);
       }
     },
-    [dispatch, redirect],
+    [dispatch],
   );
 
   return {

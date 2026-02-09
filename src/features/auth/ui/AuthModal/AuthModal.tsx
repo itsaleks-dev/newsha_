@@ -7,7 +7,7 @@ import { LoginForm } from "@/features/auth/ui/LoginForm";
 import { RegisterForm } from "@/features/auth/ui/RegisterForm";
 
 import { AUTH_MODAL_TEXT } from "./config";
-import { Overlay, ModalBox, Title, SwitchLink, CloseButton } from "./AuthModal.styled";
+import { Overlay, ModalBox, Title, SwitchLink, CloseButton, HeaderRow } from "./AuthModal.styled";
 
 export function AuthModal() {
   const dispatch = useAppDispatch();
@@ -43,11 +43,13 @@ export function AuthModal() {
   return (
     <Overlay onClick={close}>
       <ModalBox onClick={(e) => e.stopPropagation()}>
-        <CloseButton onClick={close} aria-label="Close">
-          ×
-        </CloseButton>
+        <HeaderRow>
+          <Title>{isLogin ? AUTH_MODAL_TEXT.LOGIN_TITLE : AUTH_MODAL_TEXT.REGISTER_TITLE}</Title>
 
-        <Title>{isLogin ? AUTH_MODAL_TEXT.LOGIN_TITLE : AUTH_MODAL_TEXT.REGISTER_TITLE}</Title>
+          <CloseButton onClick={close} aria-label="Close">
+            ×
+          </CloseButton>
+        </HeaderRow>
 
         {isLogin ? <LoginForm /> : <RegisterForm />}
 

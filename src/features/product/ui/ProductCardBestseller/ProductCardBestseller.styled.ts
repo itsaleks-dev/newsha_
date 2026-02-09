@@ -13,7 +13,7 @@ export const Card = styled.article`
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 500px;
+  min-height: 520px;
 
   @media ${({ theme }) => theme.media.mobileLg} {
     min-height: 570px;
@@ -121,7 +121,7 @@ export const Bottom = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  height: 190px;
+  height: 210px;
   padding: 18px 18px 20px;
 
   background: #242424;
@@ -186,7 +186,7 @@ export const Price = styled.span`
 export const BuyBtn = styled.button<{ $pending?: boolean }>`
   position: relative;
   overflow: hidden;
-  height: 42px;
+  height: 44px;
   padding: 0 16px;
   border-radius: 14px;
   border: none;
