@@ -1,6 +1,6 @@
 import type { RouteObject } from "react-router-dom";
 
-import { AppLayout } from "@/app/layout";
+import { AppLayout } from "@/app/layout/AppLayout";
 
 import { HomePage } from "@/pages/HomePage";
 import { CatalogPage } from "@/pages/CatalogPage";
