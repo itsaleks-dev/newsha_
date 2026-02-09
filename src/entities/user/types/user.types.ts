@@ -22,6 +22,11 @@ export type GuestUser = {
   role: typeof USER_ROLES.GUEST;
 };
 
+export type AuthRecord = {
+  user: User;
+  password: string;
+};
+
 export type CurrentUser = User | GuestUser;
 
 export type UserContext = {

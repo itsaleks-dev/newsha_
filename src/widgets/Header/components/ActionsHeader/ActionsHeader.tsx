@@ -8,8 +8,8 @@ import { BlockActions } from "./ActionsHeader.styled";
 export function ActionsHeader() {
   return (
     <BlockActions>
-      <DesktopSearch />
       <UserButton />
+      <DesktopSearch />
       <CartButton />
     </BlockActions>
   );

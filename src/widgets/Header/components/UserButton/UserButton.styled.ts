@@ -27,7 +27,7 @@ export const TextButton = styled.button`
 
   font-size: 14px;
   letter-spacing: 0.04em;
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.white};
 
   cursor: pointer;
 `;

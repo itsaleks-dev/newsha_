@@ -1,24 +1,29 @@
 import type { User } from "@/entities/user/types";
 import { USER_ROLES } from "@/entities/user/types";
 
+import { authDB, usersDB } from "@/app/mocks/user/db";
+import { seedAuthUsers } from "@/app/mocks/user/seed";
 import { mockCartApi } from "@/app/mocks/cart/api";
-import { mockUsers } from "@/app/mocks/auth/data";
 import { MOCK_AUTH_TEXT } from "@/app/mocks/auth/config";
 
 import type { AuthSession } from "@/features/auth/domain";
 
 import type { AuthToken } from "@/shared/types/primitives";
-import { asID, asAuthToken } from "@/shared/types/primitives";
+import { asAuthToken, asID } from "@/shared/types/primitives";
 
 const STORAGE = "mock-auth-sessions";
 
-const load = (): Record<string, AuthSession> => JSON.parse(localStorage.getItem(STORAGE) || "{}");
-
-const save = (s: Record<string, AuthSession>) => localStorage.setItem(STORAGE, JSON.stringify(s));
-
 const delay = (ms = 600) => new Promise((r) => setTimeout(r, ms));
 
-const createToken = (u: User) => asAuthToken(`jwt-${u.id}-${Date.now()}`);
+const load = (): Record<AuthToken, AuthSession> =>
+  JSON.parse(localStorage.getItem(STORAGE) || "{}");
+
+const save = (sessions: Record<AuthToken, AuthSession>) =>
+  localStorage.setItem(STORAGE, JSON.stringify(sessions));
+
+const createToken = (user: User) => asAuthToken(`jwt-${user.id}-${Date.now()}`);
+
+seedAuthUsers();
 
 export const mockAuthSession = {
   async login(email: string, password: string): Promise<AuthSession> {
@@ -28,15 +33,21 @@ export const mockAuthSession = {
       throw new Error(MOCK_AUTH_TEXT.PASSWORD_TOO_SHORT);
     }
 
-    const user = mockUsers.find((u) => u.email === email);
-    if (!user) throw new Error(MOCK_AUTH_TEXT.USER_NOT_FOUND);
+    const record = authDB.find((r) => r.user.email === email);
+    if (!record) {
+      throw new Error(MOCK_AUTH_TEXT.USER_NOT_FOUND);
+    }
 
-    await mockCartApi.mergeGuestToUser("guest", user.id);
+    if (record.password !== password) {
+      throw new Error(MOCK_AUTH_TEXT.INVALID_PASSWORD);
+    }
 
-    const token = createToken(user);
+    await mockCartApi.mergeGuestToUser("guest", record.user.id);
+
+    const token = createToken(record.user);
     const sessions = load();
 
-    sessions[token] = { user, token };
+    sessions[token] = { user: record.user, token };
     save(sessions);
 
     return sessions[token];
@@ -49,18 +60,19 @@ export const mockAuthSession = {
       throw new Error(MOCK_AUTH_TEXT.PASSWORD_TOO_SHORT);
     }
 
-    if (mockUsers.some((u) => u.email === email)) {
+    if (usersDB.some((u) => u.email === email)) {
       throw new Error(MOCK_AUTH_TEXT.EMAIL_EXISTS);
     }
 
     const user: User = {
-      id: asID(`u${Date.now()}`),
+      id: asID(`u-${Date.now()}`),
       name,
       email,
       role: USER_ROLES.USER,
     };
 
-    mockUsers.push(user);
+    usersDB.push(user);
+    authDB.push({ user, password });
 
     await mockCartApi.mergeGuestToUser("guest", user.id);
 
@@ -75,7 +87,7 @@ export const mockAuthSession = {
 
   async restore(token: AuthToken): Promise<AuthSession | null> {
     await delay(300);
-    return load()[token] || null;
+    return load()[token] ?? null;
   },
 
   async logout(token: AuthToken): Promise<void> {

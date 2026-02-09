@@ -1,6 +1,7 @@
 export { USER_ROLES, GUEST_USER } from "./user.types";
 export type {
   UserRole,
+  AuthRecord,
   User,
   GuestUser,
   CurrentUser,

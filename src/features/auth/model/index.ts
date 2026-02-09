@@ -13,6 +13,7 @@ export {
   selectIsGuestUser,
   selectWishlist,
   selectAuthState,
+  selectUserName,
 } from "./auth.selectors";
 
 export { login, register, restoreSession, logout } from "./auth.thunks";

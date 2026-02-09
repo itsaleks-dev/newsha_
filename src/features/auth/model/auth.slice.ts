@@ -26,6 +26,18 @@ const initialState: AuthState = {
   sessionLoaded: false,
 };
 
+const persistSession = (session: AuthSession | null) => {
+  try {
+    if (!session) {
+      localStorage.removeItem(AUTH_STORAGE_KEY.AUTH_SESSION);
+      return;
+    }
+    localStorage.setItem(AUTH_STORAGE_KEY.AUTH_SESSION, JSON.stringify(session));
+  } catch {
+    // ignore
+  }
+};
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -35,13 +47,7 @@ const authSlice = createSlice({
       if (!action.payload) {
         state.user = null;
         state.token = null;
-
-        try {
-          localStorage.removeItem(AUTH_STORAGE_KEY.AUTH_SESSION);
-        } catch {
-          // ignore storage errors
-        }
-
+        persistSession(null);
         return;
       }
 
@@ -54,33 +60,21 @@ const authSlice = createSlice({
       };
 
       state.token = token;
-
-      try {
-        localStorage.setItem(AUTH_STORAGE_KEY.AUTH_SESSION, JSON.stringify(action.payload));
-      } catch {
-        // ignore storage errors
-      }
+      persistSession(action.payload);
     },
 
     toggleWishlist(state, action: PayloadAction<ID>) {
-      if (!state.user) return;
+      if (!state.user || !state.token) return;
 
       const id = action.payload;
       const list = state.user.wishlist;
 
       state.user.wishlist = list.includes(id) ? list.filter((p) => p !== id) : [...list, id];
 
-      try {
-        localStorage.setItem(
-          AUTH_STORAGE_KEY.AUTH_SESSION,
-          JSON.stringify({
-            user: state.user.user,
-            token: state.token,
-          }),
-        );
-      } catch {
-        // ignore storage errors
-      }
+      persistSession({
+        user: state.user.user as AuthSession["user"],
+        token: state.token,
+      });
     },
   },
 
@@ -95,7 +89,6 @@ const authSlice = createSlice({
             cart: [],
             wishlist: [],
           };
-
           state.token = token;
         }
 
@@ -121,6 +114,8 @@ const authSlice = createSlice({
           wishlist: [],
         };
         state.token = token;
+
+        persistSession(action.payload);
       })
 
       .addCase(login.rejected, (state, action) => {
@@ -143,6 +138,8 @@ const authSlice = createSlice({
           wishlist: [],
         };
         state.token = token;
+
+        persistSession(action.payload);
       })
 
       .addCase(register.rejected, (state, action) => {
@@ -156,6 +153,8 @@ const authSlice = createSlice({
         state.token = null;
         state.status = "idle";
         state.error = null;
+
+        persistSession(null);
       });
   },
 });

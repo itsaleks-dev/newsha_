@@ -1,1 +1,1 @@
-export { seedUsers } from "./seed";
+export { seedAuthUsers } from "./seed";
