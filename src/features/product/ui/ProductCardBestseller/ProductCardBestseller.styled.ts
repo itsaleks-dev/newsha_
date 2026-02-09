@@ -13,7 +13,14 @@ export const Card = styled.article`
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 520px;
+  min-height: 500px;
+
+  @media ${({ theme }) => theme.media.mobileLg} {
+    min-height: 570px;
+  }
+  @media ${({ theme }) => theme.media.tablet} {
+    min-height: 500px;
+  }
 
   border-radius: 26px;
   overflow: hidden;
@@ -114,8 +121,7 @@ export const Bottom = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-
-  height: 180px;
+  height: 190px;
   padding: 18px 18px 20px;
 
   background: #242424;
@@ -125,13 +131,13 @@ export const Bottom = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 10px;
 `;
 
 export const BottomContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  flex: 1;
 `;
 
 export const Title = styled.h3`
@@ -144,13 +150,16 @@ export const Title = styled.h3`
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
   }
 
   .en {
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.05em;
-    -webkit-line-clamp: 2;
+
+    line-height: 1.4;
+    min-height: calc(2 * 1.4em);
   }
 
   .ua {
@@ -159,11 +168,15 @@ export const Title = styled.h3`
     letter-spacing: 0.05em;
     font-weight: 500;
     opacity: 0.7;
-    -webkit-line-clamp: 2;
+
+    line-height: 1.4;
+    min-height: calc(2 * 1.4em);
   }
 `;
 
 export const Price = styled.span`
+  margin-top: auto;
+  margin-bottom: 8px;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0.05em;

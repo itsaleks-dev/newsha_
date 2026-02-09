@@ -14,6 +14,14 @@ export const Title = styled.h2`
   letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
   text-transform: uppercase;
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
+
+  @media ${({ theme }) => theme.media.tablet} {
+    font-size: ${({ theme }) => theme.fontSizes.bodyLarge};
+  }
+
+  @media ${({ theme }) => theme.media.laptop} {
+    font-size: ${({ theme }) => theme.fontSizes.subtitle};
+  }
 `;
 
 export const SubTitle = styled.p`
@@ -22,11 +30,18 @@ export const SubTitle = styled.p`
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
   opacity: 0.6;
+
+  @media ${({ theme }) => theme.media.tablet} {
+    font-size: ${({ theme }) => theme.fontSizes.body};
+  }
+  @media ${({ theme }) => theme.media.laptop} {
+    font-size: ${({ theme }) => theme.fontSizes.bodyLarge};
+  }
 `;
 
 export const Track = styled.div`
-  padding: 4px 0 10px;
   width: 100%;
+  max-width: 100%;
   ${flex};
   align-items: stretch;
   gap: 16px;
@@ -34,6 +49,7 @@ export const Track = styled.div`
   overflow-y: visible;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  padding: 4px 0 10px;
 
   &::-webkit-scrollbar {
     display: none;
@@ -41,8 +57,24 @@ export const Track = styled.div`
 `;
 
 export const Slide = styled.div`
-  flex: 0 0 85vw;
+  flex: 0 0 85%;
   scroll-snap-align: start;
+
+  @media ${({ theme }) => theme.media.mobileLg} {
+    flex: 0 0 72%;
+  }
+
+  @media ${({ theme }) => theme.media.tablet} {
+    flex: 0 0 50%;
+  }
+
+  @media ${({ theme }) => theme.media.tabletLg} {
+    flex: 0 0 36%;
+  }
+
+  @media ${({ theme }) => theme.media.laptop} {
+    flex: 0 0 calc((100% - 3 * 16px) / 4);
+  }
 `;
 
 export const Indicators = styled.div`
@@ -54,4 +86,8 @@ export const Indicators = styled.div`
 
 export const Dot = styled.button<{ $active: boolean }>`
   ${dotBase()};
+
+  @media ${({ theme }) => theme.media.laptop} {
+    display: none;
+  }
 `;

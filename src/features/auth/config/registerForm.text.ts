@@ -4,6 +4,8 @@ export const REGISTER_FORM_TEXT = {
   SUBMIT_LOADING: "Реєстрація…",
   NAME_LABEL: "Ім'я",
   NAME_PLACEHOLDER: "Ваше ім'я",
+  PHONE_LABEL: "Телефон",
+  PHONE_PLACEHOLDER: "+380",
   EMAIL_LABEL: "Email",
   EMAIL_PLACEHOLDER: "name@example.com",
   PASSWORD_LABEL: "Пароль",

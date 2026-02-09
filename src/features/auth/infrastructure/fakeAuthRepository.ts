@@ -21,7 +21,7 @@ export class FakeAuthRepository implements IAuthRepository {
 
   async restoreSession(): Promise<AuthSession | null> {
     try {
-      const raw = localStorage.getItem(AUTH_STORAGE_KEY);
+      const raw = localStorage.getItem(AUTH_STORAGE_KEY.AUTH_SESSION);
       if (!raw) return null;
 
       const { token } = JSON.parse(raw);
@@ -35,12 +35,12 @@ export class FakeAuthRepository implements IAuthRepository {
 
   async logout(): Promise<void> {
     try {
-      const raw = localStorage.getItem(AUTH_STORAGE_KEY);
+      const raw = localStorage.getItem(AUTH_STORAGE_KEY.AUTH_SESSION);
       if (raw) {
         const { token } = JSON.parse(raw);
         await mockAuthSession.logout(asAuthToken(token));
       }
-      localStorage.removeItem(AUTH_STORAGE_KEY);
+      localStorage.removeItem(AUTH_STORAGE_KEY.AUTH_SESSION);
     } catch {
       // ignore
     }

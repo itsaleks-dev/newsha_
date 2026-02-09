@@ -9,8 +9,9 @@ export const PageContainer = styled.div`
 
   @media ${({ theme }) => theme.media.tablet} {
     max-width: ${({ theme }) => theme.containers.tablet};
-    padding-inline: 24px;
+    padding-inline: 15px;
   }
+
   @media ${({ theme }) => theme.media.tabletLg} {
     max-width: ${({ theme }) => theme.containers.tabletLg};
     padding-inline: 28px;
@@ -24,5 +25,9 @@ export const PageContainer = styled.div`
   @media ${({ theme }) => theme.media.desktop} {
     max-width: ${({ theme }) => theme.containers.desktop};
     padding-inline: 40px;
+  }
+
+  @media ${({ theme }) => theme.media.wide} {
+    max-width: ${({ theme }) => theme.containers.wide};
   }
 `;

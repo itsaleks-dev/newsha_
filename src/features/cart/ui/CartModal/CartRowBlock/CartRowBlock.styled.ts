@@ -23,6 +23,10 @@ export const CartRowImage = styled.div`
     object-fit: cover;
     display: block;
   }
+
+  @media ${({ theme }) => theme.media.tablet} {
+    width: 80px;
+  }
 `;
 
 export const CartRowInfo = styled.div`

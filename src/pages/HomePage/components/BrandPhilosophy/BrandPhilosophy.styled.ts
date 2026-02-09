@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  margin: 96px 0 80px;
+  margin: 30px 0;
 `;
 
 export const Inner = styled.div`
-  max-width: 560px;
-  margin: 0 auto;
+  margin-bottom: 20px;
 `;
 
 export const Title = styled.h2`
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
   margin-bottom: 28px;
 `;
 
@@ -23,6 +23,7 @@ export const TextBlock = styled.div`
     margin: 0 0 14px;
     font-size: 14px;
     line-height: 1.6;
+    letter-spacing: 0.05em;
     color: #333;
 
     &:last-child {
@@ -43,7 +44,7 @@ export const Values = styled.ul`
 
 export const Value = styled.li`
   font-size: 13.5px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: #242424;
   position: relative;
   padding-left: 14px;

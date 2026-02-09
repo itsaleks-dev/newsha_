@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 
+import { selectIsAuthenticated } from "@/features/auth/model";
+import { openLogin } from "@/features/auth/model";
 import { useBurgerUI } from "@/features/burgerUI/hooks";
 import {
   fetchCategories,
@@ -10,6 +12,7 @@ import {
   selectCategoriesStatus,
 } from "@/features/category/model";
 
+import { BURGER_MENU_TEXT } from "./config";
 import * as S from "./BurgerMenu.styled";
 
 export function BurgerMenu() {
@@ -19,6 +22,7 @@ export function BurgerMenu() {
   const { open, close } = useBurgerUI();
   const categories = useAppSelector(selectCategories);
   const status = useAppSelector(selectCategoriesStatus);
+  const isAuth = useAppSelector(selectIsAuthenticated);
 
   useEffect(() => {
     if (open && status === "idle") {
@@ -29,25 +33,42 @@ export function BurgerMenu() {
   return (
     <S.Overlay $open={open} onClick={close}>
       <S.Panel $open={open} onClick={(e) => e.stopPropagation()}>
-        <S.Title>Меню</S.Title>
+        <S.Title>{BURGER_MENU_TEXT.TITLE}</S.Title>
 
-        <S.List>
-          {categories
-            .filter((c) => c.isActive && !c.parentId)
-            .sort((a, b) => a.order - b.order)
-            .map((category) => (
-              <li key={category.id}>
-                <S.Item
-                  onClick={() => {
-                    navigate(`/catalog/${category.slug}`);
-                    close();
-                  }}
-                >
-                  {category.name}
-                </S.Item>
-              </li>
-            ))}
-        </S.List>
+        <S.Content>
+          <S.List>
+            {categories
+              .filter((c) => c.isActive && !c.parentId)
+              .sort((a, b) => a.order - b.order)
+              .map((category) => (
+                <li key={category.id}>
+                  <S.Item
+                    onClick={() => {
+                      navigate(`/catalog/${category.slug}`);
+                      close();
+                    }}
+                  >
+                    {category.name}
+                  </S.Item>
+                </li>
+              ))}
+          </S.List>
+        </S.Content>
+
+        <S.Account>
+          <S.AccountItem
+            onClick={() => {
+              if (isAuth) {
+                navigate("/account");
+              } else {
+                dispatch(openLogin());
+              }
+              close();
+            }}
+          >
+            {BURGER_MENU_TEXT.ACCOUNT}
+          </S.AccountItem>
+        </S.Account>
       </S.Panel>
     </S.Overlay>
   );

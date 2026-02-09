@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  margin: 30px 0;
+  margin: 60px 0;
 `;
 
 export const Header = styled.div`
@@ -9,17 +9,17 @@ export const Header = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: 16px;
-  letter-spacing: 0.05em;
+  font-size: ${({ theme }) => theme.fontSizes.body};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
 `;
 
 export const SubTitle = styled.p`
   margin: 10px 0 30px;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  font-size: ${({ theme }) => theme.fontSizes.bodySmall};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
   opacity: 0.6;
 `;
 
@@ -57,6 +57,13 @@ export const Card = styled.button`
 
   &:active {
     transform: scale(0.98);
+  }
+
+  @media ${({ theme }) => theme.media.mobileLg} {
+    flex: 0 0 60%;
+  }
+  @media ${({ theme }) => theme.media.tablet} {
+    flex: 0 0 52%;
   }
 `;
 

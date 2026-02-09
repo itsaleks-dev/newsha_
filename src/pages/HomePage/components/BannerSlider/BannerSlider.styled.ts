@@ -19,7 +19,7 @@ export const Track = styled.div`
 
 export const SlideRoot = styled.div`
   position: relative;
-  flex: 0 0 100%;
+  flex: 0 0 95%;
   margin-right: 12px;
   height: 550px;
   border-radius: 16px;

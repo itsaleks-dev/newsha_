@@ -37,7 +37,7 @@ const authSlice = createSlice({
         state.token = null;
 
         try {
-          localStorage.removeItem(AUTH_STORAGE_KEY);
+          localStorage.removeItem(AUTH_STORAGE_KEY.AUTH_SESSION);
         } catch {
           // ignore storage errors
         }
@@ -56,7 +56,7 @@ const authSlice = createSlice({
       state.token = token;
 
       try {
-        localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(action.payload));
+        localStorage.setItem(AUTH_STORAGE_KEY.AUTH_SESSION, JSON.stringify(action.payload));
       } catch {
         // ignore storage errors
       }
@@ -72,7 +72,7 @@ const authSlice = createSlice({
 
       try {
         localStorage.setItem(
-          AUTH_STORAGE_KEY,
+          AUTH_STORAGE_KEY.AUTH_SESSION,
           JSON.stringify({
             user: state.user.user,
             token: state.token,

@@ -1,7 +1,6 @@
 import { PageContainer } from "@/shared/layout/PageContainer";
 
 import { MobileSearch } from "@/features/search/ui/MobileSearch";
-import { BurgerMenu } from "@/features/burgerUI/ui/BurgerMenu";
 
 import { BurgerButton } from "./components/BurgerButton";
 import { HeaderMenu } from "./components/HeaderMenu";
@@ -33,8 +32,6 @@ export function Header() {
           <MobileSearch />
         </PageContainer>
       </HeaderContainer>
-
-      <BurgerMenu />
     </>
   );
 }

@@ -13,7 +13,6 @@ export const CartPanel = styled.div`
   left: 50%;
   transform: translateX(-50%);
   width: calc(100vw - 20px);
-  max-width: 960px;
   max-height: calc(100dvh - 120px);
   z-index: 3000;
   display: flex;
@@ -27,6 +26,10 @@ export const CartPanel = styled.div`
   box-shadow: 0 30px 120px rgba(0, 0, 0, 0.35);
 
   overflow: hidden;
+
+  @media ${({ theme }) => theme.media.tablet} {
+    padding: 24px 40px 16px;
+  }
 `;
 
 export const CartBody = styled.div`

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 import { flexColumn } from "@/shared/theme/variables";
 
 export const Overlay = styled.div<{ $open: boolean }>`
@@ -40,6 +39,17 @@ export const Title = styled.h3`
   text-transform: uppercase;
 `;
 
+export const Content = styled.div`
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+`;
+
 export const List = styled.ul`
   list-style: none;
   margin: 0;
@@ -66,4 +76,18 @@ export const Item = styled.button`
   &:hover {
     opacity: 0.6;
   }
+`;
+
+export const Account = styled.div`
+  padding-top: 18px;
+  margin-top: 18px;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+`;
+
+export const AccountItem = styled(Item)`
+  font-weight: 600;
 `;

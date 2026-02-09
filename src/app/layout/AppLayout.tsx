@@ -2,14 +2,15 @@ import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { useBreadcrumbs } from "@/app/navigation/hooks";
+import { JsonLd } from "@/app/seo/components";
 
 import { selectCategoriesStatus, fetchCategories } from "@/features/category/model";
 import { CartModal } from "@/features/cart/ui/CartModal";
 import { SearchOverlay } from "@/features/search/ui/SearchOverlay";
-
+import { AuthModal } from "@/features/auth/ui/AuthModal";
+import { BurgerMenu } from "@/features/burgerUI/ui";
 import { PageContainer } from "@/shared/layout/PageContainer";
-import { useBreadcrumbs } from "../navigation/hooks";
-import { JsonLd } from "../seo/components";
 
 import { Header } from "@/widgets/Header/Header";
 import { Footer } from "@/widgets/Footer";
@@ -39,8 +40,10 @@ export function AppLayout() {
         <Footer />
       </Content>
 
+      <BurgerMenu />
       <SearchOverlay />
       <CartModal />
+      <AuthModal />
     </LayoutWrapper>
   );
 }

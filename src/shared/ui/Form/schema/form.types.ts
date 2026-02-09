@@ -40,7 +40,7 @@ export type FormSchema<TValues = Record<string, unknown>> = {
   submitLabel: string;
   method?: "POST" | "PUT" | "PATCH";
   validateBeforeSubmit?: boolean;
-  initialValues?: TValues;
+  initialValues: TValues;
   validationSchema?: Yup.ObjectSchema<Record<string, unknown>>;
 
   fields: ReadonlyArray<FormField>;

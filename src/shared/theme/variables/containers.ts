@@ -1,15 +1,8 @@
 export const containers = {
-  /** Основной контент на больших экранах */
-  desktop: "1600px",
-
-  /** Стандартный desktop */
-  laptop: "1280px",
-
-  tabletLg: "1024px",
-
-  /** Планшеты */
-  tablet: "768px",
-
-  /** Мобильные устройства */
   mobile: "100%",
+  tablet: "768px",
+  tabletLg: "1024px",
+  laptop: "1280px",
+  desktop: "1440px",
+  wide: "1600px",
 } as const;
