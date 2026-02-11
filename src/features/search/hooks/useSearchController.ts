@@ -1,8 +1,8 @@
 import { useCallback, useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
-import { SEARCH_CONFIG } from "@/features/search/config";
 
+import { SEARCH_CONFIG } from "@/features/search/config";
 import { SEARCH_PLACEHOLDERS } from "@/features/search/ui/MobileSearch/config";
 import {
   searchProducts,

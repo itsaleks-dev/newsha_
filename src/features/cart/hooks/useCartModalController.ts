@@ -27,7 +27,7 @@ export function useCartModalController() {
     (item: CartViewItemDetailed) => {
       actions.add({
         productId: item.item.id,
-        categoryId: item.product.categoryId,
+        categoryId: item.product!.categoryId,
         volume: item.item.volumeValue,
         qty: 1,
       });

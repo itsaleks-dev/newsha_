@@ -1,6 +1,6 @@
 import type { Coupon } from "@/entities/discount/types";
 
-import type { Money, ISODate } from "@/shared/types/primitives";
+import type { Money, ISODate } from "@/shared/types";
 
 export type CouponValidationResult =
   | { valid: true }

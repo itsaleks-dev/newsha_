@@ -48,10 +48,8 @@ export const Item = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 16px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-
   cursor: pointer;
   transition: opacity 0.2s ease;
 

@@ -1,4 +1,4 @@
-import type { CartViewItemDetailed } from "@/features/cart/view/cart.view.types";
+import type { CartViewItemDetailed } from "@/features/cart/view";
 import type { PricingCartItem } from "@/features/checkout/domain/calculateOrderPrice";
 
 export function mapCartViewToPricing(cart: readonly CartViewItemDetailed[]): PricingCartItem[] {

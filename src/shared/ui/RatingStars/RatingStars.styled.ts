@@ -1,23 +1,25 @@
 import styled from "styled-components";
 
+import { flex } from "@/shared/theme/variables";
+
 export const RatingWrapper = styled.div`
-  display: flex;
+  ${flex};
   align-items: center;
   gap: 4px;
   line-height: 1;
 `;
 
 export const Stars = styled.div`
-  display: flex;
+  ${flex};
   gap: 1px;
 `;
 
 export const Star = styled.span`
   position: relative;
-  display: inline-flex;
+  ${flex};
   align-items: center;
   line-height: 1;
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.fontSizes.body};
 
   .empty {
     color: ${({ theme }) => theme.colors.star};
@@ -30,10 +32,8 @@ export const Fill = styled.span`
   top: 0;
   overflow: hidden;
   white-space: nowrap;
-
   color: ${({ theme }) => theme.colors.star};
   line-height: 1;
-
   pointer-events: none;
 `;
 
@@ -45,6 +45,6 @@ export const RatingValue = styled.span`
 
 export const RatingCount = styled.span`
   font-size: ${({ theme }) => theme.fontSizes.caption};
-  color: #555555;
+  color: ${({ theme }) => theme.colors.gray};
   line-height: 1;
 `;

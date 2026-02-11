@@ -1,27 +1,26 @@
 import styled, { css } from "styled-components";
 
+import { flexCenter } from "@/shared/theme/variables";
+
 const sizes = {
   sm: css`
-    width: 28px;
-    height: 28px;
-    font-size: 18px;
+    width: 24px;
+    height: 24px;
+    font-size: ${({ theme }) => theme.fontSizes.bodyLarge};
   `,
   md: css`
-    width: 34px;
-    height: 34px;
-    font-size: 22px;
+    width: 32px;
+    height: 32px;
+    font-size: ${({ theme }) => theme.fontSizes.subtitle};
   `,
 };
 
 export const CloseRoot = styled.button<{ $size: keyof typeof sizes }>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  ${flexCenter};
   border: none;
   border-radius: 50%;
-  background: #f2f2f2;
-  color: #242424;
+  background: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.graphite};
 
   cursor: pointer;
 

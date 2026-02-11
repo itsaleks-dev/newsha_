@@ -24,30 +24,24 @@ export const Card = styled.article`
 
   border-radius: 26px;
   overflow: hidden;
-
   background: #f2f2f2;
-
   display: flex;
   flex-direction: column;
 `;
 
 export const ImageWrap = styled.div`
   position: relative;
-
   height: calc(100% - 200px);
   background: #fff;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   overflow: hidden;
 `;
 
 export const Image = styled.img`
   position: absolute;
   inset: 0;
-
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -60,11 +54,9 @@ export const CardOverlay = styled.div`
   left: 14px;
   right: 14px;
   z-index: 3;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   pointer-events: none;
 `;
 
@@ -78,34 +70,27 @@ export const Badge = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   padding: 8px 14px;
   min-height: 24px;
-
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1;
-
   border-radius: 10px;
   white-space: nowrap;
-
   background: linear-gradient(135deg, #2d1e2f, #4e2a4f);
   color: #fff;
 `;
 
 export const WishlistBtn = styled.button<{ $active?: boolean }>`
   pointer-events: auto;
-
   width: 42px;
   height: 42px;
   border-radius: 50%;
   border: none;
-
   background: #fff;
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,12 +108,9 @@ export const Bottom = styled.div`
   bottom: 0;
   height: 210px;
   padding: 18px 18px 20px;
-
   background: #242424;
   color: #fff;
-
   border-radius: 26px;
-
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -157,7 +139,6 @@ export const Title = styled.h3`
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.05em;
-
     line-height: 1.4;
     min-height: calc(2 * 1.4em);
   }
@@ -168,7 +149,6 @@ export const Title = styled.h3`
     letter-spacing: 0.05em;
     font-weight: 500;
     opacity: 0.7;
-
     line-height: 1.4;
     min-height: calc(2 * 1.4em);
   }

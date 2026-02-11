@@ -1,4 +1,5 @@
 import type { ProductPreview } from "@/entities/product/types";
+
 import { ProductCardBestsellerContainer } from "@/features/product/ui/ProductCardBestseller";
 
 import { useSnapSlider } from "@/shared/hooks/useSnapSlider";

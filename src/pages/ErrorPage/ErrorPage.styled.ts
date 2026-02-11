@@ -7,7 +7,6 @@ export const Page = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: #fafafa;
 `;
 
@@ -47,16 +46,13 @@ export const Actions = styled.div`
 export const Button = styled(Link)<{ $primary?: boolean }>`
   padding: 14px 32px;
   border-radius: 999px;
-
   font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
-
   background: ${({ $primary }) => ($primary ? "#000" : "transparent")};
   color: ${({ $primary }) => ($primary ? "#fff" : "#000")};
   border: 1px solid #000;
-
   transition:
     background 0.25s ease,
     color 0.25s ease,

@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import type { Breadcrumb } from "@/app/navigation/types";
 
-import { Wrapper, List, Item, Separator } from "./Breadcrumbs.styled";
+import * as S from "./Breadcrumbs.styled";
 
 interface Props {
   breadcrumbs: Breadcrumb;
@@ -16,8 +16,8 @@ export function Breadcrumbs({ breadcrumbs }: Props) {
   }
 
   return (
-    <Wrapper aria-label="Breadcrumbs">
-      <List>
+    <S.Wrapper aria-label="Breadcrumbs">
+      <S.List>
         {breadcrumbs.items
           .filter((item) => !item.hidden)
           .map((item, index) => {
@@ -25,31 +25,31 @@ export function Breadcrumbs({ breadcrumbs }: Props) {
 
             if (item.linkType === "external" && item.href) {
               return (
-                <Item key={index}>
+                <S.Item key={index}>
                   <a href={item.href} target="_blank" rel="noopener noreferrer">
                     {item.label}
                   </a>
-                  {!isLast && <Separator>/</Separator>}
-                </Item>
+                  {!isLast && <S.Separator>/</S.Separator>}
+                </S.Item>
               );
             }
 
             if (item.href && !item.isActive) {
               return (
-                <Item key={index}>
+                <S.Item key={index}>
                   <Link to={item.href}>{item.label}</Link>
-                  {!isLast && <Separator>/</Separator>}
-                </Item>
+                  {!isLast && <S.Separator>/</S.Separator>}
+                </S.Item>
               );
             }
 
             return (
-              <Item key={index} data-active>
+              <S.Item key={index} data-active>
                 {item.label}
-              </Item>
+              </S.Item>
             );
           })}
-      </List>
-    </Wrapper>
+      </S.List>
+    </S.Wrapper>
   );
 }

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
+import { flexLeft } from "@/shared/theme/variables";
+
 export const Nav = styled.div`
   display: none;
 
   @media ${({ theme }) => theme.media.tabletLg} {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    ${flexLeft};
     gap: 20px;
   }
   @media ${({ theme }) => theme.media.desktop} {
@@ -16,11 +16,11 @@ export const Nav = styled.div`
 
 export const NavItem = styled.button`
   all: unset;
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.fontSizes.caption};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #fff;
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
+  color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
 
   &:focus-visible {
@@ -30,7 +30,6 @@ export const NavItem = styled.button`
   }
 
   @media ${({ theme }) => theme.media.desktop} {
-    font-size: 15px;
-    letter-spacing: 0.1em;
+    font-size: ${({ theme }) => theme.fontSizes.bodySmall};
   }
 `;

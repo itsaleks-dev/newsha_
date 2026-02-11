@@ -1,7 +1,7 @@
 import { USER_ROLES } from "@/entities/user/types";
 import type { User } from "@/entities/user/types";
 
-import { asID } from "@/shared/types/primitives";
+import { asID } from "@/shared/types";
 
 export const DEFAULT_USERS: User[] = [
   {

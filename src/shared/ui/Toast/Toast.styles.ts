@@ -25,11 +25,9 @@ export const Stack = styled.div`
   right: 24px;
   bottom: 24px;
   z-index: 2500;
-
   display: flex;
   flex-direction: column;
   gap: 10px;
-
   pointer-events: none;
 
   @media (max-width: 640px) {
@@ -44,21 +42,16 @@ export const Stack = styled.div`
 export const ToastItem = styled.div<{ $type: keyof typeof TOAST_BG }>`
   min-width: 240px;
   max-width: 360px;
-
   padding: 12px 16px;
   border-radius: 9999px;
-
   display: flex;
   align-items: center;
   gap: 10px;
-
   font-size: 13.5px;
   font-weight: 500;
   letter-spacing: 0.01em;
-
   color: #0f172a;
   background: ${({ $type }) => TOAST_BG[$type]};
-
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
 
@@ -69,7 +62,6 @@ export const ToastItem = styled.div<{ $type: keyof typeof TOAST_BG }>`
 
   animation: ${toastIn} 420ms cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: auto;
-
   transition:
     transform 0.2s ease,
     opacity 0.2s ease;

@@ -4,10 +4,12 @@ import { publicRoutes } from "./publicRoutes";
 import { privateRoutes } from "./privateRoutes";
 import { adminRoutes } from "./adminRoutes";
 import { errorRoutes } from "./errorRoutes";
+import { checkoutRoutes } from "./checkoutRoutes";
 
 export function AppRouter() {
   return useRoutes([
     publicRoutes,
+    checkoutRoutes,
     privateRoutes,
     adminRoutes,
     errorRoutes,

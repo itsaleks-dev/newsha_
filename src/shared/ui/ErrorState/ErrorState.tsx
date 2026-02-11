@@ -1,5 +1,5 @@
 import { ERROR_STATE_TEXT } from "./config";
-import { Wrapper, Title, Text, ActionButton } from "./ErrorState.styled";
+import * as S from "./ErrorState.styled";
 
 type Props = {
   title?: string;
@@ -13,11 +13,11 @@ export function ErrorState({
   onRetry,
 }: Props) {
   return (
-    <Wrapper>
-      <Title>{title}</Title>
-      <Text>{description}</Text>
+    <S.Wrapper>
+      <S.Title>{title}</S.Title>
+      <S.Text>{description}</S.Text>
 
-      {onRetry && <ActionButton onClick={onRetry}>{ERROR_STATE_TEXT.retry}</ActionButton>}
-    </Wrapper>
+      {onRetry && <S.ActionButton onClick={onRetry}>{ERROR_STATE_TEXT.retry}</S.ActionButton>}
+    </S.Wrapper>
   );
 }

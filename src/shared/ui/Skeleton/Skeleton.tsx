@@ -1,7 +1,7 @@
 import type { SkeletonProps } from "./types";
 
-import { SkeletonBlock } from "./Skeleton.styled";
+import * as S from "./Skeleton.styled";
 
 export function Skeleton(props: SkeletonProps) {
-  return <SkeletonBlock aria-busy="true" aria-live="polite" {...props} />;
+  return <S.SkeletonBlock aria-busy="true" aria-live="polite" {...props} />;
 }

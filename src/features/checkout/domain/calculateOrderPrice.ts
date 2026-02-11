@@ -1,7 +1,7 @@
 import type { Coupon } from "@/entities/discount/types";
 
-import { asQuantity, calcSubtotal } from "@/shared/types/primitives";
-import type { ID, Money, Subtotal } from "@/shared/types/primitives";
+import { asQuantity, calcSubtotal } from "@/shared/types";
+import type { ID, Money, Subtotal } from "@/shared/types";
 
 export type PricingCartItem = {
   price: Money;

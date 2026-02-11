@@ -1,6 +1,6 @@
 import { USER_ROLES, type User } from "@/entities/user/types";
 
-import { asID } from "@/shared/types/primitives";
+import { asID } from "@/shared/types";
 
 let userCounter = 1;
 

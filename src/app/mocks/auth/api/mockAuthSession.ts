@@ -8,8 +8,8 @@ import { MOCK_AUTH_TEXT } from "@/app/mocks/auth/config";
 
 import type { AuthSession } from "@/features/auth/domain";
 
-import type { AuthToken } from "@/shared/types/primitives";
-import { asAuthToken, asID } from "@/shared/types/primitives";
+import type { AuthToken } from "@/shared/types";
+import { asAuthToken, asID } from "@/shared/types";
 
 const STORAGE = "mock-auth-sessions";
 

@@ -1,4 +1,4 @@
-import { CartHeaderRow, CartTitle, CartSubtitle, CloseButton } from "./CartHeaderBlock.styled";
+import * as S from "./CartHeaderBlock.styled";
 
 import { CART_HEADER_TEXT } from "./config";
 
@@ -10,19 +10,19 @@ type CartHeaderProps = {
 
 export function CartHeaderBlock({ totalQty, hasItems, onClose }: CartHeaderProps) {
   return (
-    <CartHeaderRow>
+    <S.CartHeaderRow>
       <div>
-        <CartTitle>{CART_HEADER_TEXT.TITLE}</CartTitle>
+        <S.CartTitle>{CART_HEADER_TEXT.TITLE}</S.CartTitle>
 
         {hasItems && (
-          <CartSubtitle>
+          <S.CartSubtitle>
             {totalQty}{" "}
             {totalQty === 1 ? CART_HEADER_TEXT.ITEM_FORMS.ONE : CART_HEADER_TEXT.ITEM_FORMS.MANY}
-          </CartSubtitle>
+          </S.CartSubtitle>
         )}
       </div>
 
-      <CloseButton onClick={onClose}>✕</CloseButton>
-    </CartHeaderRow>
+      <S.CloseButton onClick={onClose}>✕</S.CloseButton>
+    </S.CartHeaderRow>
   );
 }

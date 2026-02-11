@@ -1,7 +1,6 @@
 import { Formik, Form } from "formik";
 
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
-
 import { loginForm } from "@/features/auth/forms";
 import { login, selectAuthState } from "@/features/auth/model";
 import { useRedirectAfterLogin } from "@/features/auth/hooks";
@@ -9,8 +8,8 @@ import type { LoginDTO } from "@/features/auth/application";
 import { LOGIN_FORM_TEXT } from "@/features/auth/config";
 
 import { FieldInput } from "@/shared/ui/Form/ui/FieldInput";
-import { FieldError } from "@/shared/ui/Form/ui/FieldError";
 import { SubmitButton } from "@/shared/ui/Button/SubmitButton";
+import { LoginInput } from "@/shared/ui/Input";
 
 import * as S from "./LoginForm.styled";
 
@@ -33,31 +32,37 @@ export function LoginForm() {
       }}
     >
       <Form>
-        <FieldInput name="email" type="email" placeholder={loginForm.fields[0].placeholder} />
-        <FieldError name="email" />
+        <S.FormWrapper>
+          <FieldInput
+            name="email"
+            type="email"
+            label={LOGIN_FORM_TEXT.EMAIL_LABEL}
+            placeholder={LOGIN_FORM_TEXT.EMAIL_PLACEHOLDER}
+            component={LoginInput}
+          />
 
-        <FieldInput name="password" type="password" />
-        <FieldError name="password" />
+          <FieldInput
+            name="password"
+            type="password"
+            label={LOGIN_FORM_TEXT.PASSWORD_LABEL}
+            placeholder={LOGIN_FORM_TEXT.PASSWORD_LABEL}
+            component={LoginInput}
+          />
 
-        {error && <S.ErrorText>{error}</S.ErrorText>}
+          {error && <S.FormError>{error}</S.FormError>}
 
-        <S.ButtonRow>
-          <SubmitButton>
-            {status === "loading" ? LOGIN_FORM_TEXT.SUBMIT_LOADING : loginForm.submitLabel}
-          </SubmitButton>
-        </S.ButtonRow>
+          <S.ButtonRow>
+            <SubmitButton>
+              {status === "loading" ? LOGIN_FORM_TEXT.SUBMIT_LOADING : LOGIN_FORM_TEXT.SUBMIT}
+            </SubmitButton>
+          </S.ButtonRow>
 
-        <S.Divider>{LOGIN_FORM_TEXT.DIVIDER}</S.Divider>
+          <S.Divider>{LOGIN_FORM_TEXT.DIVIDER}</S.Divider>
 
-        <S.OAuthButton type="button" disabled>
-          <img src="/icons/google.svg" alt="" />
-          {LOGIN_FORM_TEXT.OAUTH_GOOGLE}
-        </S.OAuthButton>
+          <S.OAuthButton disabled>{LOGIN_FORM_TEXT.OAUTH_GOOGLE}</S.OAuthButton>
 
-        <S.OAuthButton type="button" disabled>
-          <img src="/icons/apple.svg" alt="" />
-          {LOGIN_FORM_TEXT.OAUTH_APPLE}
-        </S.OAuthButton>
+          <S.OAuthButton disabled>{LOGIN_FORM_TEXT.OAUTH_APPLE}</S.OAuthButton>
+        </S.FormWrapper>
       </Form>
     </Formik>
   );

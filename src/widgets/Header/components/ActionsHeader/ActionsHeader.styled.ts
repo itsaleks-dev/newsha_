@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
+import { flex } from "@/shared/theme/variables";
+
 export const BlockActions = styled.div`
-  display: flex;
+  ${flex};
   align-items: center;
   gap: 15px;
 

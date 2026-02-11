@@ -1,4 +1,4 @@
-import type { ID, Money, ISODate } from "@/shared/types/primitives";
+import type { ID, Money, ISODate } from "@/shared/types";
 
 export type DiscountType = "percent" | "fixed" | "free_shipping" | "category" | "product";
 

@@ -2,7 +2,7 @@ import type { CurrentUser, UserContext } from "@/entities/user/types";
 import { GUEST_USER } from "@/entities/user/types";
 import type { CartItem } from "@/entities/cart/types";
 
-import type { ID } from "@/shared/types/primitives";
+import type { ID } from "@/shared/types";
 
 import type { StoredUser } from "./utils";
 import { clone } from "./utils";

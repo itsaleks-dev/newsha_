@@ -3,7 +3,7 @@ import { mergeCarts } from "@/entities/cart/domain";
 
 import { getCartDB, setCartDB, ensureCart } from "@/app/mocks/cart/db";
 
-import type { ID } from "@/shared/types/primitives";
+import type { ID } from "@/shared/types";
 
 const clone = <T>(v: T): T => structuredClone(v);
 
@@ -68,5 +68,15 @@ export const mockCartApi = {
     db[userId as string] = mergeCarts(ensureCart(guestId), ensureCart(userId));
     db[guestId] = [];
     setCartDB(db);
+  },
+
+  async addMany(userId: CartOwnerId, items: CartRow[]): Promise<readonly CartRow[]> {
+    let cart = ensureCart(userId);
+
+    for (const item of items) {
+      cart = (await this.add(userId, item)) as CartRow[];
+    }
+
+    return clone(cart);
   },
 };

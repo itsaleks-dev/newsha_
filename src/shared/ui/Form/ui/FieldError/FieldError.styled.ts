@@ -16,9 +16,9 @@ export const ErrorText = styled.div.attrs({
   "aria-live": "assertive",
 })`
   margin-top: 4px;
-  font-size: 12px;
-  line-height: 1.35;
-  color: #d64545;
+  font-size: ${({ theme }) => theme.fontSizes.caption};
+  line-height: 1.6;
+  color: ${({ theme }) => theme.colors.error};
 
   animation: ${fadeIn} 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 `;

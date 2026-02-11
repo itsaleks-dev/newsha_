@@ -11,8 +11,8 @@ import type { ApiState } from "@/features/fakeBackend/user/core";
 import { clone } from "@/features/fakeBackend/user/core";
 
 import { wait } from "@/shared/lib/async";
-import type { ID } from "@/shared/types/primitives";
-import { asQuantity, calcSubtotal } from "@/shared/types/primitives";
+import type { ID } from "@/shared/types";
+import { asQuantity, calcSubtotal } from "@/shared/types";
 
 export function createCartApi(state: ApiState) {
   return {

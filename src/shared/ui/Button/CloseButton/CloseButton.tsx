@@ -1,11 +1,11 @@
 import type { CloseButtonProps } from "@/shared/ui/Button/types";
 
-import { CloseRoot } from "./CloseButton.styled";
+import * as S from "./CloseButton.styled";
 
 export function CloseButton({ size = "md", ...props }: CloseButtonProps) {
   return (
-    <CloseRoot $size={size} {...props}>
+    <S.CloseRoot $size={size} {...props}>
       ×
-    </CloseRoot>
+    </S.CloseRoot>
   );
 }

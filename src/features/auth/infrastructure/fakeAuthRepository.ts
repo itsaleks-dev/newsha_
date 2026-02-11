@@ -3,7 +3,7 @@ import { mockAuthSession } from "@/app/mocks/auth/api";
 import type { IAuthRepository, AuthSession } from "@/features/auth/domain";
 import { AUTH_STORAGE_KEY } from "@/features/auth/config";
 
-import { asAuthToken } from "@/shared/types/primitives";
+import { asAuthToken } from "@/shared/types";
 
 export class FakeAuthRepository implements IAuthRepository {
   async login(email: string, password: string): Promise<AuthSession> {

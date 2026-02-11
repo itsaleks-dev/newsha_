@@ -1,6 +1,6 @@
 import type { Order, OrderItem, DeliveryInfo, OrderStatus } from "@/entities/order/types";
 
-import { asID, asISODate, asMoney, asQuantity, calcSubtotal } from "@/shared/types/primitives";
+import { asID, asISODate, asMoney, asQuantity, calcSubtotal } from "@/shared/types";
 
 export function createOrderService() {
   return {

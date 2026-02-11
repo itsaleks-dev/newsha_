@@ -26,10 +26,8 @@ export const SubTitle = styled.p`
 export const Track = styled.div`
   display: flex;
   gap: 16px;
-
   padding: 28px 60px 28px 20px;
   margin: -28px 0;
-
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -42,14 +40,12 @@ export const Track = styled.div`
 export const Card = styled.button`
   flex: 0 0 72%;
   scroll-snap-align: start;
-
   position: relative;
   aspect-ratio: 1.2 / 1;
   border-radius: 16px;
   border: none;
   padding: 0;
   overflow: hidden;
-
   background: #eaeaea;
   cursor: pointer;
 
@@ -78,7 +74,6 @@ export const Image = styled.img`
 export const Overlay = styled.div`
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) 40%,
@@ -97,10 +92,8 @@ export const Pill = styled.div`
   height: 50px;
   padding: 10px 0;
   border-radius: 12px;
-
   background: rgba(36, 36, 36, 0.55);
   backdrop-filter: blur(6px);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,7 +125,6 @@ export const Dot = styled.button<{ $active: boolean }>`
   border-radius: 999px;
   border: none;
   padding: 0;
-
   background: ${({ $active }) => ($active ? "#000" : "#bbb")};
   transition: all 0.25s ease;
   cursor: pointer;

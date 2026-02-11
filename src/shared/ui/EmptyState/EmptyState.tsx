@@ -1,6 +1,5 @@
 import { EMPTY_STATE_TEXT } from "./config";
-
-import { Wrapper, Title, Text } from "./EmptyState.styled";
+import * as S from "./EmptyState.styled";
 
 type Props = {
   title?: string;
@@ -12,9 +11,9 @@ export function EmptyState({
   description = EMPTY_STATE_TEXT.description,
 }: Props) {
   return (
-    <Wrapper role="status" aria-live="polite">
-      <Title>{title}</Title>
-      <Text>{description}</Text>
-    </Wrapper>
+    <S.Wrapper role="status" aria-live="polite">
+      <S.Title>{title}</S.Title>
+      <S.Text>{description}</S.Text>
+    </S.Wrapper>
   );
 }

@@ -1,4 +1,3 @@
-export default CooperationPage;
 import * as S from "./CooperationPage.styled";
 import { COOPERATION_PAGE_TEXT } from "@/pages/CooperationPage/config";
 

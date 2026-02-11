@@ -1,11 +1,18 @@
-import type { FormSchema } from "@/shared/ui/Form/schema";
-
 import { REVIEW_TEXT } from "@/features/review/config";
 
-export const reviewForm: FormSchema = {
+import { ReviewFormValues } from "@/shared/ui/Form/schema";
+import type { FormSchema } from "@/shared/ui/Form/schema";
+
+export const reviewForm: FormSchema<ReviewFormValues> = {
   title: REVIEW_TEXT.FORM_TITLE,
   submitLabel: REVIEW_TEXT.SUBMIT_LABEL,
   validateBeforeSubmit: true,
+
+  initialValues: {
+    rating: 0,
+    text: "",
+    photos: [],
+  },
 
   fields: [
     {

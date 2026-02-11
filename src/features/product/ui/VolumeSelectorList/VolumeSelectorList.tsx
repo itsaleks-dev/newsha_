@@ -1,20 +1,20 @@
 import type { VolumeSelectorListProps } from "@/entities/product/types";
 
-import { VolumeSelector, VolumeOption } from "./VolumeSelectorList.styled";
+import * as S from "./VolumeSelectorList.styled";
 
 export function VolumeSelectorList({ volumes, selected, onSelect }: VolumeSelectorListProps) {
   return (
-    <VolumeSelector>
+    <S.VolumeSelector>
       {volumes.map((v) => (
-        <VolumeOption
+        <S.VolumeOption
           key={v.value}
           type="button"
           $active={v.value === selected}
           onClick={() => onSelect(v.value)}
         >
           {v.label ?? `${v.value} мл`}
-        </VolumeOption>
+        </S.VolumeOption>
       ))}
-    </VolumeSelector>
+    </S.VolumeSelector>
   );
 }

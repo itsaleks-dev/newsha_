@@ -3,7 +3,7 @@ import type { ProductPreview } from "@/entities/product/types";
 
 import type { CartViewItem, CartViewItemDetailed } from "@/features/cart/view";
 
-import { calcSubtotal } from "@/shared/types/primitives";
+import { calcSubtotal } from "@/shared/types";
 
 export function buildCartViewItems(
   rows: readonly CartRow[],

@@ -1,7 +1,7 @@
 export const LOGIN_FORM_TEXT = {
   TITLE: "Вхід",
   EMAIL_LABEL: "Email",
-  EMAIL_PLACEHOLDER: "name@example.com",
+  EMAIL_PLACEHOLDER: "Введіть Email",
   PASSWORD_LABEL: "Пароль",
   SUBMIT: "Увійти",
   SUBMIT_LOADING: "Вхід…",

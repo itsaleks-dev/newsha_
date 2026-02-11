@@ -32,6 +32,5 @@ export const CloseButton = styled.button`
   color: ${({ theme }) => theme.colors.white};
   font-size: 20px;
   line-height: 1;
-
   cursor: pointer;
 `;

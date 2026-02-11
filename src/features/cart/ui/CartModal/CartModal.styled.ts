@@ -17,16 +17,12 @@ export const CartPanel = styled.div`
   z-index: 3000;
   display: flex;
   flex-direction: column;
-
   padding: 24px 20px 16px;
   border-radius: 16px;
-
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(6px);
   box-shadow: 0 30px 120px rgba(0, 0, 0, 0.35);
-
   overflow: hidden;
-
   @media ${({ theme }) => theme.media.tablet} {
     padding: 24px 40px 16px;
   }

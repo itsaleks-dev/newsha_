@@ -1,7 +1,6 @@
-import { PageContainer } from "@/shared/layout/PageContainer";
+import { PageContainer } from "@/shared/layout";
 
 import { FOOTER_TEXT, FOOTER_COPYRIGHT } from "./config";
-
 import * as S from "./Footer.styled";
 
 export function Footer() {

@@ -6,7 +6,7 @@ import { mockCouponApi } from "@/app/mocks/discount/api";
 
 import { calculateOrderPriceDomain } from "@/features/checkout/domain/calculateOrderPrice";
 
-import { asID, asISODate } from "@/shared/types/primitives";
+import { asID, asISODate } from "@/shared/types";
 
 let counter = 1001;
 

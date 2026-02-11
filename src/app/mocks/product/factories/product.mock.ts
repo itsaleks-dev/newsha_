@@ -1,13 +1,12 @@
+import type { CatalogCategorySlug } from "@/entities/category/config";
 import type { Product, ProductGallery, ProductVolumeOption } from "@/entities/product/types";
 import { ProductVolume } from "@/entities/product/types";
 import { generateVolumeLabel, enrichProductWithAutoTags } from "@/entities/product/domain";
-
 import type { ReviewStats } from "@/entities/review/types";
-import type { CatalogCategorySlug } from "@/entities/category/config";
 
 import { MOCK_PRODUCT_TEXT } from "@/app/mocks/product/config";
 
-import { asID, asMoney, asSlug, type Money, type Slug } from "@/shared/types/primitives";
+import { asID, asMoney, asSlug, type Money, type Slug } from "@/shared/types";
 
 let counter = 1;
 

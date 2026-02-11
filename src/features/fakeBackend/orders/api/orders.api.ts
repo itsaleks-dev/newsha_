@@ -10,7 +10,7 @@ import { generateOrderId } from "@/features/fakeBackend/orders/domain";
 import { ORDERS_API_TEXT } from "@/features/fakeBackend/orders/config";
 
 import { wait } from "@/shared/lib/async";
-import { asISODate } from "@/shared/types/primitives";
+import { asISODate } from "@/shared/types";
 
 export const ordersApi = {
   async createOrder(

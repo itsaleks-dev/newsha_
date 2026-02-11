@@ -3,17 +3,7 @@ import type { CartViewItemDetailed } from "@/features/cart/view";
 import { formatPrice } from "@/shared/lib/formatPrice";
 
 import { CART_ROW_TEXT } from "./config";
-import {
-  CartRow,
-  CartRowImage,
-  CartRowInfo,
-  CartRowTitle,
-  CartRowMeta,
-  CartRowQty,
-  CartRowPrice,
-  QtyButton,
-  RemoveButton,
-} from "./CartRowBlock.styled";
+import * as S from "./CartRowBlock.styled";
 
 type CartRowBlockProps = {
   row: CartViewItemDetailed;
@@ -26,30 +16,30 @@ export function CartRowBlock({ row, increase, decrease, remove }: CartRowBlockPr
   const { item, product, volume, unitPrice, totalPrice } = row;
 
   return (
-    <CartRow>
-      <CartRowImage>
+    <S.CartRow>
+      <S.CartRowImage>
         {product?.image && <img src={product.image} alt={product.name} />}
-      </CartRowImage>
+      </S.CartRowImage>
 
-      <CartRowInfo>
-        <CartRowTitle>{product?.name}</CartRowTitle>
+      <S.CartRowInfo>
+        <S.CartRowTitle>{product?.name}</S.CartRowTitle>
 
-        <CartRowMeta>
+        <S.CartRowMeta>
           {volume
             ? `${volume.label ?? `${volume.value} ${CART_ROW_TEXT.UNIT_ML}`}${CART_ROW_TEXT.META_SEPARATOR}${formatPrice(unitPrice)}`
             : formatPrice(unitPrice)}
-        </CartRowMeta>
-      </CartRowInfo>
+        </S.CartRowMeta>
+      </S.CartRowInfo>
 
-      <CartRowQty>
-        <QtyButton onClick={() => decrease(row)}>–</QtyButton>
+      <S.CartRowQty>
+        <S.QtyButton onClick={() => decrease(row)}>–</S.QtyButton>
         <span>{item.qty}</span>
-        <QtyButton onClick={() => increase(row)}>+</QtyButton>
-      </CartRowQty>
+        <S.QtyButton onClick={() => increase(row)}>+</S.QtyButton>
+      </S.CartRowQty>
 
-      <CartRowPrice>{formatPrice(totalPrice)}</CartRowPrice>
+      <S.CartRowPrice>{formatPrice(totalPrice)}</S.CartRowPrice>
 
-      <RemoveButton onClick={() => remove(row)}>{CART_ROW_TEXT.REMOVE}</RemoveButton>
-    </CartRow>
+      <S.RemoveButton onClick={() => remove(row)}>{CART_ROW_TEXT.REMOVE}</S.RemoveButton>
+    </S.CartRow>
   );
 }

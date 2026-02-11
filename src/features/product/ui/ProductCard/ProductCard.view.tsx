@@ -13,23 +13,7 @@ import { RatingStars } from "@/shared/ui/RatingStars";
 
 import { PRODUCT_CARD_TEXT } from "./config";
 
-import {
-  Card,
-  ImageWrap,
-  Image,
-  CardOverlay,
-  BadgeStack,
-  Badge,
-  WishlistBtn,
-  Bottom,
-  Title,
-  Price,
-  VolumeFloating,
-  BuyBtn,
-  RatingPriceRow,
-  BuyRow,
-  BottomContent,
-} from "./ProductCard.styled";
+import * as S from "./ProductCard.styled";
 
 type Props = {
   product: ProductPreview;
@@ -43,6 +27,7 @@ type Props = {
   onSelectVolume: (v: ProductVolumeOption["value"]) => void;
   onDecrease: () => void;
   onIncrease: () => void;
+  onAddToCart: () => void;
 };
 
 export function ProductCardView({
@@ -57,6 +42,7 @@ export function ProductCardView({
   onSelectVolume,
   onDecrease,
   onIncrease,
+  onAddToCart,
 }: Props) {
   const selectedVolume = volumes.find((v) => v.value === selectedValue);
   const unitPrice = selectedVolume?.price ?? product.price;
@@ -69,16 +55,16 @@ export function ProductCardView({
   }, [image, prevImage]);
 
   return (
-    <Card as={Link} to={ROUTES.PRODUCT(product.slug)}>
-      <CardOverlay>
-        <BadgeStack>
-          {product.isNew && <Badge $variant="new">{PRODUCT_CARD_TEXT.BADGE_NEW}</Badge>}
+    <S.Card as={Link} to={ROUTES.PRODUCT(product.slug)}>
+      <S.CardOverlay>
+        <S.BadgeStack>
+          {product.isNew && <S.Badge $variant="new">{PRODUCT_CARD_TEXT.BADGE_NEW}</S.Badge>}
           {product.isBestseller && (
-            <Badge $variant="bestseller">{PRODUCT_CARD_TEXT.BADGE_BESTSELLER}</Badge>
+            <S.Badge $variant="bestseller">{PRODUCT_CARD_TEXT.BADGE_BESTSELLER}</S.Badge>
           )}
-        </BadgeStack>
+        </S.BadgeStack>
 
-        <WishlistBtn
+        <S.WishlistBtn
           $active={isWishlisted}
           onClick={(e) => {
             e.preventDefault();
@@ -86,17 +72,18 @@ export function ProductCardView({
             onToggleWishlist();
           }}
         >
+          S.
           <img src={icons.user.wishlist} alt="Wishlist" />
-        </WishlistBtn>
-      </CardOverlay>
+        </S.WishlistBtn>
+      </S.CardOverlay>
 
-      <ImageWrap>
-        <Image src={prevImage} $active={false} />
-        <Image src={image} $active />
-      </ImageWrap>
+      <S.ImageWrap>
+        <S.Image src={prevImage} $active={false} />
+        <S.Image src={image} $active />
+      </S.ImageWrap>
 
       {volumes.length > 0 && (
-        <VolumeFloating
+        <S.VolumeFloating
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -107,26 +94,34 @@ export function ProductCardView({
             selected={selectedValue}
             onSelect={onSelectVolume}
           />
-        </VolumeFloating>
+        </S.VolumeFloating>
       )}
 
-      <Bottom>
-        <BottomContent>
-          <Title>
+      <S.Bottom>
+        <S.BottomContent>
+          <S.Title>
             <span className="en">{product.nameEn}</span>
             <span className="ua">{product.nameUa}</span>
-          </Title>
+          </S.Title>
 
-          <RatingPriceRow>
+          <S.RatingPriceRow>
             <div className="rating">
               <RatingStars rating={product.rating ?? 0} reviews={product.reviewCount ?? 0} />
             </div>
-            <Price>{formatPrice(totalPrice)}</Price>
-          </RatingPriceRow>
-        </BottomContent>
+            <S.Price>{formatPrice(totalPrice)}</S.Price>
+          </S.RatingPriceRow>
+        </S.BottomContent>
 
-        <BuyRow>
-          <BuyBtn>{PRODUCT_CARD_TEXT.BUY}</BuyBtn>
+        <S.BuyRow>
+          <S.BuyBtn
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onAddToCart();
+            }}
+          >
+            {PRODUCT_CARD_TEXT.BUY}
+          </S.BuyBtn>
 
           <div
             onClick={(e) => {
@@ -142,8 +137,8 @@ export function ProductCardView({
               onIncrease={onIncrease}
             />
           </div>
-        </BuyRow>
-      </Bottom>
-    </Card>
+        </S.BuyRow>
+      </S.Bottom>
+    </S.Card>
   );
 }

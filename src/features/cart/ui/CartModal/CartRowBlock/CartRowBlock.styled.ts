@@ -5,7 +5,6 @@ export const CartRow = styled.div`
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 10px;
   align-items: center;
-
   padding: 10px 0;
   border-radius: 16px;
 `;
@@ -40,7 +39,6 @@ export const CartRowTitle = styled.div`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.6;
-
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -68,15 +66,12 @@ export const CartRowQty = styled.div`
 export const QtyButton = styled.button`
   width: 28px;
   height: 28px;
-
   border-radius: 999px;
   border: none;
   padding: 0;
-
   background: rgba(0, 0, 0, 0.75);
   color: white;
   font-size: 20px;
-
   cursor: pointer;
 `;
 
@@ -92,7 +87,6 @@ export const RemoveButton = styled.button`
   justify-self: end;
   border: none;
   padding: 0;
-
   background: transparent;
   font-size: 13px;
   color: red;

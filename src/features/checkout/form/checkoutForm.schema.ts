@@ -1,10 +1,24 @@
-import type { FormSchema } from "@/shared/ui/Form/schema";
+import type { FormSchema, CheckoutFormFormValues } from "@/shared/ui/Form/schema";
 
 import { CHECKOUT_FORM_TEXT as M } from "@/features/checkout/config";
 
-export const checkoutForm: FormSchema = {
+export const checkoutForm: FormSchema<CheckoutFormFormValues> = {
   title: M.TITLE,
   submitLabel: M.SUBMIT,
+
+  initialValues: {
+    firstName: "",
+    lastName: "",
+    middleName: "",
+    phone: "",
+    deliveryMethod: "warehouse",
+    city: "",
+    warehouse: "",
+    postomat: "",
+    address: "",
+    paymentMethod: "cash",
+    comment: "",
+  },
 
   fields: [
     { name: "firstName", label: M.FIELDS.FIRST_NAME, type: "text", required: true },

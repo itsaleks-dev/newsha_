@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import { selectIsAuthenticated, toggleWishlist, openLogin } from "@/features/auth/model";
 import { selectWishlist } from "@/features/wishlist/model";
 
-import { asID } from "@/shared/types/primitives";
+import { asID } from "@/shared/types";
 
 export function useWishlist() {
   const dispatch = useAppDispatch();

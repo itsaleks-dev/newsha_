@@ -1,27 +1,34 @@
-import type React from "react";
+import type { ComponentType, InputHTMLAttributes } from "react";
 import { useField } from "formik";
 
-import { StyledInput } from "./FieldInput.styled";
+import { LoginInput } from "@/shared/ui/Input";
 
-type FieldInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "name"> & {
-  name: string;
+type FieldComponentProps = InputHTMLAttributes<HTMLInputElement> & {
+  label?: string;
+  error?: string;
 };
 
-export function FieldInput({ name, id, ...props }: FieldInputProps) {
+type FieldInputProps = FieldComponentProps & {
+  name: string;
+  component?: ComponentType<FieldComponentProps>;
+};
+
+export function FieldInput({
+  name,
+  component: Component = LoginInput,
+  label,
+  ...props
+}: FieldInputProps) {
   const [field, meta] = useField(name);
 
-  const hasError = Boolean(meta.touched && meta.error);
-  const inputId = id ?? name;
-  const errorId = `${inputId}-error`;
+  const error = meta.touched ? meta.error : undefined;
 
   return (
-    <StyledInput
+    <Component
       {...field}
       {...props}
-      id={inputId}
-      $hasError={hasError}
-      aria-invalid={hasError}
-      aria-describedby={hasError ? errorId : undefined}
+      {...(label !== undefined ? { label } : {})}
+      {...(error !== undefined ? { error } : {})}
     />
   );
 }

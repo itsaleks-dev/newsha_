@@ -1,28 +1,22 @@
 import styled from "styled-components";
 
+import { flexColumn, flexBetween } from "@/shared/theme/variables";
+
 export const List = styled.div`
   margin-top: 24px;
-
-  display: flex;
-  flex-direction: column;
+  ${flexColumn};
 `;
 
 export const Item = styled.button`
   width: 100%;
   padding: 14px 16px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
+  ${flexBetween};
   border: none;
   background: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.black};
-
   font-size: 14px;
   font-weight: 500;
   text-align: left;
-
   cursor: pointer;
   transition: background 0.15s ease;
 

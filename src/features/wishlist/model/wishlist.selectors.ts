@@ -1,6 +1,6 @@
 import type { RootState } from "@/app/store/rootReducer";
 
-import type { ID } from "@/shared/types/primitives";
+import type { ID } from "@/shared/types";
 
 export const selectWishlist = (state: RootState): readonly ID[] => state.wishlist.items;
 

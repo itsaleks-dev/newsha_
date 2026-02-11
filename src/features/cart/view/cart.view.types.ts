@@ -1,5 +1,6 @@
-import type { ID, Slug, Money, Quantity, Subtotal } from "@/shared/types/primitives";
-import type { ProductPreview, ProductVolumeOption } from "@/entities/product/types/product.types";
+import type { ProductPreview, ProductVolumeOption } from "@/entities/product/types";
+
+import type { ID, Slug, Money, Quantity, Subtotal } from "@/shared/types";
 
 export type CartViewItem = {
   id: ID;

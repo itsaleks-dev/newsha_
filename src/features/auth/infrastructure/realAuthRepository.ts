@@ -2,7 +2,7 @@ import { USER_ROLES, type User } from "@/entities/user/types";
 
 import type { IAuthRepository, AuthSession } from "@/features/auth/domain";
 
-import { asID, asAuthToken } from "@/shared/types/primitives";
+import { asID, asAuthToken } from "@/shared/types";
 
 export class RealAuthRepository implements IAuthRepository {
   async login(email: string, password: string): Promise<AuthSession> {

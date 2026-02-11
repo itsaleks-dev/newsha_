@@ -7,7 +7,7 @@ import type {
 const cloneVolume = (v: ProductVolumeOption): ProductVolumeOption => ({ ...v });
 
 export function toStorePreview(p: ProductPreview): StoreProductPreview {
-  const r: StoreProductPreview = {
+  const storePreview: StoreProductPreview = {
     id: p.id,
     slug: p.slug,
     name: p.name,
@@ -24,12 +24,11 @@ export function toStorePreview(p: ProductPreview): StoreProductPreview {
     ...(p.isTop !== undefined ? { isTop: p.isTop } : {}),
   };
 
-  if (p.image !== undefined) r.image = p.image;
+  if (p.image !== undefined) storePreview.image = p.image;
+  if (p.volumes) storePreview.volumes = p.volumes.map(cloneVolume);
+  if (p.tags) storePreview.tags = [...p.tags];
+  if (p.needs) storePreview.needs = [...p.needs];
+  if (p.condition) storePreview.condition = [...p.condition];
 
-  if (p.volumes) r.volumes = p.volumes.map(cloneVolume);
-  if (p.tags) r.tags = [...p.tags];
-  if (p.needs) r.needs = [...p.needs];
-  if (p.condition) r.condition = [...p.condition];
-
-  return r;
+  return storePreview;
 }

@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import { analyticsApi } from "@/app/analytics/core";
 
-const MIN_DURATION = 2;
+import { MIN_DURATION } from "./config";
 
 export function PageLifecycleTracker() {
   const { pathname, search } = useLocation();

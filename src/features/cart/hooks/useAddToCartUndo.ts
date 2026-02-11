@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/app/store/hooks";
 
 import { addToCart } from "@/features/cart/model";
 
-import type { ID } from "@/shared/types/primitives";
+import type { ID } from "@/shared/types";
 
 type Options = {
   timeoutMs?: number;

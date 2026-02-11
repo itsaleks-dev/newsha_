@@ -1,20 +1,12 @@
 import { DELIVERY_CONTENT, PAYMENT_CONTENT } from "./config";
 
-import {
-  Page,
-  PageSection,
-  PageTitle,
-  SectionBlock,
-  SectionTitle,
-  Paragraph,
-  Note,
-} from "./DeliveryPaymentPage.styled";
+import * as S from "./DeliveryPaymentPage.styled";
 
 export function DeliveryPaymentPage() {
   return (
-    <Page>
-      <PageSection>
-        <PageTitle>{DELIVERY_CONTENT.title}</PageTitle>
+    <S.Page>
+      <S.PageSection>
+        <S.PageTitle>{DELIVERY_CONTENT.title}</S.PageTitle>
 
         <Section
           title={DELIVERY_CONTENT.deliveryTime.title}
@@ -24,10 +16,10 @@ export function DeliveryPaymentPage() {
         <Section title={DELIVERY_CONTENT.geography.title} text={DELIVERY_CONTENT.geography.text} />
 
         <Section title={DELIVERY_CONTENT.receiving.title} text={DELIVERY_CONTENT.receiving.text} />
-      </PageSection>
+      </S.PageSection>
 
-      <PageSection>
-        <PageTitle>{PAYMENT_CONTENT.title}</PageTitle>
+      <S.PageSection>
+        <S.PageTitle>{PAYMENT_CONTENT.title}</S.PageTitle>
 
         <Section
           title={PAYMENT_CONTENT.cashOnDelivery.title}
@@ -44,9 +36,9 @@ export function DeliveryPaymentPage() {
           text={PAYMENT_CONTENT.postOfficeCash.text}
         />
 
-        <Note>{PAYMENT_CONTENT.deliveryCostNote.text}</Note>
-      </PageSection>
-    </Page>
+        <S.Note>{PAYMENT_CONTENT.deliveryCostNote.text}</S.Note>
+      </S.PageSection>
+    </S.Page>
   );
 }
 
@@ -57,12 +49,12 @@ type SectionProps = {
 
 function Section({ title, text }: SectionProps) {
   return (
-    <SectionBlock>
-      <SectionTitle>{title}</SectionTitle>
+    <S.SectionBlock>
+      <S.SectionTitle>{title}</S.SectionTitle>
 
       {text.map((paragraph, index) => (
-        <Paragraph key={index}>{paragraph}</Paragraph>
+        <S.Paragraph key={index}>{paragraph}</S.Paragraph>
       ))}
-    </SectionBlock>
+    </S.SectionBlock>
   );
 }

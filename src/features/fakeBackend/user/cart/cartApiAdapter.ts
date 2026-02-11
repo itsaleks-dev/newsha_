@@ -7,7 +7,7 @@ import { productsApi } from "@/features/fakeBackend/product/api";
 import type { AddToCartDTO, RemoveFromCartDTO } from "@/features/cart/dto";
 import type { ICartRepository } from "@/features/cart/repositories";
 
-import { asQuantity } from "@/shared/types/primitives";
+import { asQuantity } from "@/shared/types";
 
 export class CartApiAdapter implements ICartRepository {
   private async getCartOwnerId(): Promise<CartOwnerId> {

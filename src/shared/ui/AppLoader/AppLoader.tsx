@@ -1,5 +1,5 @@
-import { Wrapper, Text } from "./AppLoader.styled";
 import { APP_TEXT } from "./config";
+import * as S from "./AppLoader.styled";
 
 type Props = {
   text?: string;
@@ -8,8 +8,8 @@ type Props = {
 
 export function AppLoader({ text = APP_TEXT.LOADING, fullscreen }: Props) {
   return (
-    <Wrapper {...(fullscreen !== undefined && { $fullscreen: fullscreen })}>
-      <Text>{text}</Text>
-    </Wrapper>
+    <S.Wrapper {...(fullscreen !== undefined && { $fullscreen: fullscreen })}>
+      <S.Text>{text}</S.Text>
+    </S.Wrapper>
   );
 }

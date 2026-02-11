@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { flexLeft, flexCenter, flexRight, headerGrid } from "@/shared/theme/variables";
+
 export const HeaderContainer = styled.header`
   position: relative;
   margin-top: 10px;
@@ -8,37 +10,29 @@ export const HeaderContainer = styled.header`
 
 export const HeaderSection = styled.div`
   height: 80px;
-  padding: 0 15px;
+  padding: 0 10px;
+  ${headerGrid};
+  border-radius: 16px;
+  background: ${({ theme }) => theme.colors.graphite};
 
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-
-  border-radius: 18px;
-  background: #242424;
-
-  @media ${({ theme }) => theme.media.tabletLg} {
-    height: 80px;
+  @media ${({ theme }) => theme.media.mobileLg} {
+    padding: 0 15px;
   }
-  @media ${({ theme }) => theme.media.desktop} {
+
+  @media ${({ theme }) => theme.media.laptop} {
     height: 100px;
     padding: 0 25px;
   }
 `;
 
 export const Left = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  ${flexLeft};
 `;
 
 export const Center = styled.div`
-  display: flex;
-  justify-content: center;
+  ${flexCenter};
 `;
 
 export const Right = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  ${flexRight};
 `;

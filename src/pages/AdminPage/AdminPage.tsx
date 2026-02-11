@@ -4,8 +4,8 @@ import { useAppDispatch } from "@/app/store/hooks";
 
 import { logout } from "@/features/auth/model";
 
-import * as S from "./AdminPage.styled";
 import { ADMIN_PAGE_TEXT } from "./config";
+import * as S from "./AdminPage.styled";
 
 export function AdminPage() {
   const dispatch = useAppDispatch();

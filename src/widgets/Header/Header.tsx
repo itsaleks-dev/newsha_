@@ -1,4 +1,4 @@
-import { PageContainer } from "@/shared/layout/PageContainer";
+import { PageContainer } from "@/shared/layout";
 
 import { MobileSearch } from "@/features/search/ui/MobileSearch";
 

@@ -1,122 +1,62 @@
 import styled from "styled-components";
 
+import { flex, flexColumn } from "@/shared/theme/variables";
+
 export const FormWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${flexColumn};
   gap: 12px;
 `;
 
-export const Input = styled.input`
-  width: 100%;
-  padding: 12px 14px;
-
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-
-  font-size: 14px;
-  line-height: 1.4;
-
-  background: ${({ theme }) => theme.colors.white};
-  color: ${({ theme }) => theme.colors.black};
-
-  transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
-
-  &:focus {
-    outline: none;
-    border-color: ${({ theme }) => theme.colors.black};
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.black};
-  }
-
-  &::placeholder {
-    color: rgba(0, 0, 0, 0.4);
-  }
+export const FormError = styled.p`
+  font-size: ${({ theme }) => theme.fontSizes.caption};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
+  color: ${({ theme }) => theme.colors.error};
 `;
 
 export const ButtonRow = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 24px;
+  margin-top: 20px;
 
   & > button {
     width: 100%;
-    max-width: 260px;
+    border-radius: 12px;
+    font-size: ${({ theme }) => theme.fontSizes.small};
+    font-weight: ${({ theme }) => theme.fontWeights.medium};
+    letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
+    color: ${({ theme }) => theme.colors.graphite};
+    background: ${({ theme }) => theme.colors.white};
   }
 `;
 
 export const Divider = styled.div`
-  margin: 18px 0;
-
-  display: flex;
+  margin: 16px 0;
+  ${flex};
   align-items: center;
-  gap: 12px;
-
-  font-size: 12px;
-  letter-spacing: 0.04em;
+  gap: 20px;
+  font-size: ${({ theme }) => theme.fontSizes.caption};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.5);
+  color: ${({ theme }) => theme.colors.white};
 
   &::before,
   &::after {
     content: "";
     flex: 1;
     height: 1px;
-    background: rgba(0, 0, 0, 0.15);
+    background: ${({ theme }) => theme.colors.white};
   }
 `;
 
 export const OAuthButton = styled.button`
-  width: 100%;
   padding: 10px 12px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
   border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-
+  border: none;
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
   background: ${({ theme }) => theme.colors.white};
-  color: ${({ theme }) => theme.colors.black};
-  font-size: 14px;
-  font-weight: 500;
-
+  color: ${({ theme }) => theme.colors.graphite};
   cursor: pointer;
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease;
-
-  img {
-    width: 18px;
-    height: 18px;
-    opacity: 0.85;
-  }
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.04);
-    border-color: rgba(0, 0, 0, 0.25);
-  }
 
   &:disabled {
-    opacity: 0.5;
     cursor: default;
   }
-
-  & + & {
-    margin-top: 6px;
-  }
-`;
-
-/* -------------------------------------------------- */
-/* Error text                                         */
-/* -------------------------------------------------- */
-
-export const ErrorText = styled.p`
-  margin-top: 2px;
-
-  font-size: 12px;
-  line-height: 1.4;
-  color: #c62828;
 `;

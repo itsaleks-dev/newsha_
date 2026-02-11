@@ -12,7 +12,6 @@ export const PageSection = styled.section`
 
 export const PageTitle = styled.h1`
   margin-bottom: 15px;
-
   font-size: 16px;
   font-weight: 500;
   text-align: center;

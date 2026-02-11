@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { Button } from "./IconButton.styled";
+import * as S from "./IconButton.styled";
 
 type IconButtonProps = {
   icon: ReactNode;
@@ -8,8 +8,8 @@ type IconButtonProps = {
 
 export function IconButton({ icon, ariaLabel, ...props }: IconButtonProps) {
   return (
-    <Button aria-label={ariaLabel} {...props}>
+    <S.Button aria-label={ariaLabel} {...props}>
       {icon}
-    </Button>
+    </S.Button>
   );
 }

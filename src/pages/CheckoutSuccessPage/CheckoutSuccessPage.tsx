@@ -1,0 +1,46 @@
+import { useSearchParams, useNavigate } from "react-router-dom";
+
+import { CHECKOUT_SUCCESS_TEXT } from "./config";
+import * as S from "./CheckoutSuccessPage.styled";
+
+export function CheckoutSuccessPage() {
+  const [params] = useSearchParams();
+  const navigate = useNavigate();
+
+  const orderId = params.get("order");
+
+  return (
+    <S.Wrapper>
+      <S.Card>
+        <S.Icon>✅</S.Icon>
+
+        <S.Title>{CHECKOUT_SUCCESS_TEXT.TITLE}</S.Title>
+
+        <S.Text>
+          {CHECKOUT_SUCCESS_TEXT.DESCRIPTION.split("\n").map((line, i) => (
+            <span key={i}>
+              {line}
+              <br />
+            </span>
+          ))}
+        </S.Text>
+
+        {orderId && (
+          <S.OrderId>
+            {CHECKOUT_SUCCESS_TEXT.ORDER_LABEL} <strong>{orderId}</strong>
+          </S.OrderId>
+        )}
+
+        <S.Actions>
+          <S.PrimaryButton onClick={() => navigate("/account")}>
+            {CHECKOUT_SUCCESS_TEXT.BUTTONS.ACCOUNT}
+          </S.PrimaryButton>
+
+          <S.SecondaryButton onClick={() => navigate("/")}>
+            {CHECKOUT_SUCCESS_TEXT.BUTTONS.HOME}
+          </S.SecondaryButton>
+        </S.Actions>
+      </S.Card>
+    </S.Wrapper>
+  );
+}

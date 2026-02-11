@@ -1,9 +1,13 @@
-import { couponsDB } from "@/app/mocks/discount/db";
+import { getCouponsDB, setCouponsDB } from "@/app/mocks/discount/db";
 
-import { asMoney } from "@/shared/types/primitives";
+import { asMoney } from "@/shared/types";
 
 export function seedCoupons() {
-  couponsDB.push(
+  const db = getCouponsDB();
+
+  if (db.length) return;
+
+  setCouponsDB([
     {
       code: "WELCOME10",
       type: "percent",
@@ -22,5 +26,5 @@ export function seedCoupons() {
       type: "free_shipping",
       used: 0,
     },
-  );
+  ]);
 }

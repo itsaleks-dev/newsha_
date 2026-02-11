@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Input } from "./SearchInput.styled";
 
 interface Props {
@@ -17,7 +15,7 @@ export function SearchInput({ value, placeholder, autoFocus, onChange, onFocus }
       placeholder={placeholder}
       autoFocus={autoFocus}
       onFocus={onFocus}
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
+      onChange={(e) => onChange(e.target.value)}
     />
   );
 }

@@ -1,6 +1,6 @@
 import type { ProductVolumeOption } from "@/entities/product/types";
 
-import type { ID, Money, Quantity, Subtotal, ISODate } from "@/shared/types/primitives";
+import type { ID, Money, Quantity, Subtotal, ISODate } from "@/shared/types";
 
 export const ORDER_STATUS = {
   Pending: "pending",
@@ -90,4 +90,28 @@ export type StoreOrder = {
 export type OrdersState = {
   items: StoreOrder[];
   status: "idle" | "loading" | "error";
+};
+
+export const PAYMENT_METHOD = {
+  CashOnDelivery: "cash",
+  Online: "online",
+} as const;
+
+export type PaymentMethod = (typeof PAYMENT_METHOD)[keyof typeof PAYMENT_METHOD];
+
+export type CheckoutFormValues = {
+  name: string;
+  email: string;
+  phone: string;
+
+  delivery: {
+    method: (typeof DELIVERY_METHOD)[keyof typeof DELIVERY_METHOD];
+    city: string;
+    warehouse?: string;
+    address?: string;
+  };
+
+  payment: {
+    method: PaymentMethod;
+  };
 };

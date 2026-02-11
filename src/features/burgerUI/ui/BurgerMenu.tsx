@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 
-import { selectIsAuthenticated } from "@/features/auth/model";
-import { openLogin } from "@/features/auth/model";
+import { selectIsAuthenticated, openLogin } from "@/features/auth/model";
 import { useBurgerUI } from "@/features/burgerUI/hooks";
 import {
   fetchCategories,

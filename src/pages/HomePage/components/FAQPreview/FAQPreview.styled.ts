@@ -36,21 +36,16 @@ export const Item = styled.li`
 export const Question = styled.button`
   width: 100%;
   padding: 14px 0;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   background: none;
   border: none;
-
   font-size: 14px;
   letter-spacing: 0.03em;
   color: #242424;
   text-align: left;
-
   cursor: pointer;
-
   transition: opacity 0.2s ease;
 
   &:hover {
@@ -62,7 +57,6 @@ export const Arrow = styled.span<{ $open: boolean }>`
   font-size: 18px;
   line-height: 1;
   color: #242424;
-
   transform: rotate(${({ $open }) => ($open ? "90deg" : "0deg")});
   transition: transform 0.25s ease;
 `;
@@ -70,7 +64,6 @@ export const Arrow = styled.span<{ $open: boolean }>`
 export const Answer = styled.div<{ $open: boolean }>`
   display: grid;
   grid-template-rows: ${({ $open }) => ($open ? "1fr" : "0fr")};
-
   transition: grid-template-rows 0.35s ease;
 
   > div {
@@ -80,14 +73,11 @@ export const Answer = styled.div<{ $open: boolean }>`
   p {
     margin: 0 0 14px;
     padding-right: 24px;
-
     font-size: 13.5px;
     line-height: 1.55;
     color: #555;
-
     opacity: ${({ $open }) => ($open ? 1 : 0)};
     transform: translateY(${({ $open }) => ($open ? "0" : "-4px")});
-
     transition:
       opacity 0.25s ease,
       transform 0.25s ease;

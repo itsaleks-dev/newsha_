@@ -1,4 +1,4 @@
-import { TEXT } from "@/shared/text";
+import { TEXT } from "@/shared/config/text";
 
 export const CONSTANTS = {
   DEFAULT_LANGUAGE: "ua",

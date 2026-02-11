@@ -1,25 +1,27 @@
 import styled from "styled-components";
 
+import { flex } from "@/shared/theme/variables";
+
 export const Wrapper = styled.nav`
   margin: 10px 0;
 `;
 
 export const List = styled.ol`
-  display: flex;
+  padding: 0;
+  margin: 0;
+  ${flex};
   flex-wrap: wrap;
   gap: 4px;
   list-style: none;
-  padding: 0;
-  margin: 0;
 `;
 
 export const Item = styled.li<{ "data-active"?: boolean }>`
-  font-size: 12px;
-  color: #242424;
+  font-size: ${({ theme }) => theme.fontSizes.caption};
+  color: ${({ theme }) => theme.colors.graphite};
 
   &[data-active] {
     color: ${({ theme }) => theme.colors.black};
-    font-weight: 500;
+    font-weight: ${({ theme }) => theme.fontWeights.medium};
   }
 
   a {

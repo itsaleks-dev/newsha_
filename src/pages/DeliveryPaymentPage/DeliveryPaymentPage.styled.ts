@@ -13,7 +13,6 @@ export const PageSection = styled.section`
 
 export const PageTitle = styled.h1`
   margin-bottom: 15px;
-
   font-size: 18px;
   font-weight: 600;
   text-align: center;
@@ -29,10 +28,8 @@ export const SectionBlock = styled.div`
 
 export const SectionTitle = styled.h2`
   margin-bottom: 15px;
-
   font-size: 16px;
   text-align: center;
-
   font-weight: 500;
   letter-spacing: 0.06em;
 `;
@@ -40,7 +37,6 @@ export const SectionTitle = styled.h2`
 export const Paragraph = styled.p`
   font-size: 14px;
   font-weight: 300;
-
   line-height: 1.6;
 
   &:not(:last-child) {
@@ -50,7 +46,6 @@ export const Paragraph = styled.p`
 
 export const Note = styled.p`
   margin-top: 24px;
-
   font-size: 12px;
   font-weight: 500;
   line-height: 1.6;

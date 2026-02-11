@@ -7,7 +7,7 @@ import type { ApiState } from "@/features/fakeBackend/user/core";
 import { USERS_API_TEXT } from "@/features/fakeBackend/user/config";
 
 import { wait } from "@/shared/lib/async";
-import { asID } from "@/shared/types/primitives";
+import { asID } from "@/shared/types";
 
 export function createUsersApi(state: ApiState) {
   return {

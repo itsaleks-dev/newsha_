@@ -1,4 +1,4 @@
-export { ORDER_STATUS, DELIVERY_METHOD } from "./order.types";
+export { ORDER_STATUS, DELIVERY_METHOD, PAYMENT_METHOD } from "./order.types";
 
 export type {
   OrderStatus,
@@ -14,4 +14,6 @@ export type {
   Order,
   StoreOrder,
   OrdersState,
+  PaymentMethod,
+  CheckoutFormValues,
 } from "./order.types";

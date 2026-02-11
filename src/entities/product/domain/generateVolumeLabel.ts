@@ -1,4 +1,4 @@
-import type { ProductVolumeOption } from "@/entities/product/types/product.types";
+import type { ProductVolumeOption } from "@/entities/product/types";
 
 export function generateVolumeLabel(
   value: ProductVolumeOption["value"],

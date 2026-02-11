@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
+import { flex, flexCenter } from "@/shared/theme/variables";
+
 export const QuantityWrapper = styled.div`
   height: 42px;
-  display: flex;
+  ${flex};
   align-items: center;
   gap: 4px;
-  padding: 0 8px;
-  border-radius: 14px;
+
+  border-radius: 16px;
   background: ${({ theme }) => theme.colors.black};
   z-index: 2;
 `;
@@ -14,13 +16,11 @@ export const QuantityWrapper = styled.div`
 export const QtyControlButton = styled.button`
   width: 30px;
   height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flexCenter};
   border: none;
   border-radius: 999px;
   background: ${({ theme }) => theme.colors.white};
-  color: #000;
+  color: ${({ theme }) => theme.colors.graphite};
   cursor: pointer;
 
   &:hover:not(:disabled) {

@@ -1,6 +1,6 @@
 import type { ButtonProps } from "@/shared/ui/Button/types";
 
-import { ButtonRoot } from "./BaseButton.styled";
+import * as S from "./BaseButton.styled";
 
 export function BaseButton({
   variant = "primary",
@@ -11,7 +11,7 @@ export function BaseButton({
   ...props
 }: ButtonProps) {
   return (
-    <ButtonRoot
+    <S.ButtonRoot
       $variant={variant}
       $size={size}
       $fullWidth={!!fullWidth}
@@ -20,6 +20,6 @@ export function BaseButton({
       {...props}
     >
       {children}
-    </ButtonRoot>
+    </S.ButtonRoot>
   );
 }

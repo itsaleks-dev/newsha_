@@ -1,7 +1,7 @@
 import type { Category } from "@/entities/category/types";
 import { slugifyCategory } from "@/entities/category/domain";
 
-import { asID, asSlug } from "@/shared/types/primitives";
+import { asID, asSlug } from "@/shared/types";
 
 let idCounter = 1;
 

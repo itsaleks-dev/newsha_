@@ -1,15 +1,6 @@
 import { formatPrice } from "@/shared/lib/formatPrice";
 
-import {
-  CartFooter,
-  FooterLeft,
-  FooterRight,
-  SummaryRow,
-  SummaryLabel,
-  SummaryValue,
-  CheckoutButton,
-  ClearCartButton,
-} from "./CartFooterBlock.styled";
+import * as S from "./CartFooterBlock.styled";
 
 import { CART_FOOTER_TEXT } from "./config";
 
@@ -21,19 +12,19 @@ type CartFooterBlockProps = {
 
 export function CartFooterBlock({ totalPrice, clear, checkout }: CartFooterBlockProps) {
   return (
-    <CartFooter>
-      <FooterLeft>
-        <ClearCartButton onClick={clear}>{CART_FOOTER_TEXT.CLEAR}</ClearCartButton>
-      </FooterLeft>
+    <S.CartFooter>
+      <S.FooterLeft>
+        <S.ClearCartButton onClick={clear}>{CART_FOOTER_TEXT.CLEAR}</S.ClearCartButton>
+      </S.FooterLeft>
 
-      <FooterRight>
-        <SummaryRow>
-          <SummaryLabel>{CART_FOOTER_TEXT.TOTAL_LABEL}</SummaryLabel>
-          <SummaryValue>{formatPrice(totalPrice)}</SummaryValue>
-        </SummaryRow>
+      <S.FooterRight>
+        <S.SummaryRow>
+          <S.SummaryLabel>{CART_FOOTER_TEXT.TOTAL_LABEL}</S.SummaryLabel>
+          <S.SummaryValue>{formatPrice(totalPrice)}</S.SummaryValue>
+        </S.SummaryRow>
 
-        <CheckoutButton onClick={checkout}>{CART_FOOTER_TEXT.CHECKOUT}</CheckoutButton>
-      </FooterRight>
-    </CartFooter>
+        <S.CheckoutButton onClick={checkout}>{CART_FOOTER_TEXT.CHECKOUT}</S.CheckoutButton>
+      </S.FooterRight>
+    </S.CartFooter>
   );
 }

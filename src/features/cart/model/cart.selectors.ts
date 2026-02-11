@@ -5,8 +5,7 @@ import type { RootState } from "@/app/store/rootReducer";
 import type { CartViewItemDetailed } from "@/features/cart/view";
 import { selectProductPreviews } from "@/features/product/model";
 
-import { asQuantity } from "@/shared/types/primitives";
-import { calcSubtotal } from "@/shared/types/primitives";
+import { asQuantity, calcSubtotal } from "@/shared/types";
 
 const selectCartState = (state: RootState) => state.cart;
 export const selectCartItems = createSelector([selectCartState], (s) => s.items);

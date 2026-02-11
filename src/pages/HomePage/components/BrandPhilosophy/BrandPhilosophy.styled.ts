@@ -36,7 +36,6 @@ export const Values = styled.ul`
   list-style: none;
   margin: 0 0 36px;
   padding: 0;
-
   display: flex;
   flex-direction: column;
   gap: 10px;

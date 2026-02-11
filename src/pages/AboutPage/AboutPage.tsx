@@ -1,5 +1,5 @@
-import * as S from "./AboutPage.styled";
 import { ABOUT_PAGE_TEXT } from "@/pages/AboutPage/config";
+import * as S from "./AboutPage.styled";
 
 export function AboutPage() {
   const {

@@ -1,25 +1,19 @@
-import type { InputHTMLAttributes } from "react";
+import type React from "react";
+import * as S from "./Input.styled";
 
-import { Wrapper, Label, StyledInput, ErrorText } from "./Input.styled";
-
-type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "id"> & {
-  name: string;
-  id?: string;
+export type BaseInputProps = {
   label?: string;
   error?: string;
-};
+} & React.InputHTMLAttributes<HTMLInputElement>;
 
-export function Input({ id, label, error, ...props }: InputProps) {
-  const inputId = id ?? props.name;
-  const errorId = error ? `${inputId}-error` : undefined;
-
+export function LoginInput({ label, error, ...props }: BaseInputProps) {
   return (
-    <Wrapper>
-      {label && <Label htmlFor={inputId}>{label}</Label>}
-
-      <StyledInput id={inputId} aria-invalid={!!error} aria-describedby={errorId} {...props} />
-
-      {error && <ErrorText id={errorId}>{error}</ErrorText>}
-    </Wrapper>
+    <S.InputField $hasError={!!error}>
+      {label && <S.Label>{label}</S.Label>}
+      <S.Input {...props} />
+      {error && <S.InputError>{error}</S.InputError>}
+    </S.InputField>
   );
 }
+
+export const RegisterInput = LoginInput;

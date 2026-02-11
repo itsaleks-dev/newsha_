@@ -23,6 +23,6 @@ export const Wrapper = styled.div<{ $fullscreen?: boolean }>`
 export const Text = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.body};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
-  letter-spacing: 0.08em;
-  color: #555555;
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
+  color: ${({ theme }) => theme.colors.gray};
 `;

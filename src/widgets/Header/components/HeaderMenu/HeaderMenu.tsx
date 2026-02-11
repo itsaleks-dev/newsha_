@@ -4,7 +4,7 @@ import { openMegaMenu, closeMegaMenu } from "@/features/navigation/model";
 import type { MegaMenuKey } from "@/features/navigation/model";
 
 import { HEADER_MENU_TEXT } from "./config";
-import { Nav, NavItem } from "./HeaderMenu.styled";
+import * as S from "./HeaderMenu.styled";
 
 export function HeaderMenu() {
   const dispatch = useAppDispatch();
@@ -14,18 +14,21 @@ export function HeaderMenu() {
   };
 
   return (
-    <Nav onMouseLeave={() => dispatch(closeMegaMenu())}>
-      <NavItem onMouseEnter={() => handleOpen("catalog")} onFocus={() => handleOpen("catalog")}>
+    <S.Nav onMouseLeave={() => dispatch(closeMegaMenu())}>
+      <S.NavItem onMouseEnter={() => handleOpen("catalog")} onFocus={() => handleOpen("catalog")}>
         {HEADER_MENU_TEXT.CATALOG}
-      </NavItem>
+      </S.NavItem>
 
-      <NavItem onMouseEnter={() => handleOpen("needs")} onFocus={() => handleOpen("needs")}>
+      <S.NavItem onMouseEnter={() => handleOpen("needs")} onFocus={() => handleOpen("needs")}>
         {HEADER_MENU_TEXT.NEEDS}
-      </NavItem>
+      </S.NavItem>
 
-      <NavItem onMouseEnter={() => handleOpen("condition")} onFocus={() => handleOpen("condition")}>
+      <S.NavItem
+        onMouseEnter={() => handleOpen("condition")}
+        onFocus={() => handleOpen("condition")}
+      >
         {HEADER_MENU_TEXT.HAIR_TYPE}
-      </NavItem>
-    </Nav>
+      </S.NavItem>
+    </S.Nav>
   );
 }

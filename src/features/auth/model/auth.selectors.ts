@@ -18,7 +18,6 @@ export const selectAuthUser = createSelector(
 export const selectAuthToken = createSelector([selectAuthState], (auth) => auth.token);
 export const selectAuthStatus = createSelector([selectAuthState], (auth) => auth.status);
 export const selectSessionLoaded = createSelector([selectAuthState], (auth) => auth.sessionLoaded);
-
 export const selectUser = createSelector([selectAuthUser], (storeUser) => {
   const user = storeUser?.user;
   return user && user.role !== USER_ROLES.GUEST ? user : null;
@@ -26,7 +25,6 @@ export const selectUser = createSelector([selectAuthUser], (storeUser) => {
 
 export const selectUserName = createSelector([selectUser], (user) => user?.name ?? null);
 export const selectUserEmail = createSelector([selectUser], (user) => user?.email ?? null);
-
 export const selectUserRole = createSelector(
   [selectUser],
   (user) => user?.role ?? USER_ROLES.GUEST,
@@ -34,7 +32,6 @@ export const selectUserRole = createSelector(
 
 export const selectIsAuthenticated = createSelector([selectAuthUser], (user) => Boolean(user));
 export const selectIsAdmin = createSelector([selectUserRole], (role) => role === USER_ROLES.ADMIN);
-
 export const selectIsGuestUser = createSelector(
   [selectUserRole],
   (role) => role === USER_ROLES.GUEST,

@@ -1,4 +1,4 @@
-import type { ID } from "@/shared/types/primitives";
+import type { ID } from "@/shared/types";
 
 export const REVIEW_STATUS = {
   Pending: "pending",

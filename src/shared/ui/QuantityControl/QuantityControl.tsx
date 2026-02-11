@@ -1,6 +1,6 @@
 import type { QuantityControlProps } from "@/shared/ui/QuantityControl/types";
 
-import { QuantityWrapper, QtyControlButton, QtyValue } from "./QuantityControl.styled";
+import * as S from "./QuantityControl.styled";
 
 export function QuantityControl({
   value,
@@ -14,16 +14,16 @@ export function QuantityControl({
   const isMax = max != null && value >= max;
 
   return (
-    <QuantityWrapper>
-      <QtyControlButton onClick={onDecrease} disabled={isMin}>
+    <S.QuantityWrapper>
+      <S.QtyControlButton onClick={onDecrease} disabled={isMin}>
         −
-      </QtyControlButton>
+      </S.QtyControlButton>
 
-      <QtyValue ref={valueRef}>{value}</QtyValue>
+      <S.QtyValue ref={valueRef}>{value}</S.QtyValue>
 
-      <QtyControlButton onClick={onIncrease} disabled={isMax}>
+      <S.QtyControlButton onClick={onIncrease} disabled={isMax}>
         +
-      </QtyControlButton>
-    </QuantityWrapper>
+      </S.QtyControlButton>
+    </S.QuantityWrapper>
   );
 }

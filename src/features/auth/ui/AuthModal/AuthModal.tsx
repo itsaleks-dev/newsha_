@@ -7,7 +7,7 @@ import { LoginForm } from "@/features/auth/ui/LoginForm";
 import { RegisterForm } from "@/features/auth/ui/RegisterForm";
 
 import { AUTH_MODAL_TEXT } from "./config";
-import { Overlay, ModalBox, Title, SwitchLink, CloseButton, HeaderRow } from "./AuthModal.styled";
+import * as S from "./AuthModal.styled";
 
 export function AuthModal() {
   const dispatch = useAppDispatch();
@@ -41,22 +41,24 @@ export function AuthModal() {
   const isLogin = mode === "login";
 
   return (
-    <Overlay onClick={close}>
-      <ModalBox onClick={(e) => e.stopPropagation()}>
-        <HeaderRow>
-          <Title>{isLogin ? AUTH_MODAL_TEXT.LOGIN_TITLE : AUTH_MODAL_TEXT.REGISTER_TITLE}</Title>
+    <S.Overlay onClick={close}>
+      <S.ModalBox onClick={(e) => e.stopPropagation()}>
+        <S.HeaderRow>
+          <S.Title>
+            {isLogin ? AUTH_MODAL_TEXT.LOGIN_TITLE : AUTH_MODAL_TEXT.REGISTER_TITLE}
+          </S.Title>
 
-          <CloseButton onClick={close} aria-label="Close">
+          <S.CloseButton onClick={close} aria-label="Close">
             ×
-          </CloseButton>
-        </HeaderRow>
+          </S.CloseButton>
+        </S.HeaderRow>
 
         {isLogin ? <LoginForm /> : <RegisterForm />}
 
-        <SwitchLink onClick={() => dispatch(isLogin ? openRegister() : openLogin())}>
+        <S.SwitchLink onClick={() => dispatch(isLogin ? openRegister() : openLogin())}>
           {isLogin ? AUTH_MODAL_TEXT.SWITCH_TO_REGISTER : AUTH_MODAL_TEXT.SWITCH_TO_LOGIN}
-        </SwitchLink>
-      </ModalBox>
-    </Overlay>
+        </S.SwitchLink>
+      </S.ModalBox>
+    </S.Overlay>
   );
 }

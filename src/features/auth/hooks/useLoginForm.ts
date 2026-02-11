@@ -9,14 +9,14 @@ import type { LoginDTO } from "@/features/auth/application";
 export function useLoginForm() {
   const dispatch = useAppDispatch();
   const { status, error } = useAppSelector(selectAuthState);
-  const { redirect } = useRedirectAfterLogin();
+
+  useRedirectAfterLogin();
 
   const onSubmit = useCallback(
     async (values: LoginDTO) => {
       await dispatch(login(values)).unwrap();
-      redirect();
     },
-    [dispatch, redirect],
+    [dispatch],
   );
 
   return {

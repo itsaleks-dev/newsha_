@@ -1,6 +1,6 @@
 import type { RatingStarsProps } from "@/shared/ui/RatingStars/types";
 
-import { RatingWrapper, Stars, Star, Fill, RatingValue, RatingCount } from "./RatingStars.styled";
+import * as S from "./RatingStars.styled";
 
 export function RatingStars({
   rating = 0,
@@ -12,23 +12,23 @@ export function RatingStars({
   const safeRating = Math.min(Math.max(rating, 0), max);
 
   return (
-    <RatingWrapper aria-label={`Rating ${safeRating} of ${max} based on ${reviews} reviews`}>
-      <Stars aria-hidden="true">
+    <S.RatingWrapper aria-label={`Rating ${safeRating} of ${max} based on ${reviews} reviews`}>
+      <S.Stars aria-hidden="true">
         {Array.from({ length: max }).map((_, i) => {
           const fillPercent = Math.min(Math.max(safeRating - i, 0), 1) * 100;
 
           return (
-            <Star key={i}>
+            <S.Star key={i}>
               <span className="empty">☆</span>
-              {fillPercent > 0 && <Fill style={{ width: `${fillPercent}%` }}>★</Fill>}
-            </Star>
+              {fillPercent > 0 && <S.Fill style={{ width: `${fillPercent}%` }}>★</S.Fill>}
+            </S.Star>
           );
         })}
-      </Stars>
+      </S.Stars>
 
-      {showValue && safeRating > 0 && <RatingValue>{safeRating.toFixed(1)}</RatingValue>}
+      {showValue && safeRating > 0 && <S.RatingValue>{safeRating.toFixed(1)}</S.RatingValue>}
 
-      {showCount && reviews > 0 && <RatingCount>({reviews})</RatingCount>}
-    </RatingWrapper>
+      {showCount && reviews > 0 && <S.RatingCount>({reviews})</S.RatingCount>}
+    </S.RatingWrapper>
   );
 }

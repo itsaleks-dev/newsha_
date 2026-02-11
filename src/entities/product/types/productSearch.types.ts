@@ -1,6 +1,6 @@
 import { ProductVolumeOption } from "./product.types";
 
-import { ID, Money, Slug } from "@/shared/types/primitives";
+import { ID, Money, Slug } from "@/shared/types";
 
 export type SearchVariationResult = {
   id: string;

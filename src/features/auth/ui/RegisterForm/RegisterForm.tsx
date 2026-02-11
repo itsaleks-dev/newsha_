@@ -9,10 +9,10 @@ import type { RegisterDTO } from "@/features/auth/application";
 import { REGISTER_FORM_TEXT } from "@/features/auth/config";
 
 import { FieldInput } from "@/shared/ui/Form/ui/FieldInput";
-import { FieldError } from "@/shared/ui/Form/ui/FieldError";
 import { SubmitButton } from "@/shared/ui/Button/SubmitButton";
+import { RegisterInput } from "@/shared/ui/Input";
 
-import { ErrorText, Divider } from "./RegisterForm.styled";
+import * as S from "./RegisterForm.styled";
 
 export function RegisterForm() {
   const dispatch = useAppDispatch();
@@ -26,42 +26,60 @@ export function RegisterForm() {
       validationSchema={registerForm.validationSchema}
       onSubmit={async (values, { setSubmitting }) => {
         try {
-          await dispatch(
-            register({
-              name: values.name,
-              phone: values.phone,
-              email: values.email,
-              password: values.password,
-            }),
-          ).unwrap();
+          await dispatch(register(values)).unwrap();
         } finally {
           setSubmitting(false);
         }
       }}
     >
       <Form>
-        <FieldInput name="name" />
-        <FieldError name="name" />
+        <S.FormWrapper>
+          <FieldInput
+            name="name"
+            label={REGISTER_FORM_TEXT.NAME_LABEL}
+            placeholder={REGISTER_FORM_TEXT.NAME_PLACEHOLDER}
+            component={RegisterInput}
+          />
 
-        <FieldInput name="phone" />
-        <FieldError name="phone" />
+          <FieldInput
+            name="phone"
+            label={REGISTER_FORM_TEXT.PHONE_LABEL}
+            placeholder={REGISTER_FORM_TEXT.PHONE_PLACEHOLDER}
+            component={RegisterInput}
+          />
 
-        <FieldInput name="email" type="email" />
-        <FieldError name="email" />
+          <FieldInput
+            name="email"
+            type="email"
+            label={REGISTER_FORM_TEXT.EMAIL_LABEL}
+            placeholder={REGISTER_FORM_TEXT.EMAIL_PLACEHOLDER}
+            component={RegisterInput}
+          />
 
-        <FieldInput name="password" type="password" />
-        <FieldError name="password" />
+          <FieldInput
+            name="password"
+            type="password"
+            label={REGISTER_FORM_TEXT.PASSWORD_LABEL}
+            placeholder={REGISTER_FORM_TEXT.PASSWORD_PLACEHOLDER}
+            component={RegisterInput}
+          />
 
-        <FieldInput name="password2" type="password" />
-        <FieldError name="password2" />
+          <FieldInput
+            name="password2"
+            type="password"
+            label={REGISTER_FORM_TEXT.PASSWORD2_LABEL}
+            placeholder={REGISTER_FORM_TEXT.PASSWORD2_PLACEHOLDER}
+            component={RegisterInput}
+          />
 
-        {error && <ErrorText>{error}</ErrorText>}
+          {error && <S.FormError>{error}</S.FormError>}
 
-        <SubmitButton>
-          {status === "loading" ? REGISTER_FORM_TEXT.SUBMIT_LOADING : registerForm.submitLabel}
-        </SubmitButton>
-
-        <Divider />
+          <S.ButtonRow>
+            <SubmitButton>
+              {status === "loading" ? REGISTER_FORM_TEXT.SUBMIT_LOADING : REGISTER_FORM_TEXT.SUBMIT}
+            </SubmitButton>
+          </S.ButtonRow>
+        </S.FormWrapper>
       </Form>
     </Formik>
   );

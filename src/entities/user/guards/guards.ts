@@ -1,7 +1,7 @@
 import { USER_ROLES } from "@/entities/user/types";
 import type { User, CurrentUser } from "@/entities/user/types";
 
-import type { ID } from "@/shared/types/primitives";
+import type { ID } from "@/shared/types";
 
 import { USER_GUARD_TEXT } from "./guards.text";
 

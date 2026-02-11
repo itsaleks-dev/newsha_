@@ -9,8 +9,8 @@ import { PRODUCTS_API_TEXT } from "@/features/fakeBackend/product/config";
 
 import { wait } from "@/shared/lib/async";
 import type { PaginationQuery, PaginatedResponse } from "@/shared/lib/pagination/types";
-import type { ID, Slug } from "@/shared/types/primitives";
-import { asID } from "@/shared/types/primitives";
+import type { ID, Slug } from "@/shared/types";
+import { asID } from "@/shared/types";
 
 function applyPagination<T>(items: readonly T[], query?: PaginationQuery): PaginatedResponse<T> {
   const page = query?.page && query.page > 0 ? query.page : 1;

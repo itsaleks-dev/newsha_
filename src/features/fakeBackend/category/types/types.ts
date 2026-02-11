@@ -1,4 +1,4 @@
-import type { ID, Slug } from "@/shared/types/primitives";
+import type { ID, Slug } from "@/shared/types";
 
 export type CategoryDTO = {
   id: ID;

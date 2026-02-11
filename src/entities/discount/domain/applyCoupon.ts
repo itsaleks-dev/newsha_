@@ -1,8 +1,8 @@
 import type { Coupon } from "@/entities/discount/types";
 import type { CartRow } from "@/entities/cart/types";
 
-import type { Money, ID } from "@/shared/types/primitives";
-import { calcSubtotal, floorMoney } from "@/shared/types/primitives";
+import type { Money, ID } from "@/shared/types";
+import { calcSubtotal, floorMoney } from "@/shared/types";
 
 import { calculateDiscount } from "./calculateDiscount";
 import { validateCoupon } from "./validateCoupon";

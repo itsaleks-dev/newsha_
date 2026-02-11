@@ -1,6 +1,6 @@
 import { CONSTANTS } from "@/shared/constants";
 
-type DisplayCurrency = typeof CONSTANTS.CURRENCY.DISPLAY;
+export type DisplayCurrency = typeof CONSTANTS.CURRENCY.DISPLAY;
 
 export function formatPrice(
   value: number | string,

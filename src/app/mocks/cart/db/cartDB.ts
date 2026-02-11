@@ -1,4 +1,5 @@
 import type { CartRow, CartOwnerId } from "@/entities/cart/types";
+
 import { STORAGE_KEYS } from "@/shared/constants/storage";
 
 function load(): Record<string, CartRow[]> {

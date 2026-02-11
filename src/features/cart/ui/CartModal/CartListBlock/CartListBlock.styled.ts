@@ -8,7 +8,6 @@ export const CartList = styled.div`
 
 export const CartEmptyState = styled.div`
   padding: 24px 8px;
-
   font-size: 16px;
   line-height: 1.6;
   text-align: center;

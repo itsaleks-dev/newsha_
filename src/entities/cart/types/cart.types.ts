@@ -1,6 +1,6 @@
 import type { ProductVolumeOption } from "@/entities/product/types/product.types";
 
-import type { ID, Money, Quantity, Subtotal } from "@/shared/types/primitives";
+import type { ID, Money, Quantity, Subtotal } from "@/shared/types";
 
 export type CartItem = {
   id: ID;

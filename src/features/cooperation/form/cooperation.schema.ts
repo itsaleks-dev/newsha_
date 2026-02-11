@@ -1,10 +1,17 @@
-import type { FormSchema } from "@/shared/ui/Form/schema";
+import type { FormSchema, CooperationFormValues } from "@/shared/ui/Form/schema";
 
 import { COOPERATION_TEXT } from "@/features/cooperation/config";
 
-export const cooperationSchema: FormSchema = {
+export const cooperationSchema: FormSchema<CooperationFormValues> = {
   submitLabel: COOPERATION_TEXT.submitLabel,
   validateBeforeSubmit: true,
+
+  initialValues: {
+    name: "",
+    phone: "",
+    city: "",
+    message: "",
+  },
 
   fields: [
     {

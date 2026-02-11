@@ -10,7 +10,7 @@ import { CartModal } from "@/features/cart/ui/CartModal";
 import { SearchOverlay } from "@/features/search/ui/SearchOverlay";
 import { AuthModal } from "@/features/auth/ui/AuthModal";
 import { BurgerMenu } from "@/features/burgerUI/ui";
-import { PageContainer } from "@/shared/layout/PageContainer";
+import { PageContainer } from "@/shared/layout";
 
 import { Header } from "@/widgets/Header/Header";
 import { Footer } from "@/widgets/Footer";
@@ -30,15 +30,15 @@ export function AppLayout() {
 
   return (
     <LayoutWrapper>
+      <Header />
       <Content>
-        <Header />
         <PageContainer>
           <JsonLd data={schema} />
           <Breadcrumbs breadcrumbs={breadcrumbs} />
           <Outlet />
         </PageContainer>
-        <Footer />
       </Content>
+      <Footer />
 
       <BurgerMenu />
       <SearchOverlay />

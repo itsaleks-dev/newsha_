@@ -27,10 +27,8 @@ export const Image = styled.img<{ $active: boolean }>`
   width: 100%;
   height: 100%;
   object-fit: cover;
-
   opacity: ${({ $active }) => ($active ? 1 : 0)};
   transform: scale(${({ $active }) => ($active ? 1 : 1.02)});
-
   transition:
     opacity 0.48s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -44,11 +42,9 @@ export const CardOverlay = styled.div`
   left: 14px;
   right: 14px;
   z-index: 3;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   pointer-events: none;
 `;
 
@@ -62,16 +58,13 @@ export const Badge = styled.div<{ $variant: "new" | "bestseller" }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   padding: 6px 12px;
   min-height: 24px;
-
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1;
-
   border-radius: 14px;
   white-space: nowrap;
 
@@ -92,14 +85,12 @@ export const Badge = styled.div<{ $variant: "new" | "bestseller" }>`
 
 export const WishlistBtn = styled.button<{ $active?: boolean }>`
   pointer-events: auto;
-
   width: 42px;
   height: 42px;
   border-radius: 50%;
   border: none;
   background: #fff;
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,13 +106,11 @@ export const Bottom = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-
   min-height: 210px;
   padding: 18px 18px 20px;
   background: #242424;
   color: #fff;
   border-radius: 26px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -198,7 +187,6 @@ export const BuyBtn = styled.button`
   height: 42px;
   border-radius: 14px;
   border: none;
-
   background: #fff;
   color: #000;
   font-size: 16px;

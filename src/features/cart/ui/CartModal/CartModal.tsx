@@ -5,7 +5,7 @@ import { CartListBlock } from "@/features/cart/ui/CartModal/CartListBlock";
 import { CartFooterBlock } from "@/features/cart/ui/CartModal/CartFooterBlock";
 import { useCartModalController } from "@/features/cart/hooks";
 
-import { CartOverlay, CartPanel, CartBody } from "./CartModal.styled";
+import * as S from "./CartModal.styled";
 
 export function CartModal() {
   const { open, items, totalQty, totalPrice, increase, decrease, remove, clear, close, checkout } =
@@ -17,19 +17,19 @@ export function CartModal() {
 
   return (
     <>
-      <CartOverlay onClick={close} />
+      <S.CartOverlay onClick={close} />
 
-      <CartPanel onClick={stop}>
+      <S.CartPanel onClick={stop}>
         <CartHeaderBlock totalQty={totalQty} hasItems={items.length > 0} onClose={close} />
 
-        <CartBody>
+        <S.CartBody>
           <CartListBlock items={items} increase={increase} decrease={decrease} remove={remove} />
-        </CartBody>
+        </S.CartBody>
 
         {items.length > 0 && (
           <CartFooterBlock totalPrice={totalPrice} clear={clear} checkout={checkout} />
         )}
-      </CartPanel>
+      </S.CartPanel>
     </>
   );
 }

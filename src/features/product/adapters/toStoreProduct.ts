@@ -3,7 +3,7 @@ import type { Product, StoreProduct, ProductVolumeOption } from "@/entities/prod
 const cloneVolume = (v: ProductVolumeOption): ProductVolumeOption => ({ ...v });
 
 export function toStoreProduct(p: Product): StoreProduct {
-  const r: StoreProduct = {
+  const storeProduct: StoreProduct = {
     id: p.id,
     code: p.code,
     name: p.name,
@@ -13,7 +13,6 @@ export function toStoreProduct(p: Product): StoreProduct {
     categoryId: p.categoryId,
     description: p.description,
     isActive: p.isActive,
-
     gallery: p.gallery.map((g) => ({ ...g })),
 
     ...(p.image !== undefined ? { image: p.image } : {}),
@@ -40,13 +39,13 @@ export function toStoreProduct(p: Product): StoreProduct {
       : {}),
   };
 
-  if (p.volumes) r.volumes = p.volumes.map(cloneVolume);
-  if (p.tags) r.tags = [...p.tags];
-  if (p.needs) r.needs = [...p.needs];
-  if (p.condition) r.condition = [...p.condition];
+  if (p.volumes) storeProduct.volumes = p.volumes.map(cloneVolume);
+  if (p.tags) storeProduct.tags = [...p.tags];
+  if (p.needs) storeProduct.needs = [...p.needs];
+  if (p.condition) storeProduct.condition = [...p.condition];
 
   if (p.seo) {
-    r.seo = {
+    storeProduct.seo = {
       ...(p.seo.title !== undefined ? { title: p.seo.title } : {}),
       ...(p.seo.description !== undefined ? { description: p.seo.description } : {}),
       ...(p.seo.ogImage !== undefined ? { ogImage: p.seo.ogImage } : {}),
@@ -54,5 +53,5 @@ export function toStoreProduct(p: Product): StoreProduct {
     };
   }
 
-  return r;
+  return storeProduct;
 }

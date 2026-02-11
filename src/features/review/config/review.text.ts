@@ -1,11 +1,9 @@
 export const REVIEW_TEXT = {
   FORM_TITLE: "Залишити відгук",
   SUBMIT_LABEL: "Надіслати",
-
   RATING_LABEL: "Рейтинг",
   TEXT_LABEL: "Ваш відгук",
   TEXT_PLACEHOLDER: "Розкажіть про ваш досвід",
-
   PHOTOS_LABEL: "Фото (необов'язково)",
 
   RATING_OPTIONS: [

@@ -6,7 +6,7 @@ import type { ApiState } from "@/features/fakeBackend/user/core";
 import { clone } from "@/features/fakeBackend/user/core";
 
 import { wait } from "@/shared/lib/async";
-import type { ID } from "@/shared/types/primitives";
+import type { ID } from "@/shared/types";
 
 export function createWishlistApi(state: ApiState) {
   return {

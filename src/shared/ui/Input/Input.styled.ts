@@ -1,36 +1,40 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+import { flexColumn } from "@/shared/theme/variables";
+
+export const InputField = styled.div<{ $hasError: boolean }>`
+  ${flexColumn};
   gap: 6px;
 `;
 
 export const Label = styled.label`
-  font-size: 14px;
-  color: #111111;
+  font-size: ${({ theme }) => theme.fontSizes.caption};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
+  color: ${({ theme }) => theme.colors.white};
 `;
 
-export const StyledInput = styled.input`
+export const Input = styled.input`
+  width: 100%;
   padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #cccccc;
-  background: #f7f7f7;
-  font-size: 14px;
-  color: #111111;
+  border-radius: 12px;
+  border: none;
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
+  background: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
 
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease;
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.graphite};
+    opacity: 0.6;
+  }
 
   &:focus {
     outline: none;
-    border-color: #111111;
-    background: #ffffff;
   }
 `;
 
-export const ErrorText = styled.div`
-  font-size: 12px;
-  color: #d64545;
+export const InputError = styled.span`
+  font-size: ${({ theme }) => theme.fontSizes.caption};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
+  color: ${({ theme }) => theme.colors.error};
 `;

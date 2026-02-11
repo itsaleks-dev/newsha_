@@ -2,8 +2,14 @@ import { useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 
-import { openSearch, closeSearch, selectIsSearchOpen } from "@/features/search/model";
 import { SearchInput } from "@/features/search/ui/SearchInput";
+import {
+  openSearch,
+  closeSearch,
+  setSearchQuery,
+  selectIsSearchOpen,
+  selectSearchQuery,
+} from "@/features/search/model";
 
 import { IconButton } from "@/shared/ui/IconButton";
 import { icons } from "@/shared/theme/variables";
@@ -13,7 +19,9 @@ import { SearchIcon } from "./SearchButton.styled";
 
 export function DesktopSearch() {
   const dispatch = useAppDispatch();
+
   const isOpen = useAppSelector(selectIsSearchOpen);
+  const query = useAppSelector(selectSearchQuery);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -36,7 +44,12 @@ export function DesktopSearch() {
 
       {isOpen && (
         <Popover>
-          <SearchInput autoFocus placeholder="Пошук…" />
+          <SearchInput
+            value={query}
+            autoFocus
+            placeholder="Пошук…"
+            onChange={(value) => dispatch(setSearchQuery(value))}
+          />
         </Popover>
       )}
     </Wrapper>

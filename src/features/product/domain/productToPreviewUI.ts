@@ -1,6 +1,6 @@
 import type { Product, ProductPreview } from "@/entities/product/types";
 
-import { asMoney } from "@/shared/types/primitives";
+import { asMoney } from "@/shared/types";
 
 export function toProductPreviewUI(p: Product): ProductPreview {
   const primaryImage =
@@ -38,7 +38,6 @@ export function toProductPreviewUI(p: Product): ProductPreview {
   if (p.isNew !== undefined) preview.isNew = p.isNew;
   if (p.isBestseller !== undefined) preview.isBestseller = p.isBestseller;
   if (p.isTop !== undefined) preview.isTop = p.isTop;
-
   if (p.volumes) preview.volumes = p.volumes;
   if (p.tags) preview.tags = p.tags;
   if (p.needs) preview.needs = p.needs;

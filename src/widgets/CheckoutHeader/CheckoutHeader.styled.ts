@@ -1,26 +1,20 @@
 import styled from "styled-components";
 
+import { headerGrid } from "@/shared/theme/variables";
+
 export const Header = styled.header`
-  height: 64px;
+  height: 70px;
   padding: 0 16px;
-
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-
-  background: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
+  border-radius: 16px;
+  ${headerGrid};
+  background: ${({ theme }) => theme.colors.graphite};
 `;
 
 export const BackButton = styled.button`
+  justify-self: start;
   border: none;
+  font-size: ${({ theme }) => theme.fontSizes.small};
   background: none;
-
-  font-size: 14px;
-  color: #555;
+  color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
-
-  &:hover {
-    color: #000;
-  }
 `;

@@ -14,6 +14,7 @@ import {
 import { IconButton } from "@/shared/ui/IconButton";
 import { icons } from "@/shared/theme/variables";
 
+import { USER_BUTTON_TEXT } from "./config";
 import * as S from "./UserButton.styled";
 
 export function UserButton() {
@@ -33,7 +34,8 @@ export function UserButton() {
     navigate(role === USER_ROLES.ADMIN ? "/admin" : "/account");
   };
 
-  const label = role === USER_ROLES.ADMIN ? "Admin" : (userName ?? "Мій кабінет");
+  const label =
+    role === USER_ROLES.ADMIN ? USER_BUTTON_TEXT.ADMIN : (userName ?? USER_BUTTON_TEXT.ACCOUNT);
 
   return (
     <S.Wrapper>
@@ -44,7 +46,7 @@ export function UserButton() {
       )}
 
       <IconButton
-        ariaLabel={isAuth ? label : "Увійти"}
+        ariaLabel={isAuth ? label : USER_BUTTON_TEXT.LOGIN}
         onClick={handleClick}
         icon={<S.UserIcon src={icons.user.profile} alt="" />}
       />

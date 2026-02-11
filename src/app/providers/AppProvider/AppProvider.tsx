@@ -6,7 +6,6 @@ import { ThemeProvider } from "@/app/providers/ThemeProvider";
 import { RouterProvider } from "@/app/providers/RouterProvider";
 import { ErrorMonitoringProvider } from "@/app/providers/ErrorMonitoringProvider";
 import { ScrollManager } from "@/app/providers/ScrollManager";
-
 import { AnalyticsProvider, AnalyticsRouterBoundary } from "@/app/analytics/routes";
 import { PageLifecycleTracker } from "@/app/analytics/ui";
 

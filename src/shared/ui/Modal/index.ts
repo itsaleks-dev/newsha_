@@ -7,4 +7,4 @@ export type {
   ModalSize,
   ModalAnimation,
   ModalCloseReason,
-} from "./modal.types";
+} from "./Modal.types";

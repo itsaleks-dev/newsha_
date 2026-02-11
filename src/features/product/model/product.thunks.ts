@@ -7,7 +7,7 @@ import { productsApi } from "@/features/fakeBackend/product/api";
 import { PRODUCTS_API_TEXT } from "@/features/product/config";
 
 import type { PaginationQuery, PaginatedResponse } from "@/shared/lib/pagination/types";
-import type { ID } from "@/shared/types/primitives";
+import type { ID } from "@/shared/types";
 
 const ADMIN = DEFAULT_USERS.find((u) => u.id === "admin")!;
 

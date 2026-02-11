@@ -2,9 +2,11 @@ import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
-import { selectIsAuthenticated, selectUserRole, closeAuthModal } from "@/features/auth/model";
 
 import { USER_ROLES } from "@/entities/user/types";
+
+import { selectIsAuthenticated, selectUserRole, closeAuthModal } from "@/features/auth/model";
+
 import { ROUTES } from "@/shared/config";
 
 export function useRedirectAfterLogin() {

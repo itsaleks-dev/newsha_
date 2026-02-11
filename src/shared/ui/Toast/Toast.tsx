@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import type { Toast } from "@/shared/ui/Toast/types";
 
 import { subscribeToToasts } from "./domain";
-import { Stack, ToastItem, ToastDot } from "./Toast.styles";
+import * as S from "./Toast.styles";
 
 export function ToastContainer() {
   const [toasts, setToasts] = useState<Toast[]>([]);
@@ -13,13 +13,13 @@ export function ToastContainer() {
   if (toasts.length === 0) return null;
 
   return (
-    <Stack aria-live="polite" role="status">
+    <S.Stack aria-live="polite" role="status">
       {toasts.map((toast) => (
-        <ToastItem key={toast.id} $type={toast.type}>
-          <ToastDot $type={toast.type} />
+        <S.ToastItem key={toast.id} $type={toast.type}>
+          <S.ToastDot $type={toast.type} />
           <div>{toast.message}</div>
-        </ToastItem>
+        </S.ToastItem>
       ))}
-    </Stack>
+    </S.Stack>
   );
 }

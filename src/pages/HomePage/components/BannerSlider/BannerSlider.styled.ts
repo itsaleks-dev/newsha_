@@ -7,10 +7,14 @@ export const Section = styled.section`
 `;
 
 export const Track = styled.div`
+  width: 100%;
+  max-width: 100%;
   ${flex};
+  gap: 16px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
 
   &::-webkit-scrollbar {
     display: none;
@@ -19,16 +23,21 @@ export const Track = styled.div`
 
 export const SlideRoot = styled.div`
   position: relative;
-  flex: 0 0 95%;
-  margin-right: 12px;
-  height: 550px;
-  border-radius: 16px;
+  flex: 0 0 90%;
+  height: 520px;
   scroll-snap-align: start;
+  border-radius: 16px;
   overflow: hidden;
   background: #eee;
 
   img {
     ${objectCover};
+    object-position: center 10%;
+  }
+
+  @media ${({ theme }) => theme.media.laptop} {
+    flex: 0 0 95%;
+    height: 600px;
   }
 `;
 
@@ -43,7 +52,13 @@ export const Content = styled.div`
 `;
 
 export const SubTitle = styled.p`
+  padding: 12px 24px;
+  background: rgba(0, 0, 0, 0.8);
+  border: none;
+  border-radius: 12px;
+  color: white;
   font-size: ${({ theme }) => theme.fontSizes.small};
+  font-weight: 600;
   letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
   text-transform: uppercase;
   opacity: 0.9;
@@ -51,9 +66,10 @@ export const SubTitle = styled.p`
 
 export const Title = styled.h2`
   margin-top: 12px;
-  font-size: ${({ theme }) => theme.fontSizes.h2};
-  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  font-size: ${({ theme }) => theme.fontSizes.h4};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
+  text-transform: uppercase;
 `;
 
 export const Button = styled.button`

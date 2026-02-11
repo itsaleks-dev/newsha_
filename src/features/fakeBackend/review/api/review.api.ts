@@ -7,7 +7,7 @@ import { DEFAULT_REVIEWS } from "@/features/fakeBackend/review/data";
 import { REVIEWS_API_TEXT } from "@/features/fakeBackend/review/config";
 
 import { wait } from "@/shared/lib/async";
-import { asID, asISODate } from "@/shared/types/primitives";
+import { asID, asISODate } from "@/shared/types";
 
 let reviews: readonly Review[] = [...DEFAULT_REVIEWS];
 

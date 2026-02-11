@@ -1,6 +1,5 @@
 import { ErrorMessage } from "formik";
-
-import { ErrorText } from "./FieldError.styled";
+import * as S from "./FieldError.styled";
 
 type FieldErrorProps<T> = {
   name: keyof T & string;
@@ -8,6 +7,8 @@ type FieldErrorProps<T> = {
 
 export function FieldError<T>({ name }: FieldErrorProps<T>) {
   return (
-    <ErrorMessage name={name}>{(msg) => (msg ? <ErrorText>{msg}</ErrorText> : null)}</ErrorMessage>
+    <ErrorMessage name={name}>
+      {(msg) => (msg ? <S.ErrorText>{msg}</S.ErrorText> : null)}
+    </ErrorMessage>
   );
 }

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
+import { flexCenter } from "@/shared/theme/variables";
+
 export const Wrapper = styled.div`
   min-height: 60vh;
-  display: flex;
+  ${flexCenter};
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding: 40px 20px;
   text-align: center;
   background: ${({ theme }) => theme.colors.white};
@@ -21,15 +21,15 @@ export const Title = styled.h2`
 export const Text = styled.p`
   margin: 0 0 24px;
   font-size: ${({ theme }) => theme.fontSizes.body};
-  color: #555555;
+  color: ${({ theme }) => theme.colors.gray};
 `;
 
 export const ReloadButton = styled.button`
   padding: 10px 18px;
-  border-radius: 10px;
+  border-radius: 16px;
   border: 1px solid ${({ theme }) => theme.colors.black};
   font-size: ${({ theme }) => theme.fontSizes.small};
-  font-weight: 600;
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   background: ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.white};
 

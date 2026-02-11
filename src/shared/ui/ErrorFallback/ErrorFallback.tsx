@@ -1,14 +1,14 @@
-import { Wrapper, Title, Text, ReloadButton } from "./ErrorFallback.styled";
 import { ERROR_FALLBACK_TEXT } from "./config/ErrorFallback.text";
+import * as S from "./ErrorFallback.styled";
 
 export function ErrorFallback() {
   return (
-    <Wrapper>
-      <Title>{ERROR_FALLBACK_TEXT.title}</Title>
-      <Text>{ERROR_FALLBACK_TEXT.description}</Text>
-      <ReloadButton onClick={() => window.location.reload()}>
+    <S.Wrapper>
+      <S.Title>{ERROR_FALLBACK_TEXT.title}</S.Title>
+      <S.Text>{ERROR_FALLBACK_TEXT.description}</S.Text>
+      <S.ReloadButton onClick={() => window.location.reload()}>
         {ERROR_FALLBACK_TEXT.button}
-      </ReloadButton>
-    </Wrapper>
+      </S.ReloadButton>
+    </S.Wrapper>
   );
 }

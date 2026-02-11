@@ -10,7 +10,7 @@ import {
   CONDITION_CATEGORIES,
 } from "@/features/fakeBackend/category/data";
 
-import type { ID } from "@/shared/types/primitives";
+import type { ID } from "@/shared/types";
 import { wait } from "@/shared/lib/async";
 
 let categories: Category[] = [...MAIN_CATEGORIES, ...NEEDS_CATEGORIES, ...CONDITION_CATEGORIES];

@@ -6,7 +6,7 @@ export const dotBase = ({
   activeWidth = "60px",
   inactiveWidth = "6px",
   height = "6px",
-  activeColor = "#000",
+  activeColor = "#242424",
   inactiveColor = "#bbb",
 }: DotOptions = {}) => css<{ $active: boolean }>`
   width: ${({ $active }) => ($active ? activeWidth : inactiveWidth)};

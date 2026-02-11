@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
+import { flexColumn } from "@/shared/theme/variables";
+
 export const Footer = styled.footer`
-  background: #fff;
+  background: ${({ theme }) => theme.colors.white};
 `;
 
 export const Columns = styled.div`
@@ -9,8 +11,8 @@ export const Columns = styled.div`
   grid-template-columns: 1fr;
   padding: 40px 10px;
   gap: 40px;
-  border-radius: 18px;
-  background: #242424;
+  border-radius: 16px;
+  background: ${({ theme }) => theme.colors.graphite};
 
   @media ${({ theme }) => theme.media.tablet} {
     grid-template-columns: repeat(2, 1fr);
@@ -22,20 +24,19 @@ export const Columns = styled.div`
 `;
 
 export const Column = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${flexColumn};
 `;
 
 export const Title = styled.h4`
   margin-bottom: 20px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
   text-transform: uppercase;
 
   @media ${({ theme }) => theme.media.desktop} {
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.fontSizes.body};
   }
 `;
 
@@ -51,34 +52,34 @@ export const Item = styled.li`
 `;
 
 export const Link = styled.a`
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  color: #cfcfcf;
+  font-size: ${({ theme }) => theme.fontSizes.caption};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
+  color: ${({ theme }) => theme.colors.textMuted};
   text-decoration: none;
 
   @media ${({ theme }) => theme.media.desktop} {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSizes.small};
   }
 
   &:hover {
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.white};
   }
 `;
 
 export const Text = styled.span`
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  color: #cfcfcf;
+  font-size: ${({ theme }) => theme.fontSizes.caption};
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
+  color: ${({ theme }) => theme.colors.textMuted};
 
   @media ${({ theme }) => theme.media.desktop} {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSizes.small};
   }
 `;
 
 export const Copyright = styled.div`
   padding: 30px 0;
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.fontSizes.caption};
   text-align: center;
-  letter-spacing: 0.06em;
-  color: #242424;
+  letter-spacing: ${({ theme }) => theme.textMetrics.letterSpacing};
+  color: ${({ theme }) => theme.colors.graphite};
 `;
