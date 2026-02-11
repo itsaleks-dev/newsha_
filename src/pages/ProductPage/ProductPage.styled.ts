@@ -78,7 +78,6 @@ export const Price = styled.div`
   letter-spacing: 0.05em;
 `;
 
-
 export const BuyRow = styled.div`
   display: flex;
   gap: 16px;

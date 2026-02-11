@@ -16,11 +16,7 @@ export function ProductPage() {
 
   const product = useMemo(() => ALL_PRODUCTS.find((p) => p.slug === slug), [slug]);
 
-  if (!product) {
-    return <Navigate to="/error/404" replace />;
-  }
-
-  const volumes = product.volumes ?? [];
+  const volumes = useMemo(() => product?.volumes ?? [], [product]);
 
   const [selectedValue, setSelectedValue] = useState<ProductVolumeOption["value"] | null>(
     volumes[0]?.value ?? null,
@@ -33,6 +29,10 @@ export function ProductPage() {
     () => volumes.find((v) => v.value === selectedValue) ?? null,
     [volumes, selectedValue],
   );
+
+  if (!product) {
+    return <Navigate to="/error/404" replace />;
+  }
 
   const image = selectedOption?.image ?? product.gallery.find((g) => g.type === "image")?.url ?? "";
 
